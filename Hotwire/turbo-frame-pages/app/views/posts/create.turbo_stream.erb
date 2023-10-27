@@ -1,0 +1,8 @@
+<%# i want to prepend the new post on top of the posts %>
+<%# this will add content of the post partial at the top of "posts" element (it will grab that element by id) %>
+<%= turbo_stream.prepend "posts" do %>
+  <%= render partial: 'post', locals: { post: @post } %>
+<% end %>
+
+<%# this will clear the form data %>
+<%= turbo_stream.replace "new_post", partial: 'form', locals: { post: Post.new } %>

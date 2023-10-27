@@ -1,0 +1,6 @@
+<%= form_with(model: post) do |form| %>
+  <%= render 'posts/interior_form', post: post, form: form%>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

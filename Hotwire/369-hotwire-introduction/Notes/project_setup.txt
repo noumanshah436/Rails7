@@ -1,0 +1,12 @@
+      rvm install "ruby-3.1.2"
+1267  ruby -v
+1268  bundle install
+1269  rails db:migrate
+1270  npm i
+1271  npm install --force
+1272  npm run build:css
+1273  rails s
+1274  rails db:seed
+1275  rails s
+
+also run Procfile.dev commands on separate terminal

@@ -1,0 +1,68 @@
+<% if @requested_connections.present? || @received_connections.present? %>
+  <div class="col-md-10 mx-auto mt-5">
+    <section class="message-area" data-controller='chat'>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="chat-area">
+              <!-- chatlist -->
+              <div class="chatlist">
+                <div class="modal-dialog-scrollable">
+                  <div class="modal-content">
+                    <div class="chat-header">
+                      <div class="msg-search">
+                        <input type="text" class="form-control" id="search-input" placeholder="Search" aria-label="search" data-chat-target="searchInput"  data-action="input->chat#setupSearchInput">
+                        <a class="add" href="#"><img class="img-fluid" src="https://mehedihtml.com/chatbox/assets/img/add.svg" alt="add"></a>
+                      </div>
+                    </div>
+                    <div class="modal-body">
+                      <!-- chat-list -->
+                      <div class="chat-lists">
+                        <!-- chat-list for requested connections -->
+                         <%= render 'chat_list', connections: @requested_connections, active_user: @user, connection_type: 'requested' %>
+                        <!-- chat-list for received connections -->
+                        <%= render 'chat_list', connections: @received_connections, active_user: @user, connection_type: 'received' %>
+                      </div>
+                      <!-- chat-list -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- chatlist -->
+              <!-- chatbox -->
+              <div class="chatbox showbox" id="chat-window-container">
+                <%= render partial: 'chat_window', locals: { messages: @messages, chatroom: @chatroom, other_user: @user } %>
+              </div>
+            </div>
+            <!-- chatbox -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+<% else %>
+  <div class="col-md-10 mx-auto mt-5">
+    <div class="card">
+       <div class="card-body">
+          <h6> There are no connected users who have accepted your connection request. Please send connection requests and then start chatting!</h6>
+       </div>
+    </div>
+  </div>   
+<% end %>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Add a click event listener to elements with class "chat-list"
+    document.querySelectorAll(".chat-list a").forEach(function(link) {
+      link.addEventListener("click", function(event) {
+        // Prevent the default link behavior (e.g., navigating to a new page)
+        event.preventDefault();
+
+        // Add the "showbox" class to elements with class "chatbox"
+        document.querySelectorAll(".chatbox").forEach(function(box) {
+          box.classList.add("showbox");
+        });
+      });
+    });
+  });
+</script>
+

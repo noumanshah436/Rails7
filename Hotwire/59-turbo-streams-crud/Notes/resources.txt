@@ -1,0 +1,19 @@
+Ruby on Rails #59 Hotwire Turbo Streams CRUD
+
+https://www.youtube.com/watch?v=csvaYIaBYpw
+
+https://blog.corsego.com/turbo-hotwire-CRUD
+
+https://github.com/corsego/59-turbo-streams-crud/
+
+*******************************
+
+https://turbo.hotwired.dev/handbook/streams
+
+search for:
+# app/controllers/messages_controller.rb
+
+*******************************
+
+
+https://www.youtube.com/playlist?list=PLdTytUiloS16epXsqHswpCUMND_rksjr4

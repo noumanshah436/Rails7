@@ -1,0 +1,17 @@
+
+Intro To Rich Comments In Rails 7 | Ruby on Rails for Beginners Part 3
+
+
+rails g model comments post:belongs_to user:belongs_to
+rails db:migrate
+
+**************
+Action text:
+
+https://guides.rubyonrails.org/action_text_overview.html
+
+rails action_text:install
+rails db:migrate
+
+
+*********************************************

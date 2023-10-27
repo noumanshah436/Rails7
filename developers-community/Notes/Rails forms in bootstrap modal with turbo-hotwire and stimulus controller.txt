@@ -1,0 +1,25 @@
+
+
+1) create stimulus controller
+rails g stimulus bs_modal
+
+2) add turbo frame in application.html.erb file:
+
+<%= turbo_frame_tag 'remote_modal' %>
+
+3) In member/show.html.erb, add edit description button:
+
+<%= link_to edit_member_description_path, class: "edit-about", data: { controller: "bs-modal-form" } do %>
+  <i class="bi bi-pencil-fill"></i>
+<% end %>
+
+Now our link part has been done.
+Now we need another stimulus controller, for sending our request in turbo stream format to edit_description method.
+
+4) rails g stimulus bs_modal_form
+
+5) create turbo stream template with name `edit_description.turbo_stream.erb` and render `description_model.html.erb` partial in it.
+
+6) add update url in the form
+
+7) member_description partial

@@ -1,0 +1,21 @@
+
+rails new turboapp -d=postgresql
+rails db:create
+
+rails g scaffold message body:text
+
+rails db:migrate
+
+rails s
+
+**********************
+
+using simple.css framework for styling:
+
+https://github.com/kevquirk/simple.css/wiki/Getting-Started-With-Simple.css
+
+just added this cdn link in `application.html.erb` file:
+
+<link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+
+********************************

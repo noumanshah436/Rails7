@@ -1,0 +1,12 @@
+
+
+bundle add hotwire-rails
+rails hotwire:install
+
+rails g scaffold tickets title
+
+rails g model comment ticket:references
+
+rails action_text:install
+
+rails db:migrate

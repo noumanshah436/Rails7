@@ -1,0 +1,63 @@
+
+1) create controller (comments_controller.js) file in javascript
+
+import { Controller } from "@hotwired/stimulus";
+
+export default class extends Controller {
+  initialize() {} // only run once
+  connect() {}   // run each time we refresh
+}
+
+
+2) add data field in the element:
+
+<%= link_to "Edit", nil, remote: true, class:"btn btn-warning",
+      data: {
+        controller: "comments",
+        action: "comments#toggleForm",
+        comments_form_param: "edit-form-#{comment.id}",
+        comments_body_param: "comment-body-#{comment.id}",
+        comments_edit_param: "edit-button-#{comment.id}"
+      },
+      id: "edit-button-#{comment.id}" %>
+
+This will generate:
+
+<a class="btn btn-warning"
+  data-controller="comments"
+  data-action="comments#toggleForm"
+  data-comments-form-param="edit-form-52"
+  data-comments-body-param="comment-body-52"
+  data-comments-edit-param="edit-button-52"
+  id="edit-button-52"
+  data-remote="true" href="/posts/title-7">
+
+  Edit
+</a>
+
+3) add action in controller:
+
+import { Controller } from "@hotwired/stimulus";
+
+export default class extends Controller {
+  initialize() {} // only run once
+  connect() {}   // run each time we refresh
+
+  toggleForm(event) {
+    console.log("I clicked the edit button.");
+    event.preventDefault();
+    event.stopPropagation();
+    const formID = event.params["form"];
+    const commentBodyID = event.params["body"];
+    const editButtonID = event.params["edit"];
+
+    const form = document.getElementById(formID);
+    const commentBody = document.getElementById(commentBodyID);
+    const editButton = document.getElementById(editButtonID);
+
+    form.classList.toggle("d-none");
+    form.classList.toggle("mt-5");
+    commentBody.classList.toggle("d-none");
+    this.toggleEditButton(editButton);
+  }
+}

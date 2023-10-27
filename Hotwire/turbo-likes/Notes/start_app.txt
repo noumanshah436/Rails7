@@ -1,0 +1,15 @@
+1) make sure radis is active
+install redis:
+
+sudo apt update
+sudo apt install redis-server
+
+After the installation, Redis should start automatically as a systemd service. You can check the status with:
+
+sudo systemctl status redis-server
+
+You can also enable Redis to start at boot with:
+
+sudo systemctl enable redis-server
+
+2) rails s

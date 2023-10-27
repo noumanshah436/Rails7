@@ -1,0 +1,108 @@
+<div class="col-lg-10 mx-auto mt-5">
+  <%= render 'member_personal_details', user: @user %>
+
+  <div class="card mb-5">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="d-flex justify-content-start">
+            <h3>About</h3>
+          </div>
+        </div>
+        <% if @user == current_user %>
+          <div class="col-lg-6">
+            <div class="d-flex justify-content-end">
+              <%= link_to edit_member_description_path, class: "edit-about", data: { controller: "bs-modal-form" } do %>
+                <i class="bi bi-pencil-fill"></i>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <%= render 'member_description', user: @user %>
+      <!--
+      <%=%> render partial: 'member_description', locals: { user: @user } %>
+      -->
+    </div>
+  </div>
+
+  <div class="card mb-5">
+    <div class="card-body">
+      <% if @user == current_user %>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="d-flex justify-content-start">
+              <h3>Work Experiences</h3>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="d-flex justify-content-end">
+              <%= link_to new_work_experience_path, data: { controller: "bs-modal-form" } do %>
+                <i class="bi bi-plus"></i> Add Experience
+              <% end %>
+            </div>
+          </div>
+          <% if @user.work_experiences.present? %>
+            <div class="col-lg-4">
+              <div class="d-flex justify-content-end">
+                <%= link_to "javascript:void(0)" do %>
+                  <i class="bi bi-pencil-fill"></i> Edit Experiences
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+
+      <% if @user.work_experiences.present? %>
+        <ul class="list-group" id="work_experience_items">
+          <% @user.work_experiences.each do |work_experience| %>
+            <%= render 'work_experiences/work_experience', work_experience: work_experience %>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="card mb-5">
+    <div class="card-body">
+      <% if @user == current_user %>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="d-flex justify-content-start">
+              <h3>Skills</h3>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="d-flex justify-content-end">
+              <%= link_to new_skill_path, data: { controller: 'bs-modal-form' } do %>
+                <i class="fa-solid fa-plus"></i>
+                Add Skills
+              <% end %>
+            </div>
+          </div>
+            <% if @user.skills.present? %>
+            <div class="col-lg-4">
+              <div class="d-flex justify-content-end">
+                <%= link_to "javascript:void(0)" do %>
+                  <i class="fa-solid fa-pencil"></i>
+                  Edit Skills
+                <% end %>
+              </div>
+            </div>
+            <% end %>
+        </div>
+      <% end %>
+
+      <% if @user.skills.present? %>
+        <ul class="list-group" id="skill_items">
+          <% @user.skills.each do |skill| %>
+            <%= render 'skills/skill', skill: skill %>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+
+</div>

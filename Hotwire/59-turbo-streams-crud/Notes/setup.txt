@@ -1,0 +1,11 @@
+1282  rvm list
+1283  cd "/home/dev/Rails-Training/Rails7/Hotwire/59-turbo-streams-crud"
+1284  rvm install "ruby-3.0.1"
+1285  bundle
+1286  rails db:create
+1287  rails db:migrate
+1288  clear
+1289  rails s
+
+
+also add database credentials in database.yml

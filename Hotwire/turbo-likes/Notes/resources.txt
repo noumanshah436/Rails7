@@ -1,0 +1,6 @@
+Turbo Crash Course For Twitter Likes With Devise User Sessions | Ruby on Rails 7 Tutorial
+
+https://www.youtube.com/watch?v=B6BqxQBS06I&list=PL3mtAHT_eRexG8W__yiMgv3tcIdbLlwho&index=28
+
+
+26:31

@@ -1,0 +1,46 @@
+<article>
+  <div class="container">
+    <section id="profile_header">
+      <div class="row">
+        <div class="col-4">
+          <%= image_tag(user.avatar_thumbnail, class:'avatar_thumbnail')%>
+        </div>
+        <div class="col-8">
+          <div class="row">
+            <div class="col-4">
+              <h2 class="profile_username"><%= user.username %></h2>
+            </div>
+            <div class="col-4">
+              <% if user == current_user %>
+                <%= link_to "Edit Profile", edit_user_registration_path, class:'btn btn-light' %>
+              <% else %>
+                <%= render :partial => 'users/follow_button', :locals => { :user => @user } %>
+              <% end %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3"><%=pluralize(user.posts.count, "post") %></div>
+            <div class="col-3"><%=pluralize(user.followers.count, "follower") %></div>
+            <div class="col-3"><%=user.followees.count %> following</div>
+            <div class="col-3"></div>
+          </div>
+          <br />
+          <div class="row">
+            <h6><%= user.name %></h6>
+            <div><%= simple_format(user.bio) %> </div>
+            <%= link_to user.website, user.website, style:'text-decoration: none', target:"_blank" %>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="profile_tiles" style="max-width:1000px">
+      <div class="row">
+        <% user.posts.each do |post| %>
+          <div class="col-4" style="margin-bottom: 1em;">
+            <%= image_tag(post.thumbnail_image, style:'object-fit: cover; width: 300px; height: 300px;') if post.images.attached? %>
+          </div>
+        <% end %>
+      </div>
+    </section>
+  </div>
+</article>

@@ -1,0 +1,35 @@
+bin/rails action_text:install
+
+bin/rails g model post title
+
+rails db:migrate
+
+rails db:seed
+
+bin/rails g stimulus search
+
+**********************************
+
+initial page:
+
+<div class="row">
+
+  <div class="col-4">
+
+    <form action="/" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="QUIMj7QnxGaz-3SqVs3lvdWx8b4fQSb-viFLDHduKQc5xVuCUZqdEiUSGrSDjG8EFzFazhSGQ4I6SUcnRtmJ_g" autocomplete="off">
+      <input class="form-control" data-controller="search" type="text" name="query" id="query" data-action="keyup->search#search">
+    </form>
+
+    <turbo-frame id="results">
+      <div class="list-group mt-3">
+      </div>
+    </turbo-frame>
+
+  </div>
+
+  <div class="col-8">
+    <turbo-frame id="show_content"></turbo-frame>
+  </div>
+</div>
+
+**********************************

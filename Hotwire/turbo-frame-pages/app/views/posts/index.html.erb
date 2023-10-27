@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Posts</h1>
+
+<h2>New Post</h2>
+<%= render "form", post: Post.new %>
+
+<div id="posts">
+  <% @posts.each do |post| %>
+    <%= render post %>
+    <p>
+      <%= link_to "Show this post", post %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New post", new_post_path %>
+
+<script>
+  console.log("index page rendered successfully")
+</script>

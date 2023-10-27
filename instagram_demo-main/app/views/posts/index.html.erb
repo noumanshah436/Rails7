@@ -1,0 +1,9 @@
+<%= stylesheet_link_tag "app" %>
+<main>
+  <%= render "posts/new_form", post: @post %>
+  <section id="posts_section">
+    <% @posts.each do |post| %>
+      <%= render post %>
+    <% end %>
+  </section>
+</main>

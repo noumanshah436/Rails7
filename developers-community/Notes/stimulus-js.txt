@@ -1,0 +1,52 @@
+https://stimulus.hotwired.dev/
+
+https://stimulus.hotwired.dev/reference/controllers  (each detail)
+
+https://stimulus.hotwired.dev/handbook/introduction  (exercise)
+
+https://github.com/hotwired/stimulus
+
+stimulus for rails:
+https://github.com/hotwired/stimulus-rails
+
+***************************
+
+How it works:
+
+1) generate stimulus controller:
+
+$ rails g stimulus user_name
+
+create app/javascript/controllers/user_name_controller.js file
+
+2) in html.erb file to connect:
+
+<div class="user-info" data-controller="user-name">
+  <h5 data-user-name-target='name' data-action="click->user-name#getUserName"><%= user.name %></h5>
+</div>
+
+It will generate:
+
+<div class="user-info" data-controller="user-name">
+  <h5 data-user-name-target="name" data-action="click->user-name#getUserName">Syed Nouman</h5>
+</div>
+
+3) in stimulus controller:
+
+import { Controller } from "@hotwired/stimulus"
+
+// Connects to data-controller="user-name"
+export default class extends Controller {
+  static targets = ['name']
+
+  connect() {
+    console.log('I am connected!!!');
+  }
+
+  getUserName = () => {
+    const element = this.nameTarget
+    const name = element.textContent
+    alert(`You clicked on, ${name}`)
+  }
+}
+

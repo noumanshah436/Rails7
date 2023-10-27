@@ -1,0 +1,19 @@
+.post_article {
+  margin-bottom: 2em;
+}
+.nav_avatar {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 0.5em;
+}
+.avatar_thumbnail {
+  border-radius: 50%;
+}
+
+#profile_header {
+  padding: 2em;
+}
+#profile_username {
+  font-weight: lighter;
+}

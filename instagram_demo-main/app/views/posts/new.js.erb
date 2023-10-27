@@ -1,0 +1,5 @@
+document
+.getElementById("posts_section")
+.prepend('
+<%= escape_javascript(render 'posts/new_form') %>
+');

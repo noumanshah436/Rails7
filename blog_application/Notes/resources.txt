@@ -1,0 +1,12 @@
+
+
+Intro to Devise in Rails 7:
+
+https://www.youtube.com/watch?v=m3uhldUGVes&list=PL3mtAHT_eRezB9fnoIcKS4vYFjm23vddb&index=2
+
+https://github.com/Deanout/blog_application/tree/main
+
+*********************
+
+16:00
+https://www.youtube.com/watch?v=A4cDwj0JYVo&list=PL3mtAHT_eRezB9fnoIcKS4vYFjm23vddb&index=4

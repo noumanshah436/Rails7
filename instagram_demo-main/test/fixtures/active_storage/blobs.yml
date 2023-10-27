@@ -1,0 +1,2 @@
+user_avatar_blob: <%= ActiveStorage::FixtureSet.blob filename: "default_profile.jpg", service_name: "test" %>
+post_images_blob: <%= ActiveStorage::FixtureSet.blob filename: "default_profile.jpg", service_name: "test" %>

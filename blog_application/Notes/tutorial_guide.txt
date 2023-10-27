@@ -1,0 +1,9 @@
+
+
+Devise Gem
+  resolve turbo error
+    check devive.rb and turbo_devise_controller.rb
+
+
+Add usename in user model
+add_column :users, :name, :string

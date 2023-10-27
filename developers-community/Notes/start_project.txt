@@ -1,0 +1,19 @@
+rvm install 3.2.2
+ 1022  cd /home/dev/Rails-Training/Rails7/developers-community-main
+ 1023  rvm list
+ 1024  ruby -v
+ 1025  echo $PATH
+ 1026  bundle
+ 1027  rails db:migrate
+ 1028  rails db:create
+ 1029  rails db:migrate
+ 1029  rails db:seed
+ 1030  npm i
+ 1031  npm run build:css
+ 1032  rails s
+
+***************************
+
+rvm use 3.2.2
+rails s
+

@@ -1,0 +1,43 @@
+rvm use 3.0.3
+rails s
+
+sample user
+
+email: noumanrehman042@gmail.com
+nouman
+
+
+************************************
+Project setup
+************************************
+
+
+/bin/bash --login
+
+rvm install 3.0.3
+
+rvm use 3.0.3
+
+bundle install
+
+(update database.yml file with your postgress credentails)
+
+rails s
+
+***********************
+
+run on new terminal:
+
+/bin/bash --login
+
+rvm use 3.0.3
+
+rails db:create
+
+rails db:migrate
+
+***********************
+
+restart server
+
+***********************

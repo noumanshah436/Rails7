@@ -1,0 +1,28 @@
+<div id="post_carousel_<%= post.id %>" class="carousel slide" data-bs-ride="false">
+  <div class="carousel-indicators">
+    <% if post.images.count > 1 %>
+      <% post.images.each_with_index do |image, index| %>
+        <button type="button" 
+        data-bs-target="#post_carousel_<%= post.id %>" 
+        data-bs-slide-to="<%= index %>" 
+        class="<%= index == 0 ? 'active' : '' %>" 
+        aria-current="true" aria-label="Slide <%= index + 1 %>"></button>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="carousel-inner">
+    <% post.images.each_with_index do |image, index| %>
+      <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
+        <%= link_to image_tag(image, class: "d-block w-100"), current_page?(post) ? root_path : post %>
+      </div>
+    <% end %>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#post_carousel_<%= post.id %>" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#post_carousel_<%= post.id %>" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

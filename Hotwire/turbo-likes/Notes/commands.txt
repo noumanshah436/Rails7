@@ -1,0 +1,11 @@
+bundle add devise
+rails g devise:install
+rails g devise user   (generate devise user model)
+
+rails g scaffold tweets body:text
+
+rails g model likeable user:belongs_to tweet:belongs_to
+
+rails g migration add_user_to_tweets user:references
+
+rails db:migrate

@@ -1,0 +1,149 @@
+<% if chatroom.present? %>  
+  <div class="modal-dialog-scrollable chat-window" data-controller='chat' data-chatroom-id="<%= chatroom.id %>" data-other-user-id= <%= other_user.id %>>
+    <div class="modal-content">
+      <div class="msg-head">
+        <div class="row">
+          <div class="col-8">
+            <div class="d-flex align-items-center">
+              <span class="chat-icon"><img class="img-fluid" src="https://mehedihtml.com/chatbox/assets/img/arroleftt.svg" alt="image title"></span>
+              <div class="flex-shrink-0">
+                <img class="img-fluid" src="https://mehedihtml.com/chatbox/assets/img/user.png" alt="user img">
+              </div>
+              <div class="flex-grow-1 ms-3">
+                <h3 id="chat-window-user"><%= other_user.name %></h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <ul class="moreoption">
+              <li class="navbar nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <div class="msg-body chatroom-messages">
+          <% current_date = nil %> <!-- Initialize current_date variable -->
+          <div data-reflex="click->chat#update_messages" data-other_user_id="<%= other_user.id %>">
+          </div>
+          <ul>
+            <% if messages.present? %>
+              <% messages.each do |message| %>
+                <!-- Get the date of the message -->
+                 <% message_date_time = message.created_at %>
+                <% message_date = message_date_time.to_date %>
+                <% message_time = message_date_time.strftime('%I:%M %p') %>
+
+                <!-- Check if the message date is within the past week -->
+                <% if current_date != message_date %>
+                  <!-- Display the day of the week or the actual date -->
+                  <li class="message-date text-uppercase">
+                    <% if (Date.today - message_date).to_i <= 6 %>
+                      <%= message_date == Date.today ? 'Today' : message_date.strftime('%A') %>
+                    <% else %>
+                      <%= message_date.strftime('%b %d') %> <!-- Display actual date -->
+                    <% end %>
+                  </li>
+                  <% current_date = message_date %> <!-- Update current_date -->
+                <% end %>
+                <li class="message" data-other-user-id= <%= other_user.id %>>
+                  <div class="message-user d-flex">
+                    <div class="message-avatar">
+                      <img class="user-avatar" src="https://mehedihtml.com/chatbox/assets/img/user.png" alt="user img">
+                    </div>
+                    <div class="message-details">
+                      <% if message.sent_by?(current_user) %>
+                        <span class="message-sender">
+                          <%= current_user.name %> <!-- Sender's name -->
+                        </span>
+                      <% else %>
+                        <span class="message-receiver">
+                          <%= other_user.name %> <!-- Receiver's name -->
+                        </span>
+                      <% end %>
+                      <span class="message-time">
+                        <%= message_time %> <!-- Time when the message is sent -->
+                      </span>
+                      <div>
+                        <% if message.cover_image.attached? %>
+                          <% if message.cover_image.attachment.blob.content_type == 'image/png' %>
+                            <%= image_tag message.cover_image, class: 'chat-img' %>
+                          <% else %>
+                            <p class="attachment-link custom-pointer shadow mt-2"><%= link_to "#{message.cover_image.attachment.blob.filename}", message.cover_image, download: true, class: 'text-dark text-decoration-none' %> <i class="fas fa-download text-primary text-dark"></i></p>
+                          <% end %>  
+                        <% end %>
+                      </div>
+                      <% if message.message.present? %>
+                        <p id="user-message"><%= message.message %></p>
+                      <% end %>
+                    </div>
+                  </div>
+                </li>
+              <% end %>
+            <% else %>
+              <p class="empty-chat">There is no messages found between both users. Start chat here.</p>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
+      <div class="send-box">
+        <%= form_with model: Message.new do |form| %>
+          <div>
+            <%= form.text_area :message, class: "form-control form-control-lg w-100", placeholder: 'Write message…'%>
+          </div>
+          <hr>
+          <div class="row mt-2">
+            <div class="col-md-6">
+              <div class="custom-file d-flex">
+                <div class="select-image">
+                  <input type="file" class="custom-file-input" id="message_image" name="cover_image" style="display: none;" accept="image/*">
+                  <label class="custom-file-label" for="message_image">
+                    <i class="fas fa-image custom-pointer" title="Attach an image to your conversation"></i>
+                  </label>
+                </div>
+                <div class="select-attachment mx-4">
+                  <input type="file" class="custom-file-input" id="message_attachment" name="cover_image" style="display: none;" accept="image/*,.ai,.psd,.pdf,.doc,.docx,.csv,.zip,.rar,.ppt,.pptx,.pps,.ppsx,.odt,.rtf,.xls,.xlsx,.txt,.pub,.html,.7z,.eml,.mov,.mp4">
+                  <label class="custom-file-label" for="message_attachment">
+                    <i class="fas fa-paperclip custom-pointer"  title="Attach a file to your conversation"></i>
+                  </label>
+                </div>
+                <div>
+                  <span data-action="click->chat#showPicker" class="custom-pointer"><i class="fas fa-smile" aria-hidden="true" title="Open Emoji Keyboard"></i></span>
+                </div>
+              </div>
+            </div>
+            <%= hidden_field_tag :cover_image_key %>
+
+            <div class="col-md-6 text-end">
+              <%= button_tag type: "submit", class: "btn btn-primary",  data: { action: "click->chat#create_message", other_user_id: other_user.id } do %>
+                Send
+              <% end %>
+            </div>
+          </div>  
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<style>
+  .attachment-link {
+    background-color: #f4f4f4;
+    min-height: 45px;
+    padding: 4px 10px 4px 10px;
+    line-height: 35px;
+    width: fit-content;
+    border: 1px solid lightgray;
+  }
+</style>

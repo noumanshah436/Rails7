@@ -1,0 +1,27 @@
+<article class="post_article">
+  <div id="<%= dom_id post %>">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-8 col-lg-8 col-md-12">
+          <div class="card">
+            <h5 class="card-header"><%= image_tag(post.user.nav_avatar, class: "nav_avatar") if post.user.avatar.attached? %> <%= post.user.username unless post.user.username.nil? %></h5>
+            <%= render 'posts/image_slider', post: post %>
+            <div class="card-body">
+              <p class="card-text"><%= post.body %></p>
+            </div>
+            <div class="card-body">
+              <% post.comments.each do |comment| %>
+                <p class="card-text"><span>
+                    <%= image_tag(comment.user.nav_avatar, class: "nav_avatar") if comment.user.avatar.attached? %> <%= comment.user.username %>
+                  </span> <%= comment.body %> </p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-hidden">
+          <%= %>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,9 @@
+# Generate key with: ActiveStorage::Blob.generate_unique_secure_token
+first_avatar_attachment:
+  name: avatar
+  record: regular (User)
+  blob: user_avatar_blob
+post_images:
+  name: images
+  record: one (Post)
+  blob: post_images_blob
