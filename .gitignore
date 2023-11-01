@@ -12,6 +12,8 @@ log/*
 tmp/*
 !/log/.keep
 !/tmp/.keep
+tmp
+cache
 
 # Ignore uploaded files in development
 /storage/*
@@ -39,10 +41,7 @@ node_modules
 
 # testing
 coverage
-
-# production
-build
-
+ 
 # misc
 .DS_Store
 .env.local

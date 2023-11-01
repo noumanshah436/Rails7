@@ -1,0 +1,272 @@
+Started GET "/" for ::1 at 2023-11-01 12:36:52 -0700
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 3 pending migrations:
+
+20221002014713_create_posts.rb
+20221002014857_create_active_storage_tables.active_storage.rb
+20221002014858_create_action_text_tables.action_text.rb
+
+
+):
+  
+activerecord (7.0.4) lib/active_record/migration.rb:627:in `check_pending!'
+activerecord (7.0.4) lib/active_record/migration.rb:592:in `block (2 levels) in call'
+activesupport (7.0.4) lib/active_support/file_update_checker.rb:83:in `execute'
+activerecord (7.0.4) lib/active_record/migration.rb:597:in `block in call'
+activerecord (7.0.4) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/rails/actions" for ::1 at 2023-11-01 12:36:55 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePosts (20221002014713)
+  [1m[36mTRANSACTION (11.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221002014713"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateActiveStorageTables (20221002014857)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "service_name" varchar NOT NULL, "byte_size" bigint NOT NULL, "checksum" varchar, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221002014857"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateActionTextTables (20221002014858)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "action_text_rich_texts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "body" text, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_action_text_rich_texts_uniqueness" ON "action_text_rich_texts" ("record_type", "record_id", "name")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221002014858"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-11-01 19:36:55.607944"], ["updated_at", "2023-11-01 19:36:55.607944"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2023-11-01 12:36:55 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/_results.html.erb (Duration: 2.1ms | Allocations: 302)
+  Rendered welcome/index.html.erb within layouts/application (Duration: 5.5ms | Allocations: 2269)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 8791)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms | Allocations: 11817)
+
+
+  
+ActionView::Template::Error (The asset 'application.css' was not found in the load path.):
+     6:     <%= csrf_meta_tags %>
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    10:     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    11:   </head>
+    12: 
+  
+app/views/layouts/application.html.erb:9
+Started GET "/" for ::1 at 2023-11-01 12:47:31 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/_results.html.erb (Duration: 0.5ms | Allocations: 313)
+  Rendered welcome/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 2455)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 10945)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.0ms | Allocations: 14748)
+
+
+  
+ActionView::Template::Error (The asset 'application.js' was not found in the load path.):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    10:     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    11:   </head>
+    12: 
+    13:   <body class='bg-light'>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for ::1 at 2023-11-01 12:49:03 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/_results.html.erb (Duration: 0.4ms | Allocations: 313)
+  Rendered welcome/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 2455)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 10945)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.0ms | Allocations: 14756)
+
+
+  
+ActionView::Template::Error (The asset 'application.js' was not found in the load path.):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    10:     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    11:   </head>
+    12: 
+    13:   <body class='bg-light'>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for ::1 at 2023-11-01 12:50:20 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/_results.html.erb (Duration: 0.3ms | Allocations: 313)
+  Rendered welcome/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 2455)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 10945)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms | Allocations: 14747)
+
+
+  
+ActionView::Template::Error (The asset 'application.js' was not found in the load path.):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    10:     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    11:   </head>
+    12: 
+    13:   <body class='bg-light'>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for ::1 at 2023-11-01 12:50:22 -0700
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/_results.html.erb (Duration: 0.1ms | Allocations: 60)
+  Rendered welcome/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1119)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 2224)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 2630)
+
+
+  
+ActionView::Template::Error (The asset 'application.js' was not found in the load path.):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    10:     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    11:   </head>
+    12: 
+    13:   <body class='bg-light'>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for ::1 at 2023-11-01 12:52:23 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/_results.html.erb (Duration: 1.0ms | Allocations: 313)
+  Rendered welcome/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2455)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.3ms | Allocations: 174)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.0ms | Allocations: 44)
+  Rendered layouts/_navigation.html.erb (Duration: 1.5ms | Allocations: 640)
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 11125)
+Completed 200 OK in 26ms (Views: 15.2ms | ActiveRecord: 0.0ms | Allocations: 14951)
+
+
+Started GET "/assets/application-0372769b0210d20e9bef8a91d5e389997d9a48f1.css" for ::1 at 2023-11-01 12:52:23 -0700
+Started GET "/assets/application-32bc8619f5e530ecc353109cbc39df92bc97e40d.js" for ::1 at 2023-11-01 12:52:23 -0700
+Removed sourceMappingURL comment for missing asset 'assets/application.js.map' from assets/application.js.map
+Started GET "/assets/actiontext.css" for ::1 at 2023-11-01 12:52:23 -0700
+Started GET "/?query=grammer" for ::1 at 2023-11-01 12:52:25 -0700
+Processing by WelcomeController#index as TURBO_STREAM
+  Parameters: {"query"=>"grammer"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (title like '%grammer%')[0m
+  ↳ app/views/welcome/_results.html.erb:3
+  Rendered welcome/_results.html.erb (Duration: 1.4ms | Allocations: 822)
+Completed 200 OK in 23ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 4173)
+
+
+Started POST "/" for ::1 at 2023-11-01 12:52:27 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/"):
+  
+Started GET "/?query=grammer" for ::1 at 2023-11-01 12:52:27 -0700
+Processing by WelcomeController#index as TURBO_STREAM
+  Parameters: {"query"=>"grammer"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (title like '%grammer%')[0m
+  ↳ app/views/welcome/_results.html.erb:3
+  Rendered welcome/_results.html.erb (Duration: 0.8ms | Allocations: 691)
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1190)
+
+
+Started POST "/" for ::1 at 2023-11-01 12:52:27 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/"):
+  
+Started GET "/?query=grammer" for ::1 at 2023-11-01 12:52:27 -0700
+Processing by WelcomeController#index as TURBO_STREAM
+  Parameters: {"query"=>"grammer"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (title like '%grammer%')[0m
+  ↳ app/views/welcome/_results.html.erb:3
+  Rendered welcome/_results.html.erb (Duration: 0.7ms | Allocations: 594)
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1016)
+
+
+Started POST "/" for ::1 at 2023-11-01 12:52:27 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/"):
+  
+Started GET "/?query=grammer" for ::1 at 2023-11-01 12:52:27 -0700
+Processing by WelcomeController#index as TURBO_STREAM
+  Parameters: {"query"=>"grammer"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (title like '%grammer%')[0m
+  ↳ app/views/welcome/_results.html.erb:3
+  Rendered welcome/_results.html.erb (Duration: 0.7ms | Allocations: 594)
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1018)
+
+

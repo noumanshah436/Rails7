@@ -1,7 +1,8 @@
 
 
-1) create stimulus controller
-rails g stimulus bs_modal
+1) create stimulus controllers
+rails g stimulus bs_modal_form (logic to send request to server to open modal)
+rails g stimulus bs_modal (logic to open or close modal)
 
 2) add turbo frame in application.html.erb file:
 
@@ -16,10 +17,17 @@ rails g stimulus bs_modal
 Now our link part has been done.
 Now we need another stimulus controller, for sending our request in turbo stream format to edit_description method.
 
-4) rails g stimulus bs_modal_form
 
-5) create turbo stream template with name `edit_description.turbo_stream.erb` and render `description_model.html.erb` partial in it.
+4) add edit_description action in member_controller
+and create turbo stream template for this action with name `edit_description.turbo_stream.erb` with this content:
 
-6) add update url in the form
+<%= turbo_stream.replace 'remote_modal' do %>
+  <%= render 'shared/turbo_modal', modal_title: 'Edit your description', form_partial: 'members/description_modal' %>
+<% end %>
 
-7) member_description partial
+Here we are replaing "remote_modal" element with the 'shared/_turbo_modal.html.erb' partial.
+and inside 'shared/turbo_modal', we are rendering 'members/_description_modal.html.erb'
+
+5) add update url in the form
+
+6) member_description partial

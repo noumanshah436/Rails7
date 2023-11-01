@@ -1,0 +1,10 @@
+
+Ruby on Rails #73 Hovercards with Hotwire Turbo Frames
+
+https://www.youtube.com/watch?v=_T6uOL9L7NM&list=PLdTytUiloS16epXsqHswpCUMND_rksjr4&index=10
+
+https://blog.corsego.com/hotwire-hovercards
+
+********************************
+
+turbo frames:

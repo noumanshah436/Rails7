@@ -1,0 +1,10 @@
+In this episode we will combine Frames + Streams to create an event simpler way to add Infinite Scroll to a Rails 7 app with Hotwire.
+
+https://www.youtube.com/watch?v=sQBRkduaezo&list=PLdTytUiloS16epXsqHswpCUMND_rksjr4&index=8
+
+******************
+
+pagy_countless:
+Paginate without the need of any count, saving one query per rendering.
+
+https://ddnexus.github.io/pagy/docs/extras/countless/

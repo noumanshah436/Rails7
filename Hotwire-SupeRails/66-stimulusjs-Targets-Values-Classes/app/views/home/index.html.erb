@@ -1,0 +1,41 @@
+<div data-controller="dropdown" data-dropdown-open-value="false" data-dropdown-opened-class="bg-zinc-400">
+  <div role="button" data-action="mouseenter->dropdown#toggleDropdown mouseleave->dropdown#toggleDropdown" data-dropdown-target="active">
+    hover tooltip
+  </div>
+
+  <div data-dropdown-target="dropdownContent" class="fixed p-4 rounded-md bg-red-700">
+    <p>Find me in app/views/home/index.html.erb</p>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+
+<div data-controller="dropdown" data-dropdown-open-value="true" data-dropdown-opened-class="bg-zinc-400">
+  <div role="button" data-action="click->dropdown#toggleDropdown" data-dropdown-target="active">
+    Toggle the dropdown
+  </div>
+
+  <div data-dropdown-target="dropdownContent">
+    <p>Find me in app/views/home/index.html.erb</p>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+
+<div data-controller="dropdown">
+  <div role="button" data-action="click->dropdown#openDropdown" data-dropdown-target="openButton">
+    Click to open
+  </div>
+
+  <button data-action="click->dropdown#closeDropdown" data-dropdown-target="closeButton"
+  class="bg-zinc-400">
+    close dropdown
+  </button>
+  <div data-dropdown-target="dropdownContent">
+    <p>Find me in app/views/home/index.html.erb</p>
+  </div>
+</div>

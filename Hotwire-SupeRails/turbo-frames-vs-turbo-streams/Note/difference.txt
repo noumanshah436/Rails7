@@ -1,0 +1,10 @@
+In terms of how easy they are to implement, Turbo Frames win because there's not that much you have to do.
+You just wrap sections in frames, and you're done.
+
+But updating multiple sections at the same time is only supported by Turbo Streams.
+Which also has WebSocket support, and it can do a lot more than just updates.
+
+On the other hand, Turbo Frames are also suitable for progressively loading frames when a particular section of the page becomes visible.
+
+Caching is another benefit that Turbo Frames bring to the table because it allows you to split a page up into multiple smaller page segments, each of which can be cached independently of the others.
+

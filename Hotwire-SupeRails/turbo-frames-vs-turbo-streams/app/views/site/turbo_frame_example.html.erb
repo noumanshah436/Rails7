@@ -1,0 +1,10 @@
+<h1>Turbo frame Example Page</h1>
+<div class="w-full text-center my-8">
+  <%= link_to "Load stuff!", example_page_path, data: { turbo_frame: "myframe" }, class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
+</div>
+
+<%= turbo_frame_tag "myframe" do %>
+  <div class="my-8 w-full mx-auto" id="content1">
+    <%= render "the_stuff" %>
+  </div>
+<% end %>

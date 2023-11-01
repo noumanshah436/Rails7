@@ -1,0 +1,5 @@
+They don't have those limitations as turbo frames.
+
+You could append, prepend, replace, remove, add content after the element, and also, you could target multiple elements with one message.
+
+So there are a lot more options available with Turbo Streams than there are with Turbo Frames.

@@ -1,0 +1,64 @@
+<div id="<%= dom_id person %>">
+
+  <!--hover to load turbo frame-->
+  <span class="hoverWrapper">
+    <%= person.first_name %>
+    <%= person.last_name %>
+    <div id="hoverContent">
+      <%# this will send a request to load a template that contains the additional data about the user %>
+      <%= turbo_frame_tag dom_id(person, :thumbnail), target: "_top", loading: :lazy, src: hovercard_person_path(person) do %>
+        Loading...
+      <% end %>
+    </div>
+  </span>
+
+
+  <!--click to load turbo frame-->
+  <%# each time when we make the content visible, it sedn the request to the server and loads the content %>
+  <details>
+    <summary>
+      <%= person.first_name %>
+      <%= person.last_name %>
+    </summary>
+    <%= turbo_frame_tag dom_id(person, :thumbnail), target: "_top", loading: :lazy, src: hovercard_person_path(person) do %>
+      Loading...
+    <% end %>
+  </details>
+
+</div>
+
+<!--
+<%= turbo_frame_tag dom_id(person, :thumbnail), target: "_top", loading: :lazy, src: hovercard_person_path(person) do %>
+        Loading...
+      <% end %>
+
+exaplin this rails hotwire code?
+
+Answer:
+
+The code you provided is written in Ruby on Rails and is related to Hotwire, a technology that allows for real-time updates in web applications without the need for writing a lot of JavaScript. Let's break down the code step by step:
+
+```erb
+<%= turbo_frame_tag dom_id(person, :thumbnail), target: "_top", loading: :lazy, src: hovercard_person_path(person) do %>
+  Loading...
+<% end %>
+```
+
+2. `turbo_frame_tag`: This is a helper method provided by Hotwire to define a Turbo Frame. Turbo Frames are containers for content that can be updated and replaced asynchronously without a full page reload.
+
+3. `dom_id(person, :thumbnail)`: This generates a unique HTML DOM identifier for the `person` object and appends `:thumbnail`. This identifier will be used to associate this frame with a specific HTML element on the page.
+
+4. `target: "_top"`: This specifies the target frame for the Turbo Frame. In this case, it's set to "_top," which means it will update the entire page (the top-level frame) when the content is loaded.
+
+5. `loading: :lazy`: This indicates that the content will be loaded lazily, meaning it will only be fetched when the frame becomes visible in the viewport. This is a performance optimization to reduce unnecessary network requests.
+
+6. `src: hovercard_person_path(person)`: This is the source URL for the frame's content. It uses the `hovercard_person_path` route helper to generate the URL for the content associated with the `person` object.
+
+7. `do ... end`: This is a block of content to be displayed inside the frame. In this case, "Loading..." will be displayed while the content is being fetched.
+
+In summary, this code defines a Turbo Frame that associates a DOM element with a unique identifier based on the `person` object,
+specifies that it will update the entire page when its content is loaded, loads the content lazily, and sets the source URL to `hovercard_person_path(person)`.
+While the content is loading, "Loading..." will be displayed inside the frame.
+When the content is fetched, it will replace the frame's contents in the top-level frame, thanks to the `target: "_top"` setting. This is a common approach in Hotwire for achieving real-time updates in a Rails application.
+
+-->

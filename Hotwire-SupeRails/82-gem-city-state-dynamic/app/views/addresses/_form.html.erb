@@ -1,0 +1,53 @@
+<%= form_with(model: address, data: {controller: "form-reset"}) do |form| %>
+  <% if address.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(address.errors.count, "error") %> prohibited this address from being saved:</h2>
+
+      <ul>
+        <% address.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= Time.zone.now %>
+  <br>
+
+  <%= turbo_frame_tag :cs_select do %>
+    <%= Time.zone.now %>
+    <div data-controller="form-element">
+
+      <%= form.button "Validate", formaction: new_address_path, formmethod: :get, data: { form_element_target: "remoteBtn", turbo_frame: :cs_select } %>
+
+      <div>
+        <%= form.label :country, style: "display: block" %>
+        <%= form.select :country, address.countries.invert, {include_blank: true}, { data: {action: "change->form-element#autosubmit"}} %>
+      </div>
+
+      <div>
+        <%= form.label :state, style: "display: block" %>
+        <%= form.select :state, address.states.invert, {include_blank: true}, { data: {action: "change->form-element#autosubmit"}} %>
+      </div>
+    </div>
+
+    <div>
+      <%= form.label :city, style: "display: block" %>
+      <%= form.select :city, address.cities, {include_blank: true}, {} %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :details, style: "display: block" %>
+    <%= form.text_field :details %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<!--
+data: { turbo_frame: :cs_select }
+this will set data-turbo-frame attribute on the link to explicitly tell turbo which frame to target  when the response comes back from the server
+-->

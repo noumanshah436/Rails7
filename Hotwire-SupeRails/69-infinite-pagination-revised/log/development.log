@@ -1,0 +1,1024 @@
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (14.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateComments (20220320111409)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220320111409"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePosts (20220320160326)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "image_url" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220320160326"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateArtists (20220401131532)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "artists" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220401131532"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-10-31 13:25:50.968538"], ["updated_at", "2023-10-31 13:25:50.968538"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I went the distance."], ["created_at", "2023-10-31 13:25:52.953167"], ["updated_at", "2023-10-31 13:25:52.953167"]]
+  [1m[36mTRANSACTION (12.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Phish"], ["image_url", "https://robohash.org/placeatdelectusrerum.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:52.973100"], ["updated_at", "2023-10-31 13:25:52.973100"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.9ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Degas"], ["created_at", "2023-10-31 13:25:52.981344"], ["updated_at", "2023-10-31 13:25:52.981344"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Okay, I won't."], ["created_at", "2023-10-31 13:25:52.987184"], ["updated_at", "2023-10-31 13:25:52.987184"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Marilyn Manson"], ["image_url", "https://robohash.org/numquammolestiasomnis.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:52.991820"], ["updated_at", "2023-10-31 13:25:52.991820"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (1.4ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Rothko"], ["created_at", "2023-10-31 13:25:52.995925"], ["updated_at", "2023-10-31 13:25:52.995925"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Strike the tent."], ["created_at", "2023-10-31 13:25:53.001268"], ["updated_at", "2023-10-31 13:25:53.001268"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Kiss"], ["image_url", "https://robohash.org/iustofugitvitae.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.005440"], ["updated_at", "2023-10-31 13:25:53.005440"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Kandinsky"], ["created_at", "2023-10-31 13:25:53.009380"], ["updated_at", "2023-10-31 13:25:53.009380"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Well, this is certainly a pleasant surprise."], ["created_at", "2023-10-31 13:25:53.013127"], ["updated_at", "2023-10-31 13:25:53.013127"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Pat Metheny"], ["image_url", "https://robohash.org/estautvoluptatem.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.017116"], ["updated_at", "2023-10-31 13:25:53.017116"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Munch"], ["created_at", "2023-10-31 13:25:53.021432"], ["updated_at", "2023-10-31 13:25:53.021432"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "That's good. Go on, read some more."], ["created_at", "2023-10-31 13:25:53.025370"], ["updated_at", "2023-10-31 13:25:53.025370"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Kiss"], ["image_url", "https://robohash.org/evenietquaeratquam.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.029618"], ["updated_at", "2023-10-31 13:25:53.029618"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Pissarro"], ["created_at", "2023-10-31 13:25:53.033871"], ["updated_at", "2023-10-31 13:25:53.033871"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Well, this is certainly a pleasant surprise."], ["created_at", "2023-10-31 13:25:53.038992"], ["updated_at", "2023-10-31 13:25:53.038992"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Ozzy Osbourne"], ["image_url", "https://robohash.org/nobisiustoipsa.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.043383"], ["updated_at", "2023-10-31 13:25:53.043383"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Pollock"], ["created_at", "2023-10-31 13:25:53.047682"], ["updated_at", "2023-10-31 13:25:53.047682"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I wish I could go with you."], ["created_at", "2023-10-31 13:25:53.051698"], ["updated_at", "2023-10-31 13:25:53.051698"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Herbie Hancock"], ["image_url", "https://robohash.org/sedcupiditateofficia.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.055958"], ["updated_at", "2023-10-31 13:25:53.055958"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Raphael"], ["created_at", "2023-10-31 13:25:53.059643"], ["updated_at", "2023-10-31 13:25:53.059643"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I want to go home."], ["created_at", "2023-10-31 13:25:53.063291"], ["updated_at", "2023-10-31 13:25:53.063291"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Nirvana"], ["image_url", "https://robohash.org/accusamusoditsint.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.067130"], ["updated_at", "2023-10-31 13:25:53.067130"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Magritte"], ["created_at", "2023-10-31 13:25:53.071093"], ["updated_at", "2023-10-31 13:25:53.071093"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Okay, I won't."], ["created_at", "2023-10-31 13:25:53.074932"], ["updated_at", "2023-10-31 13:25:53.074932"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Status Quo"], ["image_url", "https://robohash.org/quosomnisvelit.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.078251"], ["updated_at", "2023-10-31 13:25:53.078251"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Escher"], ["created_at", "2023-10-31 13:25:53.082013"], ["updated_at", "2023-10-31 13:25:53.082013"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Well, this is certainly a pleasant surprise."], ["created_at", "2023-10-31 13:25:53.086163"], ["updated_at", "2023-10-31 13:25:53.086163"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Afrika Bambaataa"], ["image_url", "https://robohash.org/enimaliasillo.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.089833"], ["updated_at", "2023-10-31 13:25:53.089833"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Winslow Homer"], ["created_at", "2023-10-31 13:25:53.093736"], ["updated_at", "2023-10-31 13:25:53.093736"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I don't know."], ["created_at", "2023-10-31 13:25:53.097075"], ["updated_at", "2023-10-31 13:25:53.097075"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Miles Davis"], ["image_url", "https://robohash.org/inciduntillovoluptas.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.100643"], ["updated_at", "2023-10-31 13:25:53.100643"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.3ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Picasso"], ["created_at", "2023-10-31 13:25:53.104123"], ["updated_at", "2023-10-31 13:25:53.104123"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I wish I could go with you."], ["created_at", "2023-10-31 13:25:53.108204"], ["updated_at", "2023-10-31 13:25:53.108204"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Grace Jones"], ["image_url", "https://robohash.org/quidelenitivoluptatem.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.112194"], ["updated_at", "2023-10-31 13:25:53.112194"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Diego Rivera"], ["created_at", "2023-10-31 13:25:53.115844"], ["updated_at", "2023-10-31 13:25:53.115844"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I don't think they even heard me."], ["created_at", "2023-10-31 13:25:53.120038"], ["updated_at", "2023-10-31 13:25:53.120038"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Keith Richards"], ["image_url", "https://robohash.org/eaquemagnamnulla.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.123591"], ["updated_at", "2023-10-31 13:25:53.123591"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.3ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Monet"], ["created_at", "2023-10-31 13:25:53.127495"], ["updated_at", "2023-10-31 13:25:53.127495"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "One! Two! Three!"], ["created_at", "2023-10-31 13:25:53.131925"], ["updated_at", "2023-10-31 13:25:53.131925"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Madonna"], ["image_url", "https://robohash.org/quidemveniamea.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.135605"], ["updated_at", "2023-10-31 13:25:53.135605"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Cezanne"], ["created_at", "2023-10-31 13:25:53.138749"], ["updated_at", "2023-10-31 13:25:53.138749"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I wish I could go with you."], ["created_at", "2023-10-31 13:25:53.142451"], ["updated_at", "2023-10-31 13:25:53.142451"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "K.D Lang"], ["image_url", "https://robohash.org/quiarchitectoomnis.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.146829"], ["updated_at", "2023-10-31 13:25:53.146829"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Degas"], ["created_at", "2023-10-31 13:25:53.151324"], ["updated_at", "2023-10-31 13:25:53.151324"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I want to go home."], ["created_at", "2023-10-31 13:25:53.155343"], ["updated_at", "2023-10-31 13:25:53.155343"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Pete Townshend"], ["image_url", "https://robohash.org/voluptasconsequaturiste.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.158563"], ["updated_at", "2023-10-31 13:25:53.158563"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "El Greco"], ["created_at", "2023-10-31 13:25:53.162561"], ["updated_at", "2023-10-31 13:25:53.162561"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I forgot something."], ["created_at", "2023-10-31 13:25:53.166829"], ["updated_at", "2023-10-31 13:25:53.166829"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "U2"], ["image_url", "https://robohash.org/etblanditiisut.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.170926"], ["updated_at", "2023-10-31 13:25:53.170926"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Dali"], ["created_at", "2023-10-31 13:25:53.174417"], ["updated_at", "2023-10-31 13:25:53.174417"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "All my possessions for a moment of time."], ["created_at", "2023-10-31 13:25:53.177908"], ["updated_at", "2023-10-31 13:25:53.177908"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Chris Isaak"], ["image_url", "https://robohash.org/utsequiconsequatur.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.181883"], ["updated_at", "2023-10-31 13:25:53.181883"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Winslow Homer"], ["created_at", "2023-10-31 13:25:53.186144"], ["updated_at", "2023-10-31 13:25:53.186144"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I am confound."], ["created_at", "2023-10-31 13:25:53.190381"], ["updated_at", "2023-10-31 13:25:53.190381"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "George Michael"], ["image_url", "https://robohash.org/doloresvoluptasconsequatur.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.194795"], ["updated_at", "2023-10-31 13:25:53.194795"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Raphael"], ["created_at", "2023-10-31 13:25:53.199143"], ["updated_at", "2023-10-31 13:25:53.199143"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Happy."], ["created_at", "2023-10-31 13:25:53.203546"], ["updated_at", "2023-10-31 13:25:53.203546"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Marianne Faithfull"], ["image_url", "https://robohash.org/repellendusexexplicabo.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.207859"], ["updated_at", "2023-10-31 13:25:53.207859"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Picasso"], ["created_at", "2023-10-31 13:25:53.212490"], ["updated_at", "2023-10-31 13:25:53.212490"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Van Halen!"], ["created_at", "2023-10-31 13:25:53.217001"], ["updated_at", "2023-10-31 13:25:53.217001"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Rufus Wainwright"], ["image_url", "https://robohash.org/estconsequunturducimus.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.221079"], ["updated_at", "2023-10-31 13:25:53.221079"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Matisse"], ["created_at", "2023-10-31 13:25:53.233999"], ["updated_at", "2023-10-31 13:25:53.233999"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I'll be in Hell before you start breakfast! Let her rip!"], ["created_at", "2023-10-31 13:25:53.238528"], ["updated_at", "2023-10-31 13:25:53.238528"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Manic Street Preachers"], ["image_url", "https://robohash.org/quaequiab.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.242954"], ["updated_at", "2023-10-31 13:25:53.242954"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Winslow Homer"], ["created_at", "2023-10-31 13:25:53.247180"], ["updated_at", "2023-10-31 13:25:53.247180"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I don't know."], ["created_at", "2023-10-31 13:25:53.250762"], ["updated_at", "2023-10-31 13:25:53.250762"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "The Mars Volta"], ["image_url", "https://robohash.org/utminimasimilique.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.254867"], ["updated_at", "2023-10-31 13:25:53.254867"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Chagall"], ["created_at", "2023-10-31 13:25:53.258803"], ["updated_at", "2023-10-31 13:25:53.258803"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Yes, it's tough, but not as tough as doing comedy."], ["created_at", "2023-10-31 13:25:53.262772"], ["updated_at", "2023-10-31 13:25:53.262772"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Michael Jackson"], ["image_url", "https://robohash.org/estidsoluta.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.267051"], ["updated_at", "2023-10-31 13:25:53.267051"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Seurat"], ["created_at", "2023-10-31 13:25:53.271170"], ["updated_at", "2023-10-31 13:25:53.271170"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I forgot something."], ["created_at", "2023-10-31 13:25:53.275196"], ["updated_at", "2023-10-31 13:25:53.275196"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Dizzy Gillespie"], ["image_url", "https://robohash.org/accusantiumatprovident.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.279432"], ["updated_at", "2023-10-31 13:25:53.279432"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.3ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Rothko"], ["created_at", "2023-10-31 13:25:53.283876"], ["updated_at", "2023-10-31 13:25:53.283876"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I am confound."], ["created_at", "2023-10-31 13:25:53.288311"], ["updated_at", "2023-10-31 13:25:53.288311"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Blondie"], ["image_url", "https://robohash.org/undelaboremolestias.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.292641"], ["updated_at", "2023-10-31 13:25:53.292641"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.3ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Durer"], ["created_at", "2023-10-31 13:25:53.297106"], ["updated_at", "2023-10-31 13:25:53.297106"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "That was the best ice-cream soda I ever tasted."], ["created_at", "2023-10-31 13:25:53.301349"], ["updated_at", "2023-10-31 13:25:53.301349"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "The Who"], ["image_url", "https://robohash.org/etcupiditateet.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.305287"], ["updated_at", "2023-10-31 13:25:53.305287"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Rubens"], ["created_at", "2023-10-31 13:25:53.309392"], ["updated_at", "2023-10-31 13:25:53.309392"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I regret that I should leave this world without again beholding him."], ["created_at", "2023-10-31 13:25:53.313569"], ["updated_at", "2023-10-31 13:25:53.313569"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Kiss"], ["image_url", "https://robohash.org/dolorequifacilis.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.318128"], ["updated_at", "2023-10-31 13:25:53.318128"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Bernini"], ["created_at", "2023-10-31 13:25:53.321991"], ["updated_at", "2023-10-31 13:25:53.321991"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Well, this is certainly a pleasant surprise."], ["created_at", "2023-10-31 13:25:53.325343"], ["updated_at", "2023-10-31 13:25:53.325343"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Prince"], ["image_url", "https://robohash.org/quametporro.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.329333"], ["updated_at", "2023-10-31 13:25:53.329333"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Titian"], ["created_at", "2023-10-31 13:25:53.333571"], ["updated_at", "2023-10-31 13:25:53.333571"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I want to go home."], ["created_at", "2023-10-31 13:25:53.337997"], ["updated_at", "2023-10-31 13:25:53.337997"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Rory Gallagher"], ["image_url", "https://robohash.org/etcupiditatevoluptate.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.341527"], ["updated_at", "2023-10-31 13:25:53.341527"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Magritte"], ["created_at", "2023-10-31 13:25:53.345629"], ["updated_at", "2023-10-31 13:25:53.345629"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I wish I could go with you."], ["created_at", "2023-10-31 13:25:53.349256"], ["updated_at", "2023-10-31 13:25:53.349256"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Bob Dylan"], ["image_url", "https://robohash.org/minimaatadipisci.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.353367"], ["updated_at", "2023-10-31 13:25:53.353367"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Chagall"], ["created_at", "2023-10-31 13:25:53.357487"], ["updated_at", "2023-10-31 13:25:53.357487"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Yes, it's tough, but not as tough as doing comedy."], ["created_at", "2023-10-31 13:25:53.361863"], ["updated_at", "2023-10-31 13:25:53.361863"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Oasis"], ["image_url", "https://robohash.org/repellenduseaquequis.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.365944"], ["updated_at", "2023-10-31 13:25:53.365944"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Rothko"], ["created_at", "2023-10-31 13:25:53.370063"], ["updated_at", "2023-10-31 13:25:53.370063"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Happy."], ["created_at", "2023-10-31 13:25:53.373382"], ["updated_at", "2023-10-31 13:25:53.373382"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Cream"], ["image_url", "https://robohash.org/totampraesentiumut.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.377143"], ["updated_at", "2023-10-31 13:25:53.377143"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Chagall"], ["created_at", "2023-10-31 13:25:53.381481"], ["updated_at", "2023-10-31 13:25:53.381481"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I'll be in Hell before you start breakfast! Let her rip!"], ["created_at", "2023-10-31 13:25:53.385679"], ["updated_at", "2023-10-31 13:25:53.385679"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Pete Townshend"], ["image_url", "https://robohash.org/deseruntautemsit.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.390356"], ["updated_at", "2023-10-31 13:25:53.390356"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Cezanne"], ["created_at", "2023-10-31 13:25:53.394759"], ["updated_at", "2023-10-31 13:25:53.394759"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Goodnight, my darlings, I'll see you tomorrow."], ["created_at", "2023-10-31 13:25:53.399219"], ["updated_at", "2023-10-31 13:25:53.399219"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "David Gilmour"], ["image_url", "https://robohash.org/iureliberoeius.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.403775"], ["updated_at", "2023-10-31 13:25:53.403775"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Winslow Homer"], ["created_at", "2023-10-31 13:25:53.407952"], ["updated_at", "2023-10-31 13:25:53.407952"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "All my possessions for a moment of time."], ["created_at", "2023-10-31 13:25:53.411614"], ["updated_at", "2023-10-31 13:25:53.411614"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Sinead O'connor"], ["image_url", "https://robohash.org/fugiteiusneque.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.415136"], ["updated_at", "2023-10-31 13:25:53.415136"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Rembrandt"], ["created_at", "2023-10-31 13:25:53.418646"], ["updated_at", "2023-10-31 13:25:53.418646"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "No comment."], ["created_at", "2023-10-31 13:25:53.422162"], ["updated_at", "2023-10-31 13:25:53.422162"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Billy Idol"], ["image_url", "https://robohash.org/impeditdoloreunde.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.425839"], ["updated_at", "2023-10-31 13:25:53.425839"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Paul Klee"], ["created_at", "2023-10-31 13:25:53.429973"], ["updated_at", "2023-10-31 13:25:53.429973"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Well, this is certainly a pleasant surprise."], ["created_at", "2023-10-31 13:25:53.434221"], ["updated_at", "2023-10-31 13:25:53.434221"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "The Smiths"], ["image_url", "https://robohash.org/eteaaspernatur.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.438115"], ["updated_at", "2023-10-31 13:25:53.438115"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Diego Rivera"], ["created_at", "2023-10-31 13:25:53.441716"], ["updated_at", "2023-10-31 13:25:53.441716"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I don't know."], ["created_at", "2023-10-31 13:25:53.444835"], ["updated_at", "2023-10-31 13:25:53.444835"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Joy Division"], ["image_url", "https://robohash.org/accusamusillovoluptatem.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.448529"], ["updated_at", "2023-10-31 13:25:53.448529"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Raphael"], ["created_at", "2023-10-31 13:25:53.452233"], ["updated_at", "2023-10-31 13:25:53.452233"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I am confound."], ["created_at", "2023-10-31 13:25:53.456824"], ["updated_at", "2023-10-31 13:25:53.456824"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Elton John"], ["image_url", "https://robohash.org/officiasuntratione.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.461317"], ["updated_at", "2023-10-31 13:25:53.461317"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.3ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Kahlo"], ["created_at", "2023-10-31 13:25:53.465934"], ["updated_at", "2023-10-31 13:25:53.465934"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Yes, it's tough, but not as tough as doing comedy."], ["created_at", "2023-10-31 13:25:53.470361"], ["updated_at", "2023-10-31 13:25:53.470361"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Cream"], ["image_url", "https://robohash.org/quiullamtemporibus.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.473957"], ["updated_at", "2023-10-31 13:25:53.473957"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Gauguin"], ["created_at", "2023-10-31 13:25:53.477711"], ["updated_at", "2023-10-31 13:25:53.477711"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Does nobody understand?"], ["created_at", "2023-10-31 13:25:53.480867"], ["updated_at", "2023-10-31 13:25:53.480867"]]
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Blondie"], ["image_url", "https://robohash.org/aiurenostrum.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.488344"], ["updated_at", "2023-10-31 13:25:53.488344"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Magritte"], ["created_at", "2023-10-31 13:25:53.493221"], ["updated_at", "2023-10-31 13:25:53.493221"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "My vocabulary did this to me. Your love will let you go on…"], ["created_at", "2023-10-31 13:25:53.497211"], ["updated_at", "2023-10-31 13:25:53.497211"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Chuck Berry"], ["image_url", "https://robohash.org/numquamvoluptaseaque.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.501060"], ["updated_at", "2023-10-31 13:25:53.501060"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Bernini"], ["created_at", "2023-10-31 13:25:53.505427"], ["updated_at", "2023-10-31 13:25:53.505427"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I'll be in Hell before you start breakfast! Let her rip!"], ["created_at", "2023-10-31 13:25:53.509044"], ["updated_at", "2023-10-31 13:25:53.509044"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Patti Smith"], ["image_url", "https://robohash.org/oditquisint.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.512758"], ["updated_at", "2023-10-31 13:25:53.512758"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Pissarro"], ["created_at", "2023-10-31 13:25:53.517078"], ["updated_at", "2023-10-31 13:25:53.517078"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Well, this is certainly a pleasant surprise."], ["created_at", "2023-10-31 13:25:53.520700"], ["updated_at", "2023-10-31 13:25:53.520700"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "The Clash"], ["image_url", "https://robohash.org/quoprovidentet.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.524463"], ["updated_at", "2023-10-31 13:25:53.524463"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Monet"], ["created_at", "2023-10-31 13:25:53.528350"], ["updated_at", "2023-10-31 13:25:53.528350"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I am confound."], ["created_at", "2023-10-31 13:25:53.531654"], ["updated_at", "2023-10-31 13:25:53.531654"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Foo Fighters"], ["image_url", "https://robohash.org/consequaturdoloremolestiae.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.535264"], ["updated_at", "2023-10-31 13:25:53.535264"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Seurat"], ["created_at", "2023-10-31 13:25:53.538903"], ["updated_at", "2023-10-31 13:25:53.538903"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I forgot something."], ["created_at", "2023-10-31 13:25:53.542972"], ["updated_at", "2023-10-31 13:25:53.542972"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "The Ramones"], ["image_url", "https://robohash.org/autemoditdicta.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.546225"], ["updated_at", "2023-10-31 13:25:53.546225"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Chagall"], ["created_at", "2023-10-31 13:25:53.550329"], ["updated_at", "2023-10-31 13:25:53.550329"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I'll be in Hell before you start breakfast! Let her rip!"], ["created_at", "2023-10-31 13:25:53.554615"], ["updated_at", "2023-10-31 13:25:53.554615"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "The Libertines"], ["image_url", "https://robohash.org/possimusvoluptatemest.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.558577"], ["updated_at", "2023-10-31 13:25:53.558577"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Rembrandt"], ["created_at", "2023-10-31 13:25:53.561813"], ["updated_at", "2023-10-31 13:25:53.561813"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I regret that I should leave this world without again beholding him."], ["created_at", "2023-10-31 13:25:53.564924"], ["updated_at", "2023-10-31 13:25:53.564924"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Bruce Springsteen"], ["image_url", "https://robohash.org/iureexpeditaquia.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.568581"], ["updated_at", "2023-10-31 13:25:53.568581"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Manet"], ["created_at", "2023-10-31 13:25:53.572421"], ["updated_at", "2023-10-31 13:25:53.572421"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "All my possessions for a moment of time."], ["created_at", "2023-10-31 13:25:53.575756"], ["updated_at", "2023-10-31 13:25:53.575756"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Elvis Costello"], ["image_url", "https://robohash.org/utvelitdolores.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.579037"], ["updated_at", "2023-10-31 13:25:53.579037"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.5ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Picasso"], ["created_at", "2023-10-31 13:25:53.583080"], ["updated_at", "2023-10-31 13:25:53.583080"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I love you too, honey. Good luck with your show."], ["created_at", "2023-10-31 13:25:53.587832"], ["updated_at", "2023-10-31 13:25:53.587832"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Phish"], ["image_url", "https://robohash.org/etsedest.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.591251"], ["updated_at", "2023-10-31 13:25:53.591251"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "El Greco"], ["created_at", "2023-10-31 13:25:53.594455"], ["updated_at", "2023-10-31 13:25:53.594455"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I forgot something."], ["created_at", "2023-10-31 13:25:53.597795"], ["updated_at", "2023-10-31 13:25:53.597795"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Ed Sheeran"], ["image_url", "https://robohash.org/laborumsedunde.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.600857"], ["updated_at", "2023-10-31 13:25:53.600857"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.1ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Pollock"], ["created_at", "2023-10-31 13:25:53.604079"], ["updated_at", "2023-10-31 13:25:53.604079"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "That was the best ice-cream soda I ever tasted."], ["created_at", "2023-10-31 13:25:53.607751"], ["updated_at", "2023-10-31 13:25:53.607751"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Carlos Santana"], ["image_url", "https://robohash.org/etplaceateius.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.611758"], ["updated_at", "2023-10-31 13:25:53.611758"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.1ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Escher"], ["created_at", "2023-10-31 13:25:53.614986"], ["updated_at", "2023-10-31 13:25:53.614986"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I wish I could go with you."], ["created_at", "2023-10-31 13:25:53.617982"], ["updated_at", "2023-10-31 13:25:53.617982"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "George Michael"], ["image_url", "https://robohash.org/cumquequiaaut.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.621727"], ["updated_at", "2023-10-31 13:25:53.621727"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.3ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Cassatt"], ["created_at", "2023-10-31 13:25:53.625691"], ["updated_at", "2023-10-31 13:25:53.625691"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I love you."], ["created_at", "2023-10-31 13:25:53.629795"], ["updated_at", "2023-10-31 13:25:53.629795"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Leonard Cohen"], ["image_url", "https://robohash.org/quaeratnullavoluptas.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.633836"], ["updated_at", "2023-10-31 13:25:53.633836"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Da Vinci"], ["created_at", "2023-10-31 13:25:53.637881"], ["updated_at", "2023-10-31 13:25:53.637881"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I am confound."], ["created_at", "2023-10-31 13:25:53.642041"], ["updated_at", "2023-10-31 13:25:53.642041"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Iggy Pop"], ["image_url", "https://robohash.org/voluptasquismolestiae.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.645942"], ["updated_at", "2023-10-31 13:25:53.645942"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.1ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Klimt"], ["created_at", "2023-10-31 13:25:53.649128"], ["updated_at", "2023-10-31 13:25:53.649128"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I regret that I should leave this world without again beholding him."], ["created_at", "2023-10-31 13:25:53.652767"], ["updated_at", "2023-10-31 13:25:53.652767"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "New Order"], ["image_url", "https://robohash.org/nihilquiafuga.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.656969"], ["updated_at", "2023-10-31 13:25:53.656969"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Monet"], ["created_at", "2023-10-31 13:25:53.661133"], ["updated_at", "2023-10-31 13:25:53.661133"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Happy."], ["created_at", "2023-10-31 13:25:53.665048"], ["updated_at", "2023-10-31 13:25:53.665048"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "The Rolling Stones"], ["image_url", "https://robohash.org/consequuntursedaut.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.669017"], ["updated_at", "2023-10-31 13:25:53.669017"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Warhol"], ["created_at", "2023-10-31 13:25:53.673071"], ["updated_at", "2023-10-31 13:25:53.673071"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Does nobody understand?"], ["created_at", "2023-10-31 13:25:53.676962"], ["updated_at", "2023-10-31 13:25:53.676962"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "The Mars Volta"], ["image_url", "https://robohash.org/deseruntestquo.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.681580"], ["updated_at", "2023-10-31 13:25:53.681580"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Pollock"], ["created_at", "2023-10-31 13:25:53.686728"], ["updated_at", "2023-10-31 13:25:53.686728"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I wish I could go with you."], ["created_at", "2023-10-31 13:25:53.691941"], ["updated_at", "2023-10-31 13:25:53.691941"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Green Day"], ["image_url", "https://robohash.org/doloremquesaepeest.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.696613"], ["updated_at", "2023-10-31 13:25:53.696613"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.3ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Rubens"], ["created_at", "2023-10-31 13:25:53.701064"], ["updated_at", "2023-10-31 13:25:53.701064"]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "That was the best ice-cream soda I ever tasted."], ["created_at", "2023-10-31 13:25:53.706734"], ["updated_at", "2023-10-31 13:25:53.706734"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Maroon 5"], ["image_url", "https://robohash.org/doloreprovidentquod.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.710643"], ["updated_at", "2023-10-31 13:25:53.710643"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Monet"], ["created_at", "2023-10-31 13:25:53.714537"], ["updated_at", "2023-10-31 13:25:53.714537"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Am I dying, or is this my birthday?"], ["created_at", "2023-10-31 13:25:53.718579"], ["updated_at", "2023-10-31 13:25:53.718579"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "The Pretenders"], ["image_url", "https://robohash.org/quiquicumque.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.723159"], ["updated_at", "2023-10-31 13:25:53.723159"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Cassatt"], ["created_at", "2023-10-31 13:25:53.727226"], ["updated_at", "2023-10-31 13:25:53.727226"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I wish I could go with you."], ["created_at", "2023-10-31 13:25:53.730412"], ["updated_at", "2023-10-31 13:25:53.730412"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Thelonius Monk"], ["image_url", "https://robohash.org/eaqueutat.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.734171"], ["updated_at", "2023-10-31 13:25:53.734171"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Klimt"], ["created_at", "2023-10-31 13:25:53.737875"], ["updated_at", "2023-10-31 13:25:53.737875"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Tape Seinfeld for me."], ["created_at", "2023-10-31 13:25:53.742233"], ["updated_at", "2023-10-31 13:25:53.742233"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Rick Wright"], ["image_url", "https://robohash.org/suscipitdoloremqueillum.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.746467"], ["updated_at", "2023-10-31 13:25:53.746467"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Rothko"], ["created_at", "2023-10-31 13:25:53.749917"], ["updated_at", "2023-10-31 13:25:53.749917"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "All my possessions for a moment of time."], ["created_at", "2023-10-31 13:25:53.753840"], ["updated_at", "2023-10-31 13:25:53.753840"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Guns N' Roses"], ["image_url", "https://robohash.org/minusquodest.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.757316"], ["updated_at", "2023-10-31 13:25:53.757316"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Raphael"], ["created_at", "2023-10-31 13:25:53.760551"], ["updated_at", "2023-10-31 13:25:53.760551"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "No comment."], ["created_at", "2023-10-31 13:25:53.764580"], ["updated_at", "2023-10-31 13:25:53.764580"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Marianne Faithfull"], ["image_url", "https://robohash.org/autvoluptatesconsequatur.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.768851"], ["updated_at", "2023-10-31 13:25:53.768851"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.3ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Michelangelo"], ["created_at", "2023-10-31 13:25:53.773040"], ["updated_at", "2023-10-31 13:25:53.773040"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "All my possessions for a moment of time."], ["created_at", "2023-10-31 13:25:53.777327"], ["updated_at", "2023-10-31 13:25:53.777327"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Blondie"], ["image_url", "https://robohash.org/eumrationeducimus.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.781641"], ["updated_at", "2023-10-31 13:25:53.781641"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Titian"], ["created_at", "2023-10-31 13:25:53.785849"], ["updated_at", "2023-10-31 13:25:53.785849"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "No comment."], ["created_at", "2023-10-31 13:25:53.790259"], ["updated_at", "2023-10-31 13:25:53.790259"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Hugh Masekela"], ["image_url", "https://robohash.org/enimdoloraccusantium.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.794904"], ["updated_at", "2023-10-31 13:25:53.794904"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Winslow Homer"], ["created_at", "2023-10-31 13:25:53.799497"], ["updated_at", "2023-10-31 13:25:53.799497"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Am I dying, or is this my birthday?"], ["created_at", "2023-10-31 13:25:53.803991"], ["updated_at", "2023-10-31 13:25:53.803991"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Beck"], ["image_url", "https://robohash.org/abrepudiandaeamet.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.808104"], ["updated_at", "2023-10-31 13:25:53.808104"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Cassatt"], ["created_at", "2023-10-31 13:25:53.811673"], ["updated_at", "2023-10-31 13:25:53.811673"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Hurrah for anarchy! This is the happiest moment of my life."], ["created_at", "2023-10-31 13:25:53.815412"], ["updated_at", "2023-10-31 13:25:53.815412"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Noel Gallagher"], ["image_url", "https://robohash.org/estidaperiam.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.819292"], ["updated_at", "2023-10-31 13:25:53.819292"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Kandinsky"], ["created_at", "2023-10-31 13:25:53.823237"], ["updated_at", "2023-10-31 13:25:53.823237"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Yes, it's tough, but not as tough as doing comedy."], ["created_at", "2023-10-31 13:25:53.826948"], ["updated_at", "2023-10-31 13:25:53.826948"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Madonna"], ["image_url", "https://robohash.org/optioquiquis.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.831174"], ["updated_at", "2023-10-31 13:25:53.831174"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Kandinsky"], ["created_at", "2023-10-31 13:25:53.834717"], ["updated_at", "2023-10-31 13:25:53.834717"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "My vocabulary did this to me. Your love will let you go on…"], ["created_at", "2023-10-31 13:25:53.838216"], ["updated_at", "2023-10-31 13:25:53.838216"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Jeff Buckley"], ["image_url", "https://robohash.org/fugitconsecteturmollitia.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.842009"], ["updated_at", "2023-10-31 13:25:53.842009"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Seurat"], ["created_at", "2023-10-31 13:25:53.845687"], ["updated_at", "2023-10-31 13:25:53.845687"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I love you too, honey. Good luck with your show."], ["created_at", "2023-10-31 13:25:53.849650"], ["updated_at", "2023-10-31 13:25:53.849650"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "John Lydon"], ["image_url", "https://robohash.org/etvoluptatibuseaque.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.853100"], ["updated_at", "2023-10-31 13:25:53.853100"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Vettriano"], ["created_at", "2023-10-31 13:25:53.856539"], ["updated_at", "2023-10-31 13:25:53.856539"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Well, this is certainly a pleasant surprise."], ["created_at", "2023-10-31 13:25:53.860113"], ["updated_at", "2023-10-31 13:25:53.860113"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Florence and the Machine"], ["image_url", "https://robohash.org/hiclaudantiumrerum.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.864710"], ["updated_at", "2023-10-31 13:25:53.864710"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Cassatt"], ["created_at", "2023-10-31 13:25:53.869045"], ["updated_at", "2023-10-31 13:25:53.869045"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I don't know."], ["created_at", "2023-10-31 13:25:53.872803"], ["updated_at", "2023-10-31 13:25:53.872803"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Paramore"], ["image_url", "https://robohash.org/suscipitsitut.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.876586"], ["updated_at", "2023-10-31 13:25:53.876586"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Picasso"], ["created_at", "2023-10-31 13:25:53.880390"], ["updated_at", "2023-10-31 13:25:53.880390"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "That was the best ice-cream soda I ever tasted."], ["created_at", "2023-10-31 13:25:53.884379"], ["updated_at", "2023-10-31 13:25:53.884379"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Nick Cave"], ["image_url", "https://robohash.org/omnisfacilislaboriosam.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.888321"], ["updated_at", "2023-10-31 13:25:53.888321"]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Dali"], ["created_at", "2023-10-31 13:25:53.893537"], ["updated_at", "2023-10-31 13:25:53.893537"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Is it not meningitis?"], ["created_at", "2023-10-31 13:25:53.897187"], ["updated_at", "2023-10-31 13:25:53.897187"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Frank Zappa"], ["image_url", "https://robohash.org/sintrerumsunt.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.900710"], ["updated_at", "2023-10-31 13:25:53.900710"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.1ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "El Greco"], ["created_at", "2023-10-31 13:25:53.904015"], ["updated_at", "2023-10-31 13:25:53.904015"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I want to go home."], ["created_at", "2023-10-31 13:25:53.907047"], ["updated_at", "2023-10-31 13:25:53.907047"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Nina Simone"], ["image_url", "https://robohash.org/hicquorerum.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.910519"], ["updated_at", "2023-10-31 13:25:53.910519"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Seurat"], ["created_at", "2023-10-31 13:25:53.914348"], ["updated_at", "2023-10-31 13:25:53.914348"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Does nobody understand?"], ["created_at", "2023-10-31 13:25:53.917641"], ["updated_at", "2023-10-31 13:25:53.917641"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Blondie"], ["image_url", "https://robohash.org/etullamest.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.921379"], ["updated_at", "2023-10-31 13:25:53.921379"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Pissarro"], ["created_at", "2023-10-31 13:25:53.925081"], ["updated_at", "2023-10-31 13:25:53.925081"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I want your bunk!"], ["created_at", "2023-10-31 13:25:53.928909"], ["updated_at", "2023-10-31 13:25:53.928909"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Elvis Presley"], ["image_url", "https://robohash.org/nonreiciendisest.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.932822"], ["updated_at", "2023-10-31 13:25:53.932822"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.1ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Titian"], ["created_at", "2023-10-31 13:25:53.936021"], ["updated_at", "2023-10-31 13:25:53.936021"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Tape Seinfeld for me."], ["created_at", "2023-10-31 13:25:53.939478"], ["updated_at", "2023-10-31 13:25:53.939478"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Bruce Springsteen"], ["image_url", "https://robohash.org/porrodoloresodio.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.943779"], ["updated_at", "2023-10-31 13:25:53.943779"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Matisse"], ["created_at", "2023-10-31 13:25:53.949150"], ["updated_at", "2023-10-31 13:25:53.949150"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I'll be in Hell before you start breakfast! Let her rip!"], ["created_at", "2023-10-31 13:25:53.952739"], ["updated_at", "2023-10-31 13:25:53.952739"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "The Specials"], ["image_url", "https://robohash.org/nihiltemporaipsam.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.955970"], ["updated_at", "2023-10-31 13:25:53.955970"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Cezanne"], ["created_at", "2023-10-31 13:25:53.960586"], ["updated_at", "2023-10-31 13:25:53.960586"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I want to go home."], ["created_at", "2023-10-31 13:25:53.964424"], ["updated_at", "2023-10-31 13:25:53.964424"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Annie Lennox"], ["image_url", "https://robohash.org/possimusquiavelit.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.968475"], ["updated_at", "2023-10-31 13:25:53.968475"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Botticelli"], ["created_at", "2023-10-31 13:25:53.972084"], ["updated_at", "2023-10-31 13:25:53.972084"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Hurrah for anarchy! This is the happiest moment of my life."], ["created_at", "2023-10-31 13:25:53.976285"], ["updated_at", "2023-10-31 13:25:53.976285"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Blinker The Star"], ["image_url", "https://robohash.org/quiaspernaturaut.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.980515"], ["updated_at", "2023-10-31 13:25:53.980515"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Rothko"], ["created_at", "2023-10-31 13:25:53.984815"], ["updated_at", "2023-10-31 13:25:53.984815"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I love you too, honey. Good luck with your show."], ["created_at", "2023-10-31 13:25:53.989138"], ["updated_at", "2023-10-31 13:25:53.989138"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Alex Chilton"], ["image_url", "https://robohash.org/necessitatibuspossimusautem.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:53.993512"], ["updated_at", "2023-10-31 13:25:53.993512"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Warhol"], ["created_at", "2023-10-31 13:25:53.997951"], ["updated_at", "2023-10-31 13:25:53.997951"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Well, this is certainly a pleasant surprise."], ["created_at", "2023-10-31 13:25:54.002366"], ["updated_at", "2023-10-31 13:25:54.002366"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Squeeze"], ["image_url", "https://robohash.org/evenietconsequaturvoluptates.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:54.006562"], ["updated_at", "2023-10-31 13:25:54.006562"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.3ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Rubens"], ["created_at", "2023-10-31 13:25:54.011143"], ["updated_at", "2023-10-31 13:25:54.011143"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Do you want me to come with you?"], ["created_at", "2023-10-31 13:25:54.015713"], ["updated_at", "2023-10-31 13:25:54.015713"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Horace Silver"], ["image_url", "https://robohash.org/quoetillum.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:54.020517"], ["updated_at", "2023-10-31 13:25:54.020517"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.3ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Ansel Adams"], ["created_at", "2023-10-31 13:25:54.025224"], ["updated_at", "2023-10-31 13:25:54.025224"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "That's good. Go on, read some more."], ["created_at", "2023-10-31 13:25:54.030039"], ["updated_at", "2023-10-31 13:25:54.030039"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Patti Smith"], ["image_url", "https://robohash.org/estaccusamusut.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:54.034686"], ["updated_at", "2023-10-31 13:25:54.034686"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.7ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Titian"], ["created_at", "2023-10-31 13:25:54.040269"], ["updated_at", "2023-10-31 13:25:54.040269"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I don't know."], ["created_at", "2023-10-31 13:25:54.045203"], ["updated_at", "2023-10-31 13:25:54.045203"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Ed Sheeran"], ["image_url", "https://robohash.org/iureasperioreseos.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:54.049682"], ["updated_at", "2023-10-31 13:25:54.049682"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Cezanne"], ["created_at", "2023-10-31 13:25:54.053873"], ["updated_at", "2023-10-31 13:25:54.053873"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I went the distance."], ["created_at", "2023-10-31 13:25:54.058153"], ["updated_at", "2023-10-31 13:25:54.058153"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Van Morrison"], ["image_url", "https://robohash.org/porroquieum.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:54.062393"], ["updated_at", "2023-10-31 13:25:54.062393"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Monet"], ["created_at", "2023-10-31 13:25:54.066694"], ["updated_at", "2023-10-31 13:25:54.066694"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I regret that I should leave this world without again beholding him."], ["created_at", "2023-10-31 13:25:54.070872"], ["updated_at", "2023-10-31 13:25:54.070872"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Dizzy Gillespie"], ["image_url", "https://robohash.org/hicvoluptatemblanditiis.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:54.074739"], ["updated_at", "2023-10-31 13:25:54.074739"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Warhol"], ["created_at", "2023-10-31 13:25:54.078687"], ["updated_at", "2023-10-31 13:25:54.078687"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Strike the tent."], ["created_at", "2023-10-31 13:25:54.083146"], ["updated_at", "2023-10-31 13:25:54.083146"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "David Gilmour"], ["image_url", "https://robohash.org/repellatreprehenderitquia.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:54.086624"], ["updated_at", "2023-10-31 13:25:54.086624"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Joan Miro"], ["created_at", "2023-10-31 13:25:54.090274"], ["updated_at", "2023-10-31 13:25:54.090274"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I don't know."], ["created_at", "2023-10-31 13:25:54.094501"], ["updated_at", "2023-10-31 13:25:54.094501"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Stone Roses"], ["image_url", "https://robohash.org/autemdoloremet.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:54.098054"], ["updated_at", "2023-10-31 13:25:54.098054"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Winslow Homer"], ["created_at", "2023-10-31 13:25:54.101720"], ["updated_at", "2023-10-31 13:25:54.101720"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Strike the tent."], ["created_at", "2023-10-31 13:25:54.106072"], ["updated_at", "2023-10-31 13:25:54.106072"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Lenny Kravitz"], ["image_url", "https://robohash.org/repellataliquidin.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:54.110343"], ["updated_at", "2023-10-31 13:25:54.110343"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Rembrandt"], ["created_at", "2023-10-31 13:25:54.114656"], ["updated_at", "2023-10-31 13:25:54.114656"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Is it not meningitis?"], ["created_at", "2023-10-31 13:25:54.117837"], ["updated_at", "2023-10-31 13:25:54.117837"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Jimi Hendrix"], ["image_url", "https://robohash.org/providentsimiliqueexplicabo.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:54.121573"], ["updated_at", "2023-10-31 13:25:54.121573"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.1ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Gauguin"], ["created_at", "2023-10-31 13:25:54.124646"], ["updated_at", "2023-10-31 13:25:54.124646"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "I'll be in Hell before you start breakfast! Let her rip!"], ["created_at", "2023-10-31 13:25:54.127785"], ["updated_at", "2023-10-31 13:25:54.127785"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Adam and the Ants"], ["image_url", "https://robohash.org/exercitationemexquia.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:54.131274"], ["updated_at", "2023-10-31 13:25:54.131274"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Chagall"], ["created_at", "2023-10-31 13:25:54.135543"], ["updated_at", "2023-10-31 13:25:54.135543"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Well, this is certainly a pleasant surprise."], ["created_at", "2023-10-31 13:25:54.139748"], ["updated_at", "2023-10-31 13:25:54.139748"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Arctic Monkeys"], ["image_url", "https://robohash.org/facerevelitearum.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:54.143968"], ["updated_at", "2023-10-31 13:25:54.143968"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Rothko"], ["created_at", "2023-10-31 13:25:54.147731"], ["updated_at", "2023-10-31 13:25:54.147731"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Am I dying, or is this my birthday?"], ["created_at", "2023-10-31 13:25:54.151197"], ["updated_at", "2023-10-31 13:25:54.151197"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Captain Beefheart"], ["image_url", "https://robohash.org/voluptatemtenetursapiente.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:54.154809"], ["updated_at", "2023-10-31 13:25:54.154809"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Kahlo"], ["created_at", "2023-10-31 13:25:54.158791"], ["updated_at", "2023-10-31 13:25:54.158791"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Does nobody understand?"], ["created_at", "2023-10-31 13:25:54.162786"], ["updated_at", "2023-10-31 13:25:54.162786"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Hugh Masekela"], ["image_url", "https://robohash.org/quianisiest.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:54.166327"], ["updated_at", "2023-10-31 13:25:54.166327"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Degas"], ["created_at", "2023-10-31 13:25:54.169919"], ["updated_at", "2023-10-31 13:25:54.169919"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["body", "Well, this is certainly a pleasant surprise."], ["created_at", "2023-10-31 13:25:54.173023"], ["updated_at", "2023-10-31 13:25:54.173023"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Florence and the Machine"], ["image_url", "https://robohash.org/velaccusantiumquia.png?size=300x300&set=set1"], ["created_at", "2023-10-31 13:25:54.176323"], ["updated_at", "2023-10-31 13:25:54.176323"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (0.1ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Vettriano"], ["created_at", "2023-10-31 13:25:54.179341"], ["updated_at", "2023-10-31 13:25:54.179341"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/comments" for ::1 at 2023-10-31 06:29:55 -0700
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CommentsController#index as HTML
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 6], ["OFFSET", 0]]
+  ↳ app/controllers/comments_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering comments/index.html.erb within layouts/application
+  Rendered collection of comments/_comment.html.erb [5 times] (Duration: 0.8ms | Allocations: 959)
+  Rendered comments/index.html.erb within layouts/application (Duration: 5.9ms | Allocations: 6386)
+  Rendered layout layouts/application.html.erb (Duration: 230.4ms | Allocations: 139598)
+Completed 200 OK in 248ms (Views: 234.6ms | ActiveRecord: 0.5ms | Allocations: 154581)
+
+
+Started GET "/comments" for ::1 at 2023-10-31 06:29:59 -0700
+Processing by CommentsController#index as HTML
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 6], ["OFFSET", 0]]
+  ↳ app/controllers/comments_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering comments/index.html.erb within layouts/application
+  Rendered collection of comments/_comment.html.erb [5 times] (Duration: 0.8ms | Allocations: 449)
+  Rendered comments/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1023)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 7606)
+Completed 200 OK in 19ms (Views: 15.6ms | ActiveRecord: 0.2ms | Allocations: 8770)
+
+
+Started GET "/comments" for ::1 at 2023-10-31 06:30:00 -0700
+Processing by CommentsController#index as HTML
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 6], ["OFFSET", 0]]
+  ↳ app/controllers/comments_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering comments/index.html.erb within layouts/application
+  Rendered collection of comments/_comment.html.erb [5 times] (Duration: 0.5ms | Allocations: 429)
+  Rendered comments/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 877)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 7338)
+Completed 200 OK in 9ms (Views: 6.8ms | ActiveRecord: 0.2ms | Allocations: 8326)
+
+
+Started GET "/posts" for ::1 at 2023-10-31 06:30:01 -0700
+Processing by PostsController#index as HTML
+  [1m[36mPost Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/posts/index.html.erb:12
+  Rendered collection of posts/_post.html.erb [5 times] (Duration: 1.5ms | Allocations: 1018)
+  Rendered posts/_next_page.html.erb (Duration: 0.7ms | Allocations: 395)
+  Rendered posts/index.html.erb within layouts/application (Duration: 9.1ms | Allocations: 6549)
+  Rendered layout layouts/application.html.erb (Duration: 15.3ms | Allocations: 13224)
+Completed 200 OK in 21ms (Views: 17.4ms | ActiveRecord: 0.8ms | Allocations: 15993)
+
+
+Started GET "/posts?page=2" for ::1 at 2023-10-31 06:30:13 -0700
+Processing by PostsController#index as HTML
+  Parameters: {"page"=>"2"}
+  [1m[36mPost Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering posts/scrollable_list.html.erb
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 5]]
+  ↳ app/views/posts/scrollable_list.html.erb:2
+  Rendered collection of posts/_post.html.erb [5 times] (Duration: 0.5ms | Allocations: 496)
+  Rendered posts/_next_page.html.erb (Duration: 0.1ms | Allocations: 72)
+  Rendered posts/scrollable_list.html.erb (Duration: 2.0ms | Allocations: 1703)
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.2ms | Allocations: 2618)
+
+
+Started GET "/posts?page=3" for ::1 at 2023-10-31 06:30:20 -0700
+Processing by PostsController#index as HTML
+  Parameters: {"page"=>"3"}
+  [1m[36mPost Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering posts/scrollable_list.html.erb
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 10]]
+  ↳ app/views/posts/scrollable_list.html.erb:2
+  Rendered collection of posts/_post.html.erb [5 times] (Duration: 0.6ms | Allocations: 496)
+  Rendered posts/_next_page.html.erb (Duration: 0.1ms | Allocations: 72)
+  Rendered posts/scrollable_list.html.erb (Duration: 2.3ms | Allocations: 1430)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.3ms | Allocations: 2211)
+
+
+Started GET "/artists" for ::1 at 2023-10-31 06:34:42 -0700
+Processing by ArtistsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/artists_controller.rb:6:in `index'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" ORDER BY "artists"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 6], ["OFFSET", 0]]
+  ↳ app/controllers/artists_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering artists/index.html.erb within layouts/application
+  Rendered collection of artists/_artist.html.erb [5 times] (Duration: 2.0ms | Allocations: 876)
+  Rendered artists/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1980)
+  Rendered layout layouts/application.html.erb (Duration: 76.3ms | Allocations: 22309)
+Completed 200 OK in 91ms (Views: 80.1ms | ActiveRecord: 1.3ms | Allocations: 28289)
+
+

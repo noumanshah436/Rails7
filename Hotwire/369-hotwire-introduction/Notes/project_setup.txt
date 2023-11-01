@@ -10,3 +10,17 @@
 1275  rails s
 
 also run Procfile.dev commands on separate terminal
+*********************
+
+we can start this project by just running:
+cd "/home/dev/Rails-Training/Rails7/Hotwire/369-hotwire-introduction"
+./bin/dev
+
+this will run dev script inside bin folder.
+*********************
+
+rails s
+npm run build --watch
+npm run build:css --watch
+
+*********************

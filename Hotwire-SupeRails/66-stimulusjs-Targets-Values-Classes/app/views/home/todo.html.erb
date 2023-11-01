@@ -1,0 +1,10 @@
+<div data-controller="todo" data-todo-completed-class="bg-green-100" data-todo-count-value="2" >
+  <ul data-todo-target="itemList">
+    <li data-action="click->todo#toggleCompleted" data-todo-target="item">Task 1</li>
+    <li data-action="click->todo#toggleCompleted" data-todo-target="item">Task 2</li>
+    <!-- Add more items as needed -->
+  </ul>
+
+  <%= text_field_tag :task, nil, data: { todo_target: "input" } %>
+  <%= button_tag "Add", data: { action: "click->todo#add", todo_target: "addButton" } %>
+</div>

@@ -1,0 +1,59 @@
+we want the second half of the first-page to populated with new content every time we click the button:
+
+I will wrap everything in a frame because the button needs to be inside the frame that we want to update.
+And since we want to update the contents of the div with the id of content, we've gotta wrap everything in a frame.
+
+<!-- app/views/site/first.html.erb -->
+<%= turbo_frame_tag "frame1" do %>
+  <div class="w-full text-center my-8">
+    <%= link_to "Load stuff!", second_page_path, class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
+  </div>
+
+  <div class="my-8 w-full mx-auto" id="content">
+    <%= render "the_stuff" %>
+  </div>
+<% end %>
+
+
+The response needs a frame with the same identifier as the one that originated the request.
+In this case, it's going to be frame1.
+
+<!-- app/views/site/second.html.erb -->
+<%= turbo_frame_tag "frame1" do %>
+  <%= render "the_stuff" %>
+<% end %>
+
+
+The the response updated the entire frame
+
+we can set the data-turbo-frame attribute on the link to explicitly tell Turbo which frame to target when the response comes back from the server.
+
+<!-- app/views/site/first.html.erb -->
+<div class="w-full text-center my-8">
+  <%= link_to "Load stuff!", second_page_path, data: { turbo_frame: "frame1" }, class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
+</div>
+
+<!-- app/views/site/second.html.erb -->
+<%= turbo_frame_tag "frame1" do %>
+  <div class="my-8 w-full mx-auto" id="content">
+    <%= render "the_stuff" %>
+  </div>
+<% end %>
+
+*********************************
+
+That's a big benefit that Turbo Frames have over Turbo Streams.
+
+Another benefit is you can lazy-load (or progressively load) page segments as they become visible.
+And you can also cache the frames independently of each other.
+
+But there are three problems with Turbo Frames.
+
+1) The first problem is we can only update one frame at a time.
+  This means if we wanted to click a button and update two or more sections of the page, it wouldn't work.
+
+2) The second problem is that we can only update the frame's content.
+We cannot delete, prepend, append, or anything other than just update.
+
+3) The third problem is that we cannot update the page programmatically by sending new content from the back-end.
+

@@ -1,0 +1,55 @@
+
+
+https://www.youtube.com/watch?v=ScxUqW29F7E&list=PLdTytUiloS16epXsqHswpCUMND_rksjr4&index=6
+
+Ruby on Rails #67 Streams: Infinite Scroll Pagination
+
+*********************************
+
+Add load button at the end and when we click it.
+it will load comments using turbo_streams without page refresh.
+
+*********************************
+
+pagy:
+
+https://github.com/corsego/67-streams-infinite-pagination/commit/66403c57116504a7919b7ddac6ff0cada389cd8e
+
+1) bundle add pagy
+gem "pagy", "~> 5.10"
+
+2) add in application_controller:
+
+  include Pagy::Backend
+
+
+3) add in application_helper.rb
+
+  include Pagy::Frontend
+
+4) pagy.rb in initializers:
+
+require 'pagy/extras/support'
+require 'pagy/extras/countless'
+
+
+5) make actions like:
+
+def index
+  # @comments = Comment.all
+  @pagy, @comments = pagy(Comment.order(created_at: :desc), items: 5)
+end
+
+6) add link for the next page in index.html.erb:
+<%== pagy_next_link(@pagy, text: 'More...', link_extra: 'id="next_link"') %>
+
+
+************************************************
+load_more button with Streams
+************************************************
+
+1) add post route because Turbo stream doesn’t respond to GET request, it only responds to POST request
+
+2) change load more button to send POST request to index action
+
+3) and it will load index.turbo_stream page that will append new comments and update button for next comments.

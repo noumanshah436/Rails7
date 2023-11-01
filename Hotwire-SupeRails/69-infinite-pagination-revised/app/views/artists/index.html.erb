@@ -1,0 +1,18 @@
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Artists</h1>
+    <%= link_to 'New artist', new_artist_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  </div>
+
+  <div id="artists" class="min-w-full">
+    <%= render @artists %>
+  </div>
+
+  <%# this is the turbo frame tag to the artists-url that tries to respond to the turbo-stream template %>
+  <%# i.e it send post request to index action and will load index.turbo_stream that will add next records without page refresh %>
+  <%= turbo_frame_tag :pagination, loading: :lazy, src: artists_path(format: :turbo_stream) %>
+</div>

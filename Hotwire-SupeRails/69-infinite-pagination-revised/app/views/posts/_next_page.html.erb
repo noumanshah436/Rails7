@@ -1,0 +1,16 @@
+<%= turbo_frame_tag "posts-page-#{@pagy.next}",
+                    loading: :lazy,
+                    # autoscroll: true,
+                    src: pagy_url_for(@pagy, @pagy.next) do %>
+                    <div class="bg-blue-600">Loading...</div>
+                    <% end %>
+
+<!--
+
+this will generate:
+
+<turbo-frame loading="lazy" id="posts-page-2" src="/posts?page=2">
+  <div class="bg-blue-600">Loading...</div>
+</turbo-frame>
+
+-->

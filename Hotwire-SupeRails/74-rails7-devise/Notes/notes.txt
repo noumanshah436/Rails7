@@ -1,0 +1,21 @@
+rails g controller sttaic_pages landing_page dashboard
+
+Anyone can see the landing sttaic_pages
+and only logged-in users can see the dashboard
+
+********************************
+
+Ruby on Rails #74 Make Devise work with Rails 7 and Turbo
+
+https://www.youtube.com/watch?v=XJ27X06GVrI&list=PLdTytUiloS16epXsqHswpCUMND_rksjr4&index=11
+
+https://blog.corsego.com/turbo-devise
+
+https://github.com/corsego/74-rails7-devise
+
+*********************************
+
+Basic idea:
+
+Since Turbolinks is replaced with Turbo Drive (That is part of Hotwire) in rails 7, we need to ensure full-page redirects when submitting devise forms.
+To do so, add data: { turbo: false } on all devise forms, after you run rails generate devise:views.

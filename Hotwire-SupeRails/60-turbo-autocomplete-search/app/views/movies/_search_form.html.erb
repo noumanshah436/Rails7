@@ -1,0 +1,19 @@
+<%#= form_with url: search_movies_path, method: :post do |form| %>
+  <%#= form.search_field :title_search, oninput: "this.form.requestSubmit()" %>
+<%# end %>
+
+<%# Implemented a delay in sending a request with Stimulus %>
+<%= form_with url: search_movies_path, method: :post, data: {controller: "debounce", debounce_target: "form" } do |form| %>
+  <%= form.search_field :title_search, data: { action: "input->debounce#search" } %>
+<% end %>
+
+<div id="search_results"></div>
+
+
+<!--
+generated form:
+
+<form data-controller="debounce" data-debounce-target="form" action="/movies/search" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="lV13GvhXyludlw2G3i0wduhvv1UM_Upv-FU6O4318V9qQ6cbOnCIgmuU7_7nkecT6_4S8Qk9PNAffrYHx9XCsw" autocomplete="off">
+  <input data-action="input->debounce#search" type="search" name="title_search" id="title_search">
+</form>
+-->

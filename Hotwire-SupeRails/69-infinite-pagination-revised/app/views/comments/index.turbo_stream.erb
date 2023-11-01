@@ -1,0 +1,10 @@
+<%= turbo_stream.append "comments" do %>
+  <%= render @comments %>
+<% end %>
+
+<%= turbo_stream.update "load_more_button" do %>
+  <%# this will not show load more button if there are no more comments  %>
+  <% if @pagy.next.present? %>
+    <%= button_to "Load more", pagy_url_for(@pagy, @pagy.next), class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  <% end %>
+<% end %>

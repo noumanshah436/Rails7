@@ -1,0 +1,32 @@
+
+We will load N number of post automatically on scrolling without page refresh using turbo-frame lazy loading.
+
+**********************************
+http://localhost:3000/posts?page=2
+
+Query executed to get posts for 2nd page:
+
+SELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?  [["LIMIT", 5], ["OFFSET", 5]]
+
+**********************************
+
+Query executed for page = 3:
+
+SELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?  [["LIMIT", 5], ["OFFSET", 10]]
+
+**********************************
+
+How its working:
+
+1) for the first time it renders index page with 5 posts, and at the end it have turbo-frame tag:
+
+<turbo-frame loading="lazy" id="posts-page-2" src="/posts?page=2">
+  <div class="bg-blue-600">Loading...</div>
+</turbo-frame>
+
+2) when we scroll to the bottom (i.e when turbo-frame is visible )
+<%= render "posts/next_page" %>
+
+the turbo-frame tag within this partial send post request for the second page (with params[:page] = 2),
+and if you see index action, it will now render scrollable_list template, which will add next posts to the
+above turbo-frame tag (with id = "posts-page-2") and add turbo-frame tag for the next page.

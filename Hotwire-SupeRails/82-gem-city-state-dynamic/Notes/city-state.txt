@@ -1,0 +1,42 @@
+
+1) gem "city-state", "~> 0.1.0"
+
+2) bundle
+
+3) test on rails console
+
+Listing Countries:*****************************
+$ CS.countries
+$ CS.countries.count
+
+Listing States:*****************************
+
+Retrieve a list of states for a specified country:
+
+CS.states(:US)
+
+CS.states(:PK)
+ => {:BA=>"Balochistan", :GB=>"Gilgit-Baltistan", :IS=>"Islamabad", :JK=>"Azad Kashmir", :KP=>"Khyber Pakhtunkhwa", :PB=>"Punjab", :SD=>"Sindh"}
+
+
+Note: The gem is case-insensitive. You can use variations like :US, :us, :Us, "us", and "US".
+
+Listing Cities:*****************************
+
+Retrieve a list of cities for a specified state and country:
+
+CS.cities(:AK, :US)
+
+CS.cities(:PB, :PK) # get cities of Punjab pakistan
+
+
+You can also specify the country, though it's optional. The gem remembers the last country you used:
+
+CS.states(:BR)
+
+CS.cities(:TO)  # This will use Brazil (BR) as the country
+
+
+Miscellaneous Notes:
+
+The country is an optional argument. The gem always uses the last country that you used.

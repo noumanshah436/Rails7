@@ -1,0 +1,17 @@
+Live streams
+One of the benifit of turbo streams is you can update the page via WebSockets.
+
+This means you can open up a WebSocket connection in your browser, and then you can send data through that connection from anywhere in your application.
+
+So let's set it up and try it.
+
+I'll add a new POST route named fourth which we'll trigger using our button, and inside the fourth action,
+ we can use the Turbo::StreamsChannel module to send Turbo Stream messages over the WebSocket connection.
+
+# app/controllers/site_controller.rb
+def fourth
+  Turbo::StreamsChannel.broadcast_update_to("mystr", target: "content", partial: "site/the_stuff")
+end
+
+
+So let's just broadcast updates, as we did before. We'll update the content div through the mystr stream.
