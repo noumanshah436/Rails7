@@ -1,0 +1,24 @@
+
+
+tailwindcss-rails 
+
+https://github.com/rails/tailwindcss-rails
+
+**************************************
+
+$ bin/rails tailwindcss:watch
+
++ /home/dev/.rvm/gems/ruby-3.1.0/gems/tailwindcss-rails-2.0.8-x86_64-linux/exe/x86_64-linux/tailwindcss -i /home/dev/Rails-Training/Rails7/Hotwire-SupeRails/66-stimulusjs-dropdown/app/assets/stylesheets/application.tailwind.css -o /home/dev/Rails-Training/Rails7/Hotwire-SupeRails/66-stimulusjs-dropdown/app/assets/builds/tailwind.css -c /home/dev/Rails-Training/Rails7/Hotwire-SupeRails/66-stimulusjs-dropdown/config/tailwind.config.js --minify -w
+Specified input file /home/dev/Rails-Training/Rails7/Hotwire-SupeRails/66-stimulusjs-dropdown/app/assets/stylesheets/application.tailwind.css does not exist.
+
+
+
+
+solution:
+
+$ ./bin/rails tailwindcss:install
+
+
+$ ./bin/dev
+
+

@@ -1,0 +1,4 @@
+
+$ rails g stimulus dropdown
+
+it creates app/javascript/controllers/dropdown_controller.js file

@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ["dropdownContent", "openButton", "closeButton", "active"]
   static values = { open: Boolean }
   static classes = ["opened"]
-  
+
   connect() {
     if (this.openValue) {
       this.openDropdown()
@@ -16,7 +16,7 @@ export default class extends Controller {
     // this.closeButtonTarget.hidden = true
     // console.log("hello")
   }
-  
+
   toggleDropdown() {
     if (this.dropdownContentTarget.hidden == true) {
       this.openDropdown()
@@ -24,7 +24,7 @@ export default class extends Controller {
       this.closeDropdown()
     }
   }
-  
+
   openDropdown() {
     this.dropdownContentTarget.hidden = false
     try {

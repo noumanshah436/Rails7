@@ -10,4 +10,5 @@ why i need post request to render edit page using turbo_stream in rails?
 
 5. **Solution**: To make Turbo Streams work for showing an edit page, Rails uses a "POST" request, but it's a special kind of "POST" that doesn't actually change anything. It's just a way to trigger Turbo Streams to update the page with the edit form.
 
-So, in simple terms, a "POST" request is used with Turbo Streams to render the edit page because it allows for dynamic updates while still following the principles of a RESTful design. It's like a workaround to achieve a more interactive user experience without breaking the rules of the web.
+So, in simple terms, a "POST" request is used with Turbo Streams to render the edit page because it allows for dynamic updates while still following the principles of a RESTful design.
+It's like a workaround to achieve a more interactive user experience without breaking the rules of the web.
