@@ -1,0 +1,16 @@
+
+
+ 2002  rvm install "ruby-3.2.0"
+ 2003  ruby -v
+ 2004  bundle
+ 2005  rails db:migrate
+ 2006  rails db:system:change --to=sqlite
+ 2007  rails db:system:change --to=sqlite3
+ 2008  rails db:migrate
+ 2009  bundle
+ 2010  rails db:migrate
+ 2011  rails db:seed
+ 2012  rails s
+
+
+

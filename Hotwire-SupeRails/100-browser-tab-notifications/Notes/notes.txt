@@ -1,0 +1,11 @@
+
+
+https://www.youtube.com/watch?v=CmNj_BZGGUg&list=PLdTytUiloS16epXsqHswpCUMND_rksjr4&index=19
+
+
+
+1) Update document icon based on notifications count
+
+2) Also add stimulus controller to blick notification count on every 1 sec of interval
+
+3) Update title count on every page using broadcas

@@ -1,1 +1,41 @@
 https://www.youtube.com/playlist?list=PLdTytUiloS16epXsqHswpCUMND_rksjr4
+
+
+***********************************
+
+Stimulus-js:
+
+/home/dev/Rails-Training/Rails7/Hotwire-SupeRails/66-stimulusjs-dropdown
+
+***********************************
+
+Turbo streams:
+
+/home/dev/Rails-Training/Rails7/Hotwire-SupeRails/59-turbo-streams-crud
+
+/home/dev/Rails-Training/Rails7/Hotwire-SupeRails/369-hotwire-introduction
+	Fetch post on click
+	Highlight active post
+	
+	
+	
+
+***********************************
+
+Turbo Frames:
+
+/home/dev/Rails-Training/Rails7/Hotwire-SupeRails/73-turbo-frame-hovercards
+
+/home/dev/Rails-Training/Rails7/Hotwire-SupeRails/369-hotwire-introduction
+
+/home/dev/Rails-Training/Rails7/Hotwire-SupeRails/98-hotwire-inline-edit-attributes
+
+***********************************
+
+
+Broadcasting:
+
+/home/dev/Rails-Training/Rails7/Hotwire-SupeRails/100-browser-tab-notifications
+
+
+***********************************

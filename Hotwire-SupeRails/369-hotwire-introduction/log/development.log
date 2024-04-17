@@ -1,0 +1,1234 @@
+Started GET "/" for ::1 at 2023-11-01 12:36:52 -0700
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 3 pending migrations:
+
+20221002014713_create_posts.rb
+20221002014857_create_active_storage_tables.active_storage.rb
+20221002014858_create_action_text_tables.action_text.rb
+
+
+):
+  
+activerecord (7.0.4) lib/active_record/migration.rb:627:in `check_pending!'
+activerecord (7.0.4) lib/active_record/migration.rb:592:in `block (2 levels) in call'
+activesupport (7.0.4) lib/active_support/file_update_checker.rb:83:in `execute'
+activerecord (7.0.4) lib/active_record/migration.rb:597:in `block in call'
+activerecord (7.0.4) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/rails/actions" for ::1 at 2023-11-01 12:36:55 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePosts (20221002014713)
+  [1m[36mTRANSACTION (11.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221002014713"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateActiveStorageTables (20221002014857)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "service_name" varchar NOT NULL, "byte_size" bigint NOT NULL, "checksum" varchar, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221002014857"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateActionTextTables (20221002014858)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "action_text_rich_texts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "body" text, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_action_text_rich_texts_uniqueness" ON "action_text_rich_texts" ("record_type", "record_id", "name")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221002014858"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-11-01 19:36:55.607944"], ["updated_at", "2023-11-01 19:36:55.607944"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2023-11-01 12:36:55 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/_results.html.erb (Duration: 2.1ms | Allocations: 302)
+  Rendered welcome/index.html.erb within layouts/application (Duration: 5.5ms | Allocations: 2269)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 8791)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms | Allocations: 11817)
+
+
+  
+ActionView::Template::Error (The asset 'application.css' was not found in the load path.):
+     6:     <%= csrf_meta_tags %>
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    10:     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    11:   </head>
+    12: 
+  
+app/views/layouts/application.html.erb:9
+Started GET "/" for ::1 at 2023-11-01 12:47:31 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/_results.html.erb (Duration: 0.5ms | Allocations: 313)
+  Rendered welcome/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 2455)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 10945)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.0ms | Allocations: 14748)
+
+
+  
+ActionView::Template::Error (The asset 'application.js' was not found in the load path.):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    10:     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    11:   </head>
+    12: 
+    13:   <body class='bg-light'>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for ::1 at 2023-11-01 12:49:03 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/_results.html.erb (Duration: 0.4ms | Allocations: 313)
+  Rendered welcome/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 2455)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 10945)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.0ms | Allocations: 14756)
+
+
+  
+ActionView::Template::Error (The asset 'application.js' was not found in the load path.):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    10:     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    11:   </head>
+    12: 
+    13:   <body class='bg-light'>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for ::1 at 2023-11-01 12:50:20 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/_results.html.erb (Duration: 0.3ms | Allocations: 313)
+  Rendered welcome/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 2455)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 10945)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms | Allocations: 14747)
+
+
+  
+ActionView::Template::Error (The asset 'application.js' was not found in the load path.):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    10:     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    11:   </head>
+    12: 
+    13:   <body class='bg-light'>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for ::1 at 2023-11-01 12:50:22 -0700
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/_results.html.erb (Duration: 0.1ms | Allocations: 60)
+  Rendered welcome/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1119)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 2224)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 2630)
+
+
+  
+ActionView::Template::Error (The asset 'application.js' was not found in the load path.):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    10:     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    11:   </head>
+    12: 
+    13:   <body class='bg-light'>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for ::1 at 2023-11-01 12:52:23 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/_results.html.erb (Duration: 1.0ms | Allocations: 313)
+  Rendered welcome/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2455)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.3ms | Allocations: 174)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.0ms | Allocations: 44)
+  Rendered layouts/_navigation.html.erb (Duration: 1.5ms | Allocations: 640)
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 11125)
+Completed 200 OK in 26ms (Views: 15.2ms | ActiveRecord: 0.0ms | Allocations: 14951)
+
+
+Started GET "/assets/application-0372769b0210d20e9bef8a91d5e389997d9a48f1.css" for ::1 at 2023-11-01 12:52:23 -0700
+Started GET "/assets/application-32bc8619f5e530ecc353109cbc39df92bc97e40d.js" for ::1 at 2023-11-01 12:52:23 -0700
+Removed sourceMappingURL comment for missing asset 'assets/application.js.map' from assets/application.js.map
+Started GET "/assets/actiontext.css" for ::1 at 2023-11-01 12:52:23 -0700
+Started GET "/?query=grammer" for ::1 at 2023-11-01 12:52:25 -0700
+Processing by WelcomeController#index as TURBO_STREAM
+  Parameters: {"query"=>"grammer"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (title like '%grammer%')[0m
+  ↳ app/views/welcome/_results.html.erb:3
+  Rendered welcome/_results.html.erb (Duration: 1.4ms | Allocations: 822)
+Completed 200 OK in 23ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 4173)
+
+
+Started POST "/" for ::1 at 2023-11-01 12:52:27 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/"):
+  
+Started GET "/?query=grammer" for ::1 at 2023-11-01 12:52:27 -0700
+Processing by WelcomeController#index as TURBO_STREAM
+  Parameters: {"query"=>"grammer"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (title like '%grammer%')[0m
+  ↳ app/views/welcome/_results.html.erb:3
+  Rendered welcome/_results.html.erb (Duration: 0.8ms | Allocations: 691)
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1190)
+
+
+Started POST "/" for ::1 at 2023-11-01 12:52:27 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/"):
+  
+Started GET "/?query=grammer" for ::1 at 2023-11-01 12:52:27 -0700
+Processing by WelcomeController#index as TURBO_STREAM
+  Parameters: {"query"=>"grammer"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (title like '%grammer%')[0m
+  ↳ app/views/welcome/_results.html.erb:3
+  Rendered welcome/_results.html.erb (Duration: 0.7ms | Allocations: 594)
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1016)
+
+
+Started POST "/" for ::1 at 2023-11-01 12:52:27 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/"):
+  
+Started GET "/?query=grammer" for ::1 at 2023-11-01 12:52:27 -0700
+Processing by WelcomeController#index as TURBO_STREAM
+  Parameters: {"query"=>"grammer"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (title like '%grammer%')[0m
+  ↳ app/views/welcome/_results.html.erb:3
+  Rendered welcome/_results.html.erb (Duration: 0.7ms | Allocations: 594)
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1018)
+
+
+Started GET "/" for ::1 at 2024-04-16 12:22:37 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/_results.html.erb (Duration: 0.4ms | Allocations: 313)
+  Rendered welcome/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2669)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.5ms | Allocations: 174)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.0ms | Allocations: 44)
+  Rendered layouts/_navigation.html.erb (Duration: 1.6ms | Allocations: 643)
+  Rendered layout layouts/application.html.erb (Duration: 20.8ms | Allocations: 11342)
+Completed 200 OK in 37ms (Views: 24.6ms | ActiveRecord: 0.0ms | Allocations: 16402)
+
+
+Started GET "/assets/application-0372769b0210d20e9bef8a91d5e389997d9a48f1.css" for ::1 at 2024-04-16 12:22:37 +0500
+Started GET "/assets/application-32bc8619f5e530ecc353109cbc39df92bc97e40d.js" for ::1 at 2024-04-16 12:22:37 +0500
+Started GET "/assets/logo-640e86afed2ac6cd7ae51fef6fe416d84ed9ebcc.png" for ::1 at 2024-04-16 12:22:37 +0500
+Removed sourceMappingURL comment for missing asset 'assets/application.js.map' from assets/application.js.map
+Started GET "/assets/application-32bc8619f5e530ecc353109cbc39df92bc97e40d.js" for ::1 at 2024-04-16 12:22:37 +0500
+Removed sourceMappingURL comment for missing asset 'assets/application.js.map' from assets/application.js.map
+Started GET "/assets/actiontext.css" for ::1 at 2024-04-16 12:22:37 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I don't know."], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "I don't know."], ["created_at", "2024-04-16 07:22:47.364020"], ["updated_at", "2024-04-16 07:22:47.364020"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Recusandae conicio adfero. Suppellex creber comptus. Tabgo cupiditas terminatio. Veniam vicissitudo carpo. Compello canonicus vesica. Unus considero inflammatio. Vix et timor. Tollo strenuus et. Omnis temporibus et. Crinis aestas degenero. Consequatur voluptatem tremo. Tametsi patrocinor curis. Tandem conicio comitatus. Et canonicus suffragium. Deprecator velut cognatus. Sumo termes sponte. Spargo contigo auctor. Defaeco usus quia. Avarus agnitio velit. Teres textor et. Enim bellum culpa. Vacuus custodia eum. Tyrannus blandior absum. Necessitatibus harum acceptus. Temptatio quo acidus. Et basium voluptatum. Cognatus vicinus explicabo. Rem triumphus curto. Spargo ademptio asper. Debeo aut defungo. Debitis cicuta sed. Strues depromo aveho. Coerceo crux textor. Constans tabesco tui. Benevolentia aequitas aestus. Desidero vel attero. Termes uter cervus. Acsi earum colloco. Casso totidem crapula. Curso aut solitudo. Aequitas vehemens cauda. Admitto caelestis aut. Voluptatem solum arcus. Defluo cubo tribuo. Credo tricesimus contra. Quia synagoga beatae. Canonicus cauda bestia. Quod creta tamdiu. Voluptatem absconditus arx. Aeternus et solitudo. Terminatio varius aut. Absorbeo cupiditate communis. Volubilis deripio iste. Theologus adstringo crastinus. Accipio aegre saepe. Viduo comedo acervus. Cito amor eaque. Denego tam carpo. Usus tandem verus. Certus catena suadeo. Tego cursim crux. Theologus vestigium adhuc. Quae demoror doloremque. Delinquo vorago cuppedia. Umbra vulnero antiquus. Confido sortitus conservo."], ["record_type", "Post"], ["record_id", 1], ["created_at", "2024-04-16 07:22:47.378214"], ["updated_at", "2024-04-16 07:22:47.378214"]]
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 1], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.0ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.379521"], ["id", 1]]
+  [1m[36mTRANSACTION (12.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Okay, I won't."], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Okay, I won't."], ["created_at", "2024-04-16 07:22:47.405076"], ["updated_at", "2024-04-16 07:22:47.405076"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Vulgivagus denuncio viriliter. Crapula curvus acies. Aequitas arbustum cur. Baiulus creta ratione. Spectaculum decumbo cerno. Capto tabgo arceo. Stultus nobis accedo. Cultura cimentarius volup. Suggero subito rerum. Utroque victus tyrannus. Adfectus depromo vehemens. Civis aut pecus. Appono tutamen sortitus. Aeternus quibusdam desolo. Neque accedo conduco. Certus aqua verus. Solum aspicio speculum. Attollo arca approbo. Vilicus velit vester. Est vitiosus conspergo. Spero delicate comparo. Copiose aperte surculus. Absorbeo conventus aliquam. Denuncio amo desidero. Colloco voco acies. Curia voluptatum toties. Cohibeo sunt carcer. Tactus cura clibanus. Calculus verumtamen ipsum. Calculus caute culpa. Caries totam admiratio. Carmen consuasor numquam. Verbera stabilis mollitia. Corrigo utor commodo. Venustas aliqua tertius. Aeger baiulus ex. Vero ventosus adfectus. Turba solio articulus. Volaticus cado incidunt. Voluptatem accedo aspernatur. Summa pecunia depulso. Arceo via vorago. Ventus dapifer aestus. Est degero eum. Vitiosus voluptas adnuo. Caelum sapiente sordeo. Terreo delinquo fugit. Venio caste similique. Absens virgo uterque. Aestus dolores distinctio. Sapiente ver terga. Sublime succedo audax. Vesper volutabrum anser. Calco cura torrens. Thema apto cum. Clam sollicito artificiose. Illum voluptatibus atrocitas. Rem damno aggero. Vis curis volva. Vigor spes ambulo. Defessus crastinus territo. Colo ullam labore. Cauda callide annus. Textilis adamo natus. Cunabula cavus cursim. Capillus somnus atque."], ["record_type", "Post"], ["record_id", 2], ["created_at", "2024-04-16 07:22:47.406947"], ["updated_at", "2024-04-16 07:22:47.406947"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 2], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.1ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.407942"], ["id", 2]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Does nobody understand?"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Does nobody understand?"], ["created_at", "2024-04-16 07:22:47.417779"], ["updated_at", "2024-04-16 07:22:47.417779"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Acquiro conitor cornu. Defungo deripio dens. Desparatus thymbra decet. Denuo magni aqua. Commodo aeger aegre. Trucido aperio tamquam. Carbo patria paulatim. Venia in quia. Quos congregatio tres. Attonbitus amissio minima. Quia corrupti patrocinor. Conventus placeat campana. Brevis defendo tremo. Antea numquam ut. Aperiam crepusculum sursum. Causa ustilo caveo. Cresco illo acerbitas. Cognatus tergum cimentarius. Venio despirmatio sophismata. Celebrer administratio coadunatio. Amicitia cervus coerceo. Degero sponte delibero. Convoco atrox sustineo. Decretum contego curtus. Ullam umerus abscido. Pecunia caterva vir. Officia aggredior undique. Arceo usitas accendo. Acies vehemens inventore. Amiculum adduco peior. Quis cubicularis adulatio. Quia depulso viduata. Appello subvenio provident. Amiculum perspiciatis voluptatum. Eligendi temptatio careo. Cometes ratione depopulo. Illum sono vero. Cultellus depereo alioqui. Uterque aut deputo. Eum nihil suscipio. Degenero vorax sint. Timidus laudantium et. Catena aequus sulum. Synagoga ipsa vicinus. Valde dolor acer. Canto desino bonus. Accendo ater arbor. Error virga solum. Deludo degero animadverto. Vos thalassinus adiuvo. Vereor sumo volup. Subito nisi terebro. Cerno conicio bestia. Tabgo tamdiu odio. Adulescens vulgus aptus. Uredo cognomen aperio. Audacia absum adnuo. Tot amplitudo dens. Alo aut terreo. Cotidie aggero collum. Arbor depono magnam. Explicabo quo color. Eos ipsa subvenio. Dedico adversus avaritia. Deprimo cuius omnis. Solium demitto vacuus."], ["record_type", "Post"], ["record_id", 3], ["created_at", "2024-04-16 07:22:47.419538"], ["updated_at", "2024-04-16 07:22:47.419538"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 3], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.0ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.420347"], ["id", 3]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Strike the tent."], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Strike the tent."], ["created_at", "2024-04-16 07:22:47.430309"], ["updated_at", "2024-04-16 07:22:47.430309"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Ex abstergo argumentum. Thesaurus conservo et. Ambulo ubi temptatio. Aut iusto commodo. Tergeo coepi amissio. Aegre corporis sapiente. Aptus sollers compello. Crustulum stips adficio. Aequitas contego suadeo. Comptus desino libero. Autem bonus campana. Aestivus armo valens. Strenuus arbor sit. Tutamen voluptatem vel. Aut subvenio depono. Vereor ara trado. Delectus corona crinis. Peior vulnero vobis. Tergiversatio aegrus carcer. Et ascit dignissimos. Decor copiose arcus. Tui demitto odit. Adultus tener viscus. Aeneus absens amoveo. Aro culpa curto. Templum delinquo talis. Cibus sed voluptas. Accusantium non succurro. Clibanus depopulo et. Quae suffoco aliquam. Tero cunctatio civitas. Vicissitudo aliquid amiculum. Altus cultellus benigne. Tempus cursus cupiditas. Censura et tricesimus. Terror vespillo rerum. Cornu statim ultio. Virgo strues conor. Stultus argumentum videlicet. Vulgaris speciosus nisi. Cui congregatio suppono. Voluptatem teres victoria. Voro charisma sit. Clibanus utroque quia. Commemoro vitiosus crebro. Suscipit eos peior. Usitas ut infit. Dolorum subiungo sed. Comis iste chirographum. Antea victus demoror. Doloremque tracto vapulus. Curso nobis usus. Sed tergo certo. Textor comparo defungo. Necessitatibus paulatim ascisco. Delinquo appositus dolore. Triduana degero nihil. Facere creptio celebrer. Acquiro itaque patior. Textus vito adnuo. Quidem molestias conor. Aut ceno tollo. Tunc ventito averto. Sed studio aetas."], ["record_type", "Post"], ["record_id", 4], ["created_at", "2024-04-16 07:22:47.432013"], ["updated_at", "2024-04-16 07:22:47.432013"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 4], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.0ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.432850"], ["id", 4]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Yes, it's tough, but not as tough as doing comedy."], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Yes, it's tough, but not as tough as doing comedy."], ["created_at", "2024-04-16 07:22:47.442995"], ["updated_at", "2024-04-16 07:22:47.442995"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Dolores abduco enim. Alias absorbeo vere. Bonus delinquo ultra. Vesica tremo corrigo. Abutor currus videlicet. Adipiscor theca aeger. Culpa pecto voluptate. Creo urbs valetudo. Territo tardus reiciendis. Celo quos adinventitias. Copia centum avarus. Delicate suppellex tolero. Ustilo error thorax. Cras solium adaugeo. Perspiciatis degenero teneo. Qui vespillo arto. Tero cena utique. Cicuta acervus nihil. Cupiditas velut contigo. Id despecto concido. Paulatim decerno tempora. Veritatis tredecim versus. Cruciamentum ultra vita. Altus callide deprimo. Repudiandae vestrum appello. Demergo suadeo aegrotatio. Adsidue suscipio voluptates. Conscendo desino tabernus. Tener culpo thymum. Coruscus est tollo. Ascisco dedecor copia. Aetas beatus neque. Adeo certe clamo. Demergo omnis somniculosus. Et abstergo caelestis. Convoco cui vel. Textor decor verus. Verbera non timor. Amitto patruus consectetur. Attonbitus defetiscor copiose. Abscido vehemens balbus. Concido quae vindico. Suadeo aetas vesco. Defigo rerum admiratio. Venio tot angelus. Aut est talis. Virga tamquam creta. Curiositas ut temporibus. Aut cornu talio. Tyrannus sublime stillicidium. Civitas sunt alter. Arca amet compello. Spero curo adhuc. Acsi clarus est. Antea testimonium libero. Animi non culpo. Consequuntur nostrum barba. Umerus vae statim. Cohaero autus adhaero. Crapula concido vehemens. Admiratio nostrum qui. Numquam tergeo vesco. Candidus beatae officia. Succedo causa adicio. Voluptatibus sit cursus. Defaeco degero capitulus."], ["record_type", "Post"], ["record_id", 5], ["created_at", "2024-04-16 07:22:47.444664"], ["updated_at", "2024-04-16 07:22:47.444664"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 5], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.0ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.445522"], ["id", 5]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Tape Seinfeld for me."], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Tape Seinfeld for me."], ["created_at", "2024-04-16 07:22:47.456022"], ["updated_at", "2024-04-16 07:22:47.456022"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Bos quo tyrannus. Sint decor nihil. Sol acceptus repellat. Qui amicitia depraedor. Quis tabula vinculum. Ubi peccatus tego. Viriliter fugiat careo. Tyrannus cognomen animi. Suus ab doloremque. Ascit causa sint. Attero accendo eligendi. Vilitas animi coaegresco. Amissio non pauci. Cupio tripudio denique. Tabella conventus pauci. Advenio eos caveo. Ut explicabo suasoria. Audacia denuncio universe. Cohors conitor pecus. Deleo creo cogito. Carcer celo perferendis. Sustineo vulnero adficio. Aggero conspergo averto. Aperte ustulo torqueo. Ceno autem demum. Vinco colloco taedium. Coruscus cubicularis contigo. Denuncio sint tamquam. Adficio super praesentium. Demens votum ago. Vox ter asporto. Beneficium et atavus. Canonicus trucido ait. Odio omnis cenaculum. Certo soleo trans. Undique utor cimentarius. Comburo vespillo voveo. Aiunt avoco atrox. Vobis commodo triumphus. Custodia sint umquam. Atavus calculus ut. Et acies curiositas. Sodalitas ulciscor ratione. Suscipio tergo uterque. Antiquus distinctio pecus. Volubilis depereo et. Solitudo vulnero substantia. Amplexus cognomen utor. Delinquo atqui tactus. Aer animi vulnero. Canis defetiscor quo. Adsidue succedo avarus. Dapifer sustineo capillus. Voluptatem culpa carpo. Quo voveo nam. Spiritus carmen beneficium. Accommodo deserunt bellicus. Calculus dolore comes. Sustineo comedo custodia. Desidero aureus decet. Tabesco cervus totidem. Incidunt usitas impedit. Surculus cimentarius accendo. Thesaurus maiores certus. Adnuo terga tempus. Suspendo autem tondeo. Est tandem addo."], ["record_type", "Post"], ["record_id", 6], ["created_at", "2024-04-16 07:22:47.457666"], ["updated_at", "2024-04-16 07:22:47.457666"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 6], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.1ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.458498"], ["id", 6]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "My vocabulary did this to me. Your love will let you go on…"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "My vocabulary did this to me. Your love will let you go on…"], ["created_at", "2024-04-16 07:22:47.468963"], ["updated_at", "2024-04-16 07:22:47.468963"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Quod consequatur non. Vilis cruciamentum quis. Sublime patrocinor volup. Thesaurus aliquam et. Urbs uterque voluntarius. Unde subnecto nam. Adimpleo dedecor considero. Atqui vos bibo. Auctor sordeo strenuus. Enim defluo coniuratio. Quam cotidie studio. Totus ullam aspernatur. Anser desparatus amicitia. Pariatur corporis voco. Aegrotatio abbas triduana. Una vobis labore. Quia thesis degero. Et ambitus calco. Ut suffoco vero. Confido cultellus voluptas. Claustrum vilicus possimus. Tendo coniuratio vero. Benevolentia ut defleo. Patior voluptatibus talus. Aurum civitas caput. Ait deficio denego. Vado callide qui. Aqua calco via. Numquam ver adulescens. Uterque defendo somnus. Concedo aranea deludo. Tempore beatae suggero. Et studio quaerat. Adsidue taceo demulceo. Repudiandae dignissimos caveo. Traho astrum conforto. Arguo atqui vomica. Autus cribro perspiciatis. Usque fugit vel. Cunabula ea apparatus. Accedo voluptatem antepono. Cavus voluptatem tergiversatio. Timor adversus tabella. Tristis et antiquus. Ago excepturi adhuc. Labore nesciunt suscipio. Vester ab volo. Uter ubi communis. Audio infit reiciendis. Ustulo avaritia addo. Animi tamquam defendo. Nemo theologus nihil. Via vigor textus. Comedo degero bestia. Minus adimpleo ventus. Coniuratio esse undique. Repellat via triduana. Canto uter spiritus. Audeo copiose virtus. Vergo adaugeo succurro. Agnosco antiquus ait. Tabella curo aut. Turpe avaritia artificiose. Sonitus aestus utroque. Universe canis vigor. Aut conventus vos. Attonbitus carbo absum."], ["record_type", "Post"], ["record_id", 7], ["created_at", "2024-04-16 07:22:47.470813"], ["updated_at", "2024-04-16 07:22:47.470813"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 7], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.1ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.472317"], ["id", 7]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "It's stopped."], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "It's stopped."], ["created_at", "2024-04-16 07:22:47.484695"], ["updated_at", "2024-04-16 07:22:47.484695"]]
+  [1m[36mActionText::RichText Create (0.4ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Accendo eaque varius. Voluptatum trepide atqui. Ver cattus tremo. Sed ubi vestrum. Dolor ipsa calculus. Quasi creber subito. Toties corroboro antea. Strenuus magni sustineo. Quis voluntarius admitto. Arbustum desipio uterque. Vero thema curriculum. Cervus degenero bardus. Communis vicinus totidem. Arguo pel vere. Denego sponte tollo. Corroboro ambitus talus. Patria colligo charisma. Claustrum coniecto accommodo. Ut cogo conservo. Celebrer antiquus voluptas. Cupiditas attero ab. Triginta audax vociferor. Cena verbera desipio. Stillicidium aperio vulgivagus. Eos aer vindico. Voluptatibus strenuus spiculum. Molestias utique amplus. Compono argentum umbra. Rem solum valens. Dicta cognatus eos. Cotidie denuncio certus. Enim tenuis vulariter. Deludo uxor labore. Adeptio caveo crur. Accedo alias admiratio. Vallum conduco angulus. Contigo abutor sono. Anser sed chirographum. Sum sub canis. Vorago tametsi utpote. Tabula arbustum vorago. Pecco vulgus odit. Aegrotatio sit theologus. Patior barba supellex. Ulterius toties sed. Vespillo eos theatrum. Cuius aqua atavus. Socius trepide animadverto. Sublime surgo sui. Sustineo surculus architecto. Aspicio ter ullam. Thymbra conqueror coaegresco. Ancilla cetera solus. Turpe voco adipisci. Creta turbo in. Cauda arto utrimque. Acquiro usque soluta. Decimus debitis adversus. Et suppellex despecto. Ambitus cognomen pauci. Voluptatem vigilo thalassinus. Uterque vae somnus. Texo thalassinus sol. Ascisco pauci beneficium."], ["record_type", "Post"], ["record_id", 8], ["created_at", "2024-04-16 07:22:47.486776"], ["updated_at", "2024-04-16 07:22:47.486776"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 8], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.0ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.488320"], ["id", 8]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "One! Two! Three!"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "One! Two! Three!"], ["created_at", "2024-04-16 07:22:47.499383"], ["updated_at", "2024-04-16 07:22:47.499383"]]
+  [1m[36mActionText::RichText Create (0.2ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Vix claustrum amplus. Traho volutabrum bis. Delicate textor conicio. Rerum ambulo addo. Est deinde tempus. Vinculum cedo advoco. Consequatur abbas et. Voluptates pauper coniuratio. Corrumpo centum benigne. Laboriosam verbum pectus. Defero desidero antea. Accusamus carpo aetas. Convoco conscendo acceptus. Tripudio occaecati unde. Suppellex apparatus maxime. Enim animi auxilium. Consectetur decretum una. Aut audentia adsuesco. Barba defigo una. Defendo beatus benevolentia. Delectatio dolore arca. Sollicito brevis utor. Nihil sophismata valeo. Casus ustulo arx. Vix curo sit. Pectus dolorem venio. Socius harum vesco. Stella corrigo et. Iure incidunt deduco. Est utrimque suffoco. Apto torqueo suggero. Architecto textus aliqua. Et odio vitium. Comedo cimentarius speculum. Suadeo calco non. Temperantia compello nam. Carus ultio termes. Arto solitudo subiungo. Solus caecus coniecto. Comitatus neque degenero. Ratione laborum tibi. Cupio dicta abduco. Comis circumvenio ubi. Aestus totam subito. Curvo amor villa. Credo stella consequatur. Considero sufficio somniculosus. Defessus quam rerum. Fugiat vilicus crinis. Id vulgivagus acies. Tempore sed auctus. Agnosco terreo cubo. Tempus denuncio dolorem. Sollicito absens usitas. Eligendi statim sufficio. Vado omnis derelinquo. Ventus aeneus truculenter. Casso compono confido. Aedificium doloribus unde. Thymbra enim sursum. Arbitro quia copiose. Creta asporto tui. Annus deleniti defetiscor. Spargo circumvenio cunabula. Decimus amita comitatus. Currus ducimus capillus."], ["record_type", "Post"], ["record_id", 9], ["created_at", "2024-04-16 07:22:47.510966"], ["updated_at", "2024-04-16 07:22:47.510966"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 9], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.0ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.512322"], ["id", 9]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "One! Two! Three!"], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Do you want me to come with you?"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Do you want me to come with you?"], ["created_at", "2024-04-16 07:22:47.524402"], ["updated_at", "2024-04-16 07:22:47.524402"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Sodalitas argumentum attollo. Audax desidero timor. Tutis umbra pecco. Tergiversatio acer canto. Aureus suppellex vulgo. Supra utor verbera. Consectetur cupressus consuasor. Ut cinis voluptas. Copiose delectatio placeat. Creta defetiscor tutamen. Antiquus cervus arma. Tactus nihil ubi. Facilis victoria ambitus. Turpis calculus deputo. Ubi delectus quis. Vinum terminatio est. Numquam cuppedia strues. Nobis crux harum. Consequatur carbo cras. Odit ut explicabo. Laboriosam temperantia corpus. Canonicus cresco quia. Agnitio magnam delicate. Cupio vorago creptio. Vos circumvenio cedo. Suscipio adulatio debeo. Vestrum peior creber. At tot crur. Aegre voluntarius circumvenio. Tollo balbus dolorem. Angelus ter degenero. Tergiversatio desidero vesica. Rerum casus amet. Dapifer contego fugiat. Aiunt censura decens. Dedico tepesco venia. Vorax censura perspiciatis. Vigilo advenio ustilo. Cilicium aiunt carus. Talis agnosco demo. Desipio ultra adeptio. Pecunia inflammatio et. Deludo quo sapiente. Eum adipisci capto. Considero ubi error. Tabesco creta curis. Casus certo tondeo. Beatus amet calco. Accommodo taedium coniecto. Viriliter delego trans. Vis consequatur video. Aggredior amor cavus. Volup depopulo audacia. Ad cotidie eaque. Turpe atrocitas necessitatibus. Termes assentator subvenio. Sollicito alienus angulus. Culpa nesciunt deleniti. Ocer abbas coma. Capio certo averto. Sollicito cumque taceo. Vitium tibi capio. Damno coniuratio tot. Corpus tabgo alveus."], ["record_type", "Post"], ["record_id", 10], ["created_at", "2024-04-16 07:22:47.526536"], ["updated_at", "2024-04-16 07:22:47.526536"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 10], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.0ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.527446"], ["id", 10]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Van Halen!"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Van Halen!"], ["created_at", "2024-04-16 07:22:47.538096"], ["updated_at", "2024-04-16 07:22:47.538096"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Suscipio aperiam auctus. Catena suscipio curso. Circumvenio curia summa. Aut aut vallum. Peior amor tantillus. Audeo cupio cohibeo. Aliqua sperno bos. Unde ut admoneo. Deduco colo creator. Non tero volva. Aetas aliquam ager. Fugit vinco antiquus. Minima aggredior sint. Xiphias consequatur crur. Ex sunt utor. Pecus aiunt sui. Deprimo solitudo decipio. Arbitro molestias tero. Ascisco et ipsam. Cruciamentum adnuo abscido. Stultus absorbeo cresco. Sit defungo quisquam. Abeo surgo clamo. Officiis denego qui. Vulnus vis vehemens. Speciosus ambitus argumentum. Est cauda aut. Solutio ciminatio sed. Corrumpo vix alioqui. Venio timidus verbera. Aeternus titulus claustrum. Aut atrox cura. Amissio cunabula officia. Somniculosus thesis timidus. Spoliatio adfero consuasor. Victoria civitas dolor. Clarus patruus est. Uxor campana animi. Virgo commodo tener. Comburo timor defetiscor. Tabgo tego crinis. Sed arguo cuppedia. Viriliter summa pecunia. Vaco rem appono. Et pecco aranea. Rem deduco caelestis. Veritatis tego clementia. Coniuratio decerno consectetur. Veniam arcesso sumo. Debitis quaerat ait. Usus accusator peccatus. Non conculco bibo. Condico bellum decimus. Natus suscipit aspernatur. Decerno trucido toties. Suffragium animadverto terra. Delinquo deporto tum. Tolero apud debeo. Tempus bos studio. Corrupti arto quo. Cur porro vae. Sequi sit denique. Cubo terebro anser. Utrimque ciminatio illo. Antepono qui vos."], ["record_type", "Post"], ["record_id", 11], ["created_at", "2024-04-16 07:22:47.540585"], ["updated_at", "2024-04-16 07:22:47.540585"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 11], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.0ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.541441"], ["id", 11]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "That's good. Go on, read some more."], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "That's good. Go on, read some more."], ["created_at", "2024-04-16 07:22:47.553710"], ["updated_at", "2024-04-16 07:22:47.553710"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Verbum ultio despecto. Vinco aliquid adimpleo. Absque patior comis. Advenio totidem teres. Aliqua cuppedia rem. Thymum accusamus magnam. Autem argumentum sono. Armarium virga ipsa. Despecto quasi crastinus. Admoveo cetera venio. Sit virtus quisquam. Amicitia vero voluptatum. Texo sint curia. Cogito illo amor. Demum vos sortitus. Deleo volaticus sint. Thema confido vultuosus. Stabilis sophismata cogo. Aut sunt facilis. Comes addo sono. Surgo consequatur spes. Fugit delibero debeo. Tantum cubo aestas. Validus tamquam arcesso. Amissio asperiores denique. Quae ipsam nulla. Ducimus ut dolorem. Aduro teneo sui. Amor ascisco desidero. Sortitus denego acies. Architecto delicate cilicium. Est quis sonitus. Confido agnitio conservo. Sed surculus audio. Vir demergo et. Deduco depraedor ver. Argumentum vestigium solum. Nobis creta eum. Aqua balbus amaritudo. Cursim curia defungo. Verecundia tergiversatio urbs. Defleo abbas antepono. Est teres porro. Eius thesis adsum. Verecundia artificiose in. Molestiae veniam vapulus. Derelinquo absconditus vesica. Dolorem corrigo beneficium. Claustrum arto synagoga. Valens creator contabesco. Sortitus crinis vinculum. Tibi aegrus adinventitias. Amor solus creator. Cupiditas defaeco adhuc. Adfero fugit esse. Demens vester beatus. Cui auctor textilis. Deprimo et eos. Trucido assentator provident. Spes una cursus. Barba thesaurus valeo. Bibo magnam solutio. Amita conduco laborum. Conduco antiquus verumtamen. Calamitas ab atqui. Pax surculus vulgus. Adficio cur coniecto."], ["record_type", "Post"], ["record_id", 12], ["created_at", "2024-04-16 07:22:47.555482"], ["updated_at", "2024-04-16 07:22:47.555482"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 12], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.0ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.556389"], ["id", 12]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Strike the tent."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I don't think they even heard me."], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "I don't think they even heard me."], ["created_at", "2024-04-16 07:22:47.568058"], ["updated_at", "2024-04-16 07:22:47.568058"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Curriculum beatae annus. Abstergo maiores turba. Advoco pauper consequatur. Thermae distinctio confero. Accusamus certus attero. Accusantium quasi celo. Cribro suspendo curatio. Adsidue iusto possimus. Adamo vero tamisium. Adipisci ventus hic. Stella depromo molestiae. Qui eos tres. Adstringo thema articulus. Appositus corona cogito. Capillus thesaurus patruus. Quidem alioqui depereo. Cum vis capio. Aspicio solum voluptas. Aperio vivo deduco. Repellat volutabrum balbus. Occaecati viscus abeo. Pecunia canis triginta. Tandem impedit suscipio. Cavus itaque doloremque. Delego tres vero. Voluptas asper quam. Vitiosus curto apto. Titulus sublime ut. Alias synagoga cunae. Amaritudo decens volva. Tempore vindico bellicus. Averto deputo aufero. Amplitudo utilis usus. Quam concido spargo. Cotidie dapifer omnis. Vis odio vel. Demonstro conculco mollitia. Trepide solum utique. Super vilis vulnero. Demum caveo textus. Quod distinctio paulatim. Chirographum bis rem. Ut stella astrum. Despirmatio ad vere. Tabernus timidus labore. Validus termes truculenter. Basium valens sperno. Amoveo ambulo voluptas. Texo illo crepusculum. Totidem sordeo voluptatem. Mollitia et pauci. Causa triumphus avarus. Eveniet pauci villa. Tergum depopulo pariatur. Varius culpa ter. Aranea demum officia. Tardus qui thalassinus. Curatio blandior quo. Calcar amet angelus. Auditor strues decens. Decimus conor reprehenderit. Vito talus stabilis. Amita usitas non. Vehemens dolorem provident. Vitium vulariter aegrotatio. Conicio tendo pax."], ["record_type", "Post"], ["record_id", 13], ["created_at", "2024-04-16 07:22:47.569936"], ["updated_at", "2024-04-16 07:22:47.569936"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 13], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.0ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.570816"], ["id", 13]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I love you."], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "I love you."], ["created_at", "2024-04-16 07:22:47.582426"], ["updated_at", "2024-04-16 07:22:47.582426"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Succurro tergeo antea. Attonbitus cenaculum et. Thorax voluptatum vesco. Video ancilla compello. Arma voveo quam. Enim utroque suggero. Administratio utpote patrocinor. Adversus adduco velit. Autem ubi utrimque. Canis subnecto et. Vesco statua thalassinus. Compono patria bis. Sum utilis vaco. Vomica conventus capitulus. Censura cui consuasor. Incidunt laudantium aestus. Cur argumentum doloribus. Sophismata tum admitto. Atrocitas celo earum. Culpa veritas tabella. Voluptas vado cunabula. Decor video hic. Crepusculum facilis cohors. Cunae cohibeo caute. Condico antiquus tibi. Validus vere consuasor. Spargo tyrannus armo. Sufficio vel vitae. Vetus aegrotatio adaugeo. Corroboro autem autem. Sed consequatur non. Adfectus aliqua stips. Claudeo defluo balbus. Agnosco cariosus ademptio. Voco est nostrum. Articulus synagoga et. Aggero adhuc tum. Temptatio cunae aggero. Aut antiquus verbum. Cogo creta aegrus. Delicate thermae clementia. Ager clementia corrigo. Calcar taedium addo. Decor claro facere. Blandior molestiae undique. Suggero ipsa ipsum. Solus audentia vel. Decor depopulo clementia. Ulterius spes cohors. Earum saepe vos. Terebro confugo colo. Collum absens cursus. Cattus cur tergiversatio. Debeo conculco cariosus. Acer voluptatem eos. Amaritudo confero aranea. Pecus collum arbustum. Vinum uredo coaegresco. Certo despirmatio valetudo. Et commemoro tersus. Vilicus delectatio tondeo. Ceno amplexus vis. Quaerat calcar decimus. Reprehenderit velut claro. Amplexus ventito pecco. Depopulo aut decor."], ["record_type", "Post"], ["record_id", 14], ["created_at", "2024-04-16 07:22:47.584253"], ["updated_at", "2024-04-16 07:22:47.584253"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 14], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.0ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.585172"], ["id", 14]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Yes, it's tough, but not as tough as doing comedy."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Tape Seinfeld for me."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I regret that I should leave this world without again beholding him."], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "I regret that I should leave this world without again beholding him."], ["created_at", "2024-04-16 07:22:47.597009"], ["updated_at", "2024-04-16 07:22:47.597009"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Custodia repellat conspergo. Anser crepusculum defero. Degusto alveus non. Acidus despecto delibero. Vae sint desino. Pecus aureus ver. Sapiente deleo caries. Distinctio vorax tempus. Auxilium spoliatio non. Tego condico suspendo. Atavus dolorum complectus. Arcus necessitatibus cohors. Adeptio victus soleo. Consequatur pax vicissitudo. Callide decumbo tonsor. Sophismata ver succurro. Natus addo curvo. Templum deprecator comitatus. Eligendi cras tamen. Terminatio reiciendis iure. Ab tripudio vicinus. Creta conculco conduco. Theca timidus sortitus. Certe vehemens cursim. Arbustum depopulo comedo. Quibusdam non beatae. Commodi circumvenio triumphus. Curvo suscipit aranea. Calcar amita congregatio. Verumtamen est tamquam. Nesciunt blandior deorsum. Amaritudo desolo culpo. Eos claro venia. Iusto bonus conqueror. Varius aro verto. Denego pecunia aufero. Aeger conor ustulo. Amplus dolor pariatur. Nulla deorsum quo. Arma alii corrumpo. Templum dolore abscido. Autem alioqui cursim. Magnam crepusculum adulatio. Fuga annus terra. Acies speciosus depraedor. Voluptas denique suasoria. Arma umerus delego. Blandior tendo ea. Vere sufficio eaque. Tripudio cito conspergo. Demonstro sit consequuntur. Advoco deduco apparatus. Uberrime enim creator. Absconditus acsi enim. Aperio vivo dens. Delinquo vestrum apostolus. Sol vespillo voluntarius. Caute tabella callide. Amo nostrum aeternus. Sequi combibo ante. Cariosus territo unus. Succurro delibero vel. Adopto caelum itaque. Verto blanditiis speciosus. Corona textilis corroboro."], ["record_type", "Post"], ["record_id", 15], ["created_at", "2024-04-16 07:22:47.598995"], ["updated_at", "2024-04-16 07:22:47.598995"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 15], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.0ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.599927"], ["id", 15]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Do you want me to come with you?"], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Strike the tent."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I regret that I should leave this world without again beholding him."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "You can get anything you want at Alice's restaurant."], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "You can get anything you want at Alice's restaurant."], ["created_at", "2024-04-16 07:22:47.613233"], ["updated_at", "2024-04-16 07:22:47.613233"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Argentum blandior ver. Venia apto aestas. Barba balbus avoco. Sustineo animi calco. Bene tres ocer. Templum valens credo. Comparo peior cerno. Coadunatio caste reprehenderit. Rem ustilo spero. Sortitus magni ea. Autus volaticus magni. Adsidue adaugeo dolore. Quod cerno addo. Canis asper synagoga. Amet derelinquo urbs. Tempore asporto sum. Argumentum ullus agnosco. Territo appono eos. Voluptatum cariosus peior. Advenio timidus curia. Combibo termes attero. Adhuc coruscus crinis. Denuncio tamquam depraedor. Catena fuga umbra. Aut correptius conduco. Coepi vilicus decipio. Suggero usus ut. Ver candidus subvenio. Veniam acer tertius. Capitulus eveniet callide. Vicinus tempora suasoria. Argumentum caste dolor. Blandior aestus compono. Undique voluntarius qui. Minus conspergo aperte. Vulariter cicuta tero. Possimus amor pectus. Viscus synagoga voluptatem. Qui admoveo aegrus. Supellex ancilla quod. Nihil dens quia. Amita arcesso aggero. Tenax vir cernuus. Pecunia curso praesentium. Assumenda demum causa. Collum reiciendis appositus. Arbor cogito terror. Antea astrum altus. Virtus corpus collum. Tametsi vilitas pecto. Turpis territo verbera. Trans volutabrum aptus. Tamen audio spectaculum. Quia copia ambitus. Incidunt vomica annus. Accommodo depraedor demens. Terra tredecim vaco. Triginta exercitationem neque. Curto aro explicabo. Compello defaeco cuppedia. Basium victus tempora. Vinitor autem crur. Thesaurus dedico concido. Est tergiversatio tego. Assumenda ut temperantia. Angulus tutis subseco."], ["record_type", "Post"], ["record_id", 16], ["created_at", "2024-04-16 07:22:47.614967"], ["updated_at", "2024-04-16 07:22:47.614967"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 16], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.0ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.615879"], ["id", 16]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "All my possessions for a moment of time."], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "All my possessions for a moment of time."], ["created_at", "2024-04-16 07:22:47.626408"], ["updated_at", "2024-04-16 07:22:47.626408"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Constans autem officia. Aeneus somnus supplanto. Tui autus vinitor. Arca demo vomica. Tubineus perspiciatis spes. Sortitus cruciamentum quisquam. Arca tenuis balbus. Summa vinco degusto. Clamo canis doloremque. Depulso teres cado. Titulus thema esse. Callide impedit sequi. Advoco curtus curvus. Modi amissio vereor. Abduco nam desparatus. Vitium tener vestigium. Dolores beatae voluntarius. Demergo tremo audacia. Surgo tenetur causa. Templum deprecator tibi. Vetus arcesso vulpes. Vel suasoria curto. Convoco vigor dignissimos. Sto nisi delicate. Vaco non asporto. Magnam vero maxime. Adeo torrens amplus. Sunt vinco corrigo. Deduco ceno itaque. Pauci cur crastinus. Credo tum tamdiu. Tergum creo nisi. Aspernatur vel unde. Suspendo tripudio sumptus. Aveho adultus quam. Conculco tamquam cognatus. Tabula impedit tactus. Ver sono allatus. Desidero advenio quo. Aeternus itaque agnosco. Curvus tricesimus qui. Sponte commodo vis. Acer accendo avoco. Concido concedo audax. Cursus avoco stultus. Ter cur sollicito. Cras varietas decens. Suadeo comminor tubineus. Claudeo alius vel. Stella demoror auctor. Vero desparatus compello. Assentator avaritia valde. Vivo tener cresco. Subiungo iusto aperte. Volup traho centum. Denique modi desparatus. Cubo viduata aut. Cum curso viduata. Spoliatio aegrus statua. Rerum conspergo sint. Vitae absorbeo vehemens. Suspendo timor sit. Vulnero pariatur voluptatem. Thymum cibo calculus. Ventito crepusculum sto. Aliquid studio id. Thalassinus verus alias."], ["record_type", "Post"], ["record_id", 17], ["created_at", "2024-04-16 07:22:47.628166"], ["updated_at", "2024-04-16 07:22:47.628166"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 17], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.0ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.629010"], ["id", 17]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "That was the best ice-cream soda I ever tasted."], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "That was the best ice-cream soda I ever tasted."], ["created_at", "2024-04-16 07:22:47.639966"], ["updated_at", "2024-04-16 07:22:47.639966"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Copiose nisi deduco. Candidus stipes calamitas. Villa approbo dapifer. Votum eum vacuus. Viriliter acervus armarium. Aperiam deleniti uterque. Correptius absens aut. Absum illum aequus. Thymum anser spero. Patria id et. Quia audio vorax. Ut cubitum commodo. Vos et cibo. Confugo aspicio vomica. Strenuus aedificium contigo. Aspicio volup ea. Reprehenderit capitulus vere. Despecto cauda vesica. Capitulus cumque thesaurus. Desidero antepono tergeo. Volubilis magni quidem. Ad contra theca. Stillicidium saepe ter. Abutor inflammatio solitudo. Alioqui colo vae. Degusto suasoria coruscus. Terga debilito una. Vesco temeritas tero. Ubi tyrannus aeger. Ut theatrum volva. Ubi aeger utroque. Ex voluptas cauda. Vesica audentia temeritas. Despecto vere error. Appositus pariatur absque. Amor inflammatio turpe. Nisi cohors aegre. Dens usus decor. Alias vomito attollo. Confero corrupti viscus. Absens tabesco cogo. Officiis crinis subito. Acceptus utrimque praesentium. Cilicium pariatur beneficium. Adulescens basium causa. Defendo defessus deinde. Architecto ancilla cimentarius. Vociferor soluta barba. Patior uterque cohaero. Aut utilis aperiam. Caveo ver eius. Aveho coma aut. Cetera adhuc cenaculum. Enim turpe adstringo. Asperiores adamo est. Asporto et sumo. Id confido ascisco. Decipio laudantium coruscus. Acsi tripudio amplus. Timidus vapulus benigne. Sui curto thesis. Sustineo tabesco consequuntur. Ipsam deficio turbo. Universe sit tertius. Distinctio congregatio illum. Qui ultra tubineus."], ["record_type", "Post"], ["record_id", 18], ["created_at", "2024-04-16 07:22:47.641569"], ["updated_at", "2024-04-16 07:22:47.641569"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 18], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.0ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.642356"], ["id", 18]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Strike the tent."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "That's good. Go on, read some more."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I went the distance."], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "I went the distance."], ["created_at", "2024-04-16 07:22:47.653890"], ["updated_at", "2024-04-16 07:22:47.653890"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Acidus turba est. Aut aegre bestia. Basium eligendi tardus. Aureus cupiditate consectetur. Voluptatibus voco attollo. Demergo voro esse. Ut defungo amor. Aut amoveo patrocinor. Suffragium agnosco ager. Ventito viscus surculus. Triduana comminor comprehendo. Votum quis vestigium. Confero adulescens cubicularis. Triumphus audentia sollers. Amor absum universe. Appono vapulus tabgo. Tero terra spiculum. Velit omnis vesco. Vox odit eaque. Defluo tantillus curriculum. Bardus consequatur stillicidium. Aufero tabula illo. Rerum creber solitudo. Attonbitus via velit. Caveo concido pecunia. Ambitus totus curriculum. Arca caste constans. Demitto adflicto theca. Cursus corrumpo contabesco. Tabula tego debitis. Adipiscor apud universe. Suadeo molestiae uredo. Terminatio caritas dolor. Amissio vester antepono. Alveus complectus sum. Stabilis alo facilis. Suus crur a. Omnis atavus teres. Adhuc peccatus tabgo. Vel despirmatio saepe. Solutio thesis suus. Caritas cupiditate dolores. Tredecim comitatus denuncio. Corporis assentator adhaero. Provident urbs pauci. Urbs demens deprecator. Alii laborum non. Caute absconditus abscido. Maiores constans agnitio. Viduata aegrotatio ipsa. Thorax utor ago. Tibi creber varius. Vilis suasoria rem. Dolorem absum labore. Defigo virgo tenax. Aestas celer triginta. Enim vaco curriculum. Vulariter verbera apostolus. Quaerat peior taedium. Suffoco alii sortitus. Cena eius tibi. Aut cultellus confido. Varius causa vapulus. Aestus aeternus candidus. Subvenio sed supra. Addo cum altus. Alias thesis bis."], ["record_type", "Post"], ["record_id", 19], ["created_at", "2024-04-16 07:22:47.655560"], ["updated_at", "2024-04-16 07:22:47.655560"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 19], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.0ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.656468"], ["id", 19]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "No comment."], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "No comment."], ["created_at", "2024-04-16 07:22:47.666788"], ["updated_at", "2024-04-16 07:22:47.666788"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Caterva subiungo alter. Amplexus amissio totidem. Bis aperio cilicium. Abundans colo deorsum. Arx eum voro. Comes hic deleo. Advoco talus caste. Aufero torqueo dolores. Adhaero statim temperantia. Quasi eius tener. Textilis supra et. Iure decumbo suffragium. Vos triginta vel. Praesentium curia ducimus. Conqueror officiis cohibeo. Vulpes vox optio. Defessus cruentus aut. Succedo umerus coepi. Deludo qui subiungo. Suadeo sonitus addo. Tondeo tergeo ventosus. Est accommodo sortitus. Traho apto vomito. Demitto caute supplanto. Corona supplanto culpa. Thalassinus tergiversatio adopto. Tui vero colloco. Aliqua carcer creta. Capto et voco. Cornu contabesco truculenter. Testimonium ago vicinus. Talio compono somnus. Aestas tondeo infit. In cernuus solium. Aut cenaculum acervus. Suscipio avaritia suppono. Thymum volubilis cotidie. Calcar adulescens quasi. Dolore quos qui. Aiunt bene audacia. Est conservo utrimque. Amaritudo deleniti urbs. Taedium verecundia copiose. Apparatus cariosus demonstro. Degero acidus subiungo. Conor excepturi quia. Auxilium viriliter quis. Derideo omnis cognatus. In urbanus aureus. Desino adulatio toties. Considero color socius. Cupio bestia vomer. Credo tondeo nostrum. Vix cognomen vae. Custodia cursus ipsa. Qui optio denuo. Aequus denego sperno. Nihil voluptatem cariosus. Voluptatem tutamen reiciendis. Vesco non beneficium. Natus cibus voluptas. Degero repellat cur. Tollo sed aro. Ascisco decens bene. Tabgo umerus theatrum."], ["record_type", "Post"], ["record_id", 20], ["created_at", "2024-04-16 07:22:47.668643"], ["updated_at", "2024-04-16 07:22:47.668643"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 20], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.0ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.669473"], ["id", 20]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "It's stopped."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "No comment."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "My vocabulary did this to me. Your love will let you go on…"], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I don't think they even heard me."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I want your bunk!"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "I want your bunk!"], ["created_at", "2024-04-16 07:22:47.681609"], ["updated_at", "2024-04-16 07:22:47.681609"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Quidem sponte architecto. Terebro chirographum aeternus. Validus dapifer volutabrum. Cura sui et. Ambitus aspicio tutis. Quia cupiditate ascit. Coniuratio aperte veritas. Non aggero minima. Vivo cruciamentum arca. Non deprecator censura. Deinde patrocinor claudeo. Spectaculum esse vere. Beatus circumvenio vulgivagus. Sed avoco acer. Callide templum sumo. Crapula amissio valetudo. Crur spiculum quaerat. Curis tandem damnatio. Curso vestigium veritatis. Textus timidus casso. Torqueo inventore voluptatem. Congregatio odio confugo. Tibi cresco civis. Vester tergiversatio corrupti. Sulum vos solium. Amicitia constans via. Et advenio appello. Caute adfectus conculco. Armo aperiam delicate. Agnitio stabilis adhaero. Bibo abeo sit. Terminatio uredo bis. Subseco saepe conduco. Armo pariatur summa. Terra et animi. Sit nobis vehemens. Vicinus depereo adduco. Suasoria deleniti tredecim. Decimus demum tubineus. Absorbeo aperiam crinis. Commemoro celo angelus. Convoco demitto umquam. Vorax aegre titulus. Quia attonbitus curso. Terminatio vito voveo. Tum omnis pel. Timor sustineo quae. Ea viscus sunt. Verumtamen ulciscor adipisci. Charisma amiculum animi. Trucido collum tempore. Et bardus crebro. A theologus traho. Ducimus paens sordeo. Admitto solutio quos. Tepidus inflammatio confido. Tollo clamo deficio. Arceo commemoro esse. Despirmatio voluptatum theologus. Trado adicio confero. Clam optio cohibeo. Demum compello titulus. Creator tot ustilo. Animadverto aperiam cribro."], ["record_type", "Post"], ["record_id", 21], ["created_at", "2024-04-16 07:22:47.683357"], ["updated_at", "2024-04-16 07:22:47.683357"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 21], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.0ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.684233"], ["id", 21]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Do you want me to come with you?"], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I don't know."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "You can get anything you want at Alice's restaurant."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "One! Two! Three!"], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I regret that I should leave this world without again beholding him."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I am confound."], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "I am confound."], ["created_at", "2024-04-16 07:22:47.698373"], ["updated_at", "2024-04-16 07:22:47.698373"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Sequi aliquam voluptate. Suggero decor patruus. Abscido consectetur thermae. Alveus conduco et. Cicuta strues conscendo. Statua adulescens socius. Et amet theca. Dignissimos spes thema. Similique adfero bis. Accedo avaritia adnuo. Crebro asperiores et. Tamen caries vox. Vindico debitis consectetur. Vapulus minus aer. Animi vorax virgo. Adsum acies placeat. Desino accusator creo. Tergeo ago tum. Sustineo vesco autem. Vigor ducimus barba. Delego et utilis. Et adultus creber. Custodia cuius quia. Temporibus quidem bellicus. Paens adversus autem. Qui adipiscor comminor. Via saepe occaecati. Cur vestrum fugit. Modi decumbo sapiente. Tonsor cauda aut. Textor summa teres. Conculco timor impedit. Ipsum cum tardus. Blanditiis ulterius centum. Ager acidus delibero. Templum cicuta delibero. Deprecator cervus civitas. Depulso bibo vester. Assentator sunt conduco. Bonus itaque adficio. Stipes vomito desolo. Tempus in comparo. Corrupti theatrum sui. Super bellicus ambitus. Templum audax canonicus. Tenax blanditiis utpote. Vulgivagus ventosus valetudo. Vilis deserunt debilito. Thymum crudelis caritas. Quo admoneo dolorum. Demoror aliquam omnis. Ut minus tepidus. Clibanus suscipio supra. Advoco callide curis. Basium ad repellat. Id debilito vinitor. Spiculum cultellus modi. Speculum victoria argumentum. Error causa chirographum. Crux auctor spiculum. Demum ciminatio deleniti. Non audacia cometes. Urbanus ea aequitas. Cotidie videlicet textor. Tenus antepono sit. Eos teres vigilo. Aeger thesaurus recusandae."], ["record_type", "Post"], ["record_id", 22], ["created_at", "2024-04-16 07:22:47.700251"], ["updated_at", "2024-04-16 07:22:47.700251"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 22], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.0ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.701067"], ["id", 22]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "It's stopped."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "You can get anything you want at Alice's restaurant."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I don't think they even heard me."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I went the distance."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Does nobody understand?"], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Well, this is certainly a pleasant surprise."], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Well, this is certainly a pleasant surprise."], ["created_at", "2024-04-16 07:22:47.713805"], ["updated_at", "2024-04-16 07:22:47.713805"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Solutio templum carpo. Alienus utor animus. Theca valde usus. Terror statim statua. Urbs sopor harum. Suadeo veritas adiuvo. Vergo non vulpes. Surgo similique acerbitas. Delectus subseco aeneus. Colo vitiosus aperte. Abstergo accusantium uter. Adiuvo provident voluptas. Nulla damno amo. Acidus clementia armarium. Vilitas aut omnis. Spes benigne comprehendo. Defero similique ut. Somniculosus advenio verto. Verecundia dedecor amplus. Stella demens cernuus. Traho officiis auditor. Sequi trans decerno. Expedita crinis accendo. Argumentum veniam creta. Ullam voluptas curvo. Absque cerno curatio. Spoliatio utpote desino. Subnecto fugit vorago. Strenuus denuo totidem. Territo est tremo. Conqueror in avaritia. Sunt congregatio bestia. Decerno territo audio. Villa et despirmatio. Defetiscor certo decor. Tantillus conduco talio. Suffragium corporis dolor. Crastinus aperte agnitio. Volaticus aveho bibo. Ut acer suppellex. Videlicet adnuo varius. Molestiae uredo attonbitus. Adstringo ustulo animi. Et combibo talis. Delinquo ventus aequus. Possimus solvo claro. Auditor thesaurus clarus. Celo sublime adfero. Bene deputo aurum. Sordeo iusto textilis. Tenetur usque averto. Labore causa acquiro. Vel arcesso nam. Appositus quos contabesco. Tempora altus toties. Vehemens terra terreo. Aeneus certo adfectus. Tempora umquam accusator. Eius celer audacia. Crepusculum constans trucido. Turpe amplexus curso. Ascisco ubi vito. Amissio corpus degero. Caput cogo quibusdam. Qui cena textor. Usitas cotidie certe."], ["record_type", "Post"], ["record_id", 23], ["created_at", "2024-04-16 07:22:47.715496"], ["updated_at", "2024-04-16 07:22:47.715496"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 23], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.0ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.716362"], ["id", 23]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Hurrah for anarchy! This is the happiest moment of my life."], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Hurrah for anarchy! This is the happiest moment of my life."], ["created_at", "2024-04-16 07:22:47.726958"], ["updated_at", "2024-04-16 07:22:47.726958"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Currus molestias temptatio. Pariatur theologus arbor. Unde angelus denuncio. Voco facilis absque. Cubicularis crepusculum teneo. Tribuo ago admoneo. Talio sumo aqua. Est defaeco templum. Custodia arbor damno. Comes cum ascit. Correptius unus sophismata. Arca curto impedit. Valeo in turbo. Acer auditor ulterius. Adversus consequatur comedo. Mollitia conturbo aiunt. Cibo et civis. Certe defetiscor et. Sunt cariosus vesper. Curiositas adamo abstergo. Culpo ad ter. Saepe cras impedit. Reprehenderit armo aeger. Corpus damnatio avoco. Aut absconditus abscido. Tutis paens in. Deprecator quia atque. Viriliter bene clam. Custodia et ambitus. Chirographum conservo est. Canonicus vilis turba. Adflicto laborum sumptus. Rerum qui placeat. Considero contra est. Thalassinus ventosus vetus. Usus amor voluptas. Temeritas sunt temperantia. Voluptatem arx delectus. Voveo atavus cruentus. Volaticus calco cometes. Annus et cimentarius. Cum votum calco. Uterque autem cometes. Quia communis urbanus. Sufficio molestias surculus. Talio antea supplanto. Sto vix delectus. Facilis tenuis rerum. Eum cauda varius. Vilitas cubitum auditor. Tubineus amiculum sint. Alias adversus una. Cupio celer nulla. Abscido cultellus tergeo. Ducimus adfectus cursus. Crudelis brevis vallum. Vorax repellendus pectus. Temperantia caput adhuc. Vociferor aut aveho. Caries pecco sunt. Tubineus custodia compono. Umbra spiculum thalassinus. Avoco sum vero. Verbum thesis ea. Basium corrupti tergiversatio. Approbo summa adstringo."], ["record_type", "Post"], ["record_id", 24], ["created_at", "2024-04-16 07:22:47.728950"], ["updated_at", "2024-04-16 07:22:47.728950"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 24], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.0ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.729831"], ["id", 24]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Okay, I won't."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I am confound."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "You can get anything you want at Alice's restaurant."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Am I dying, or is this my birthday?"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Am I dying, or is this my birthday?"], ["created_at", "2024-04-16 07:22:47.741709"], ["updated_at", "2024-04-16 07:22:47.741709"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Contabesco audax vergo. Adopto ustulo tamquam. Id pecco verto. Repellat claudeo cura. Vox curso crastinus. Debitis vulgivagus alius. Peior aedificium demoror. Paulatim qui sumptus. Adiuvo tenax averto. Quia abbas alius. Delego stabilis eaque. Et harum iste. Dignissimos harum sustineo. Rerum admoneo comparo. Tenuis valens non. Aestas provident vitium. Tepesco ambitus cito. Advoco commemoro supra. Socius non torqueo. Uxor subito utor. Et balbus tredecim. Demitto eligendi avoco. Explicabo cimentarius triginta. Ea cauda tredecim. Officiis bonus succedo. Dignissimos quis amicitia. Auditor provident creptio. Ipsam repudiandae una. Cariosus amoveo repellat. Vespillo tibi odio. Cohibeo aspicio dens. Nobis at tendo. Crinis valeo et. Toties acervus est. Vulnero amoveo certus. Despirmatio sordeo tendo. Tumultus commodo delicate. Tunc strenuus ut. Turba neque verumtamen. Deleniti tepesco temporibus. Tristis decumbo cibo. Conduco spiritus cura. Cattus ademptio dens. Nam concedo acerbitas. Veritas amicitia timidus. Colloco culpo alias. Pecco sordeo demum. Ulciscor molestiae socius. Cubicularis tremo tenus. Soluta trepide cavus. Valens valde recusandae. Adfectus crux tempora. Velut tener totidem. Auxilium celo vox. Trado acceptus animus. Corrumpo stipes carus. Abundans subseco ubi. Tamen surculus subito. Sed coniecto virtus. Acceptus attollo magni. Nihil laboriosam officia. Adfero tardus tristis. Non despecto ater. Adfectus sint neque. Suspendo capillus sui. Vespillo arbitro socius."], ["record_type", "Post"], ["record_id", 25], ["created_at", "2024-04-16 07:22:47.743367"], ["updated_at", "2024-04-16 07:22:47.743367"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 25], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.0ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.744174"], ["id", 25]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I don't know."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Goodnight, my darlings, I'll see you tomorrow."], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Goodnight, my darlings, I'll see you tomorrow."], ["created_at", "2024-04-16 07:22:47.755334"], ["updated_at", "2024-04-16 07:22:47.755334"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Voluptas acceptus carpo. Paulatim doloremque cresco. Modi vilicus caecus. Eos praesentium umbra. Texo ullam caelum. Commodi aestas coerceo. Sperno subvenio articulus. Bestia umbra copiose. Considero rerum aedificium. Cito curis deleniti. Claustrum animi teres. Reiciendis aedificium sursum. Suspendo creta teneo. Pauper convoco eaque. Ventito porro alienus. Theologus ventito est. Acer avoco adfectus. Dolor et sponte. Illo capitulus turpe. Natus adultus voluptatibus. Copia sint molestiae. Distinctio derideo testimonium. Subito pax adaugeo. Pectus acer commemoro. Viduo dolores urbs. Ciminatio molestiae uberrime. Cibo angelus confero. Clementia votum arceo. Aegrotatio valens ut. Occaecati credo cupiditate. Videlicet certe aut. Cupio vero tendo. Occaecati ago quam. Dignissimos cras coniecto. Venio thesaurus valeo. Ipsum agnosco aspicio. Facilis temeritas vitium. Sulum peccatus velut. Aufero ea itaque. Pecto curvus admoveo. Ager harum cauda. Averto absque quo. Corroboro tametsi ultra. Copiose demum occaecati. Tui collum verbum. Vestigium decipio synagoga. Solum amiculum xiphias. Qui dapifer et. Summa suadeo magnam. Copiose tutamen trado. Defetiscor benevolentia vito. Vado congregatio molestiae. Addo illum vigor. Collum vorago suus. Absorbeo astrum et. Ustilo tabernus vomica. Curso tersus celo. Celebrer tremo defetiscor. Conculco dolorem villa. Aequitas abbas titulus. Absconditus ventus repellat. Demum explicabo et. Admiratio decor toties. Sordeo vel caritas. Vapulus abscido apud. Saepe pauper verumtamen."], ["record_type", "Post"], ["record_id", 26], ["created_at", "2024-04-16 07:22:47.757141"], ["updated_at", "2024-04-16 07:22:47.757141"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 26], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.0ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.757981"], ["id", 26]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "All my possessions for a moment of time."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Happy."], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Happy."], ["created_at", "2024-04-16 07:22:47.768646"], ["updated_at", "2024-04-16 07:22:47.768646"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Adsidue amicitia sto. Cumque quo volubilis. Depraedor tremo utor. Pauper deleo repellat. Velit totidem sed. Vita carbo nulla. Sortitus credo surculus. Trepide deporto depopulo. Cultura est vel. Ea virga maxime. Pectus thermae vinco. Qui arca denuo. Viriliter sequi valens. Defluo tamisium crux. Aut sint tracto. Cursim sponte curia. Decens fuga perferendis. Aequus crux accusamus. Ventosus delectus centum. Surgo crapula civis. Thesaurus subseco defungo. Conitor caveo umbra. Defessus utique cupressus. Veritatis ducimus despirmatio. Celo vehemens vero. Territo theca currus. Tenetur aer quo. Cura tenuis tener. Laudantium tumultus terra. Ipsum magnam atqui. Sit recusandae turpe. Clamo vigilo ea. Torrens credo animus. Esse ultio copiose. Denuncio undique aperiam. Taedium officiis quae. Tyrannus denuo voluptas. Amitto tabernus deficio. Vicinus suffragium consequuntur. Consectetur peccatus bellum. Id abbas cunabula. Appono placeat crudelis. Volup aperio cribro. Tero nostrum demitto. Alo carmen comprehendo. Adicio cinis cubicularis. Quas viriliter cotidie. Nesciunt defero certe. Tabella deleo eos. Infit atqui strenuus. Tibi copia adulescens. Civis velit adipisci. Clibanus cruciamentum verus. Vicinus tabella umquam. Abeo repudiandae acquiro. Templum rerum esse. Esse creptio summisse. Capto conscendo brevis. Sunt vester sufficio. Pax aeneus angelus. Reprehenderit vulpes basium. Viduo est blanditiis. Aqua et valens. Laudantium celo mollitia. Clarus ademptio temperantia."], ["record_type", "Post"], ["record_id", 27], ["created_at", "2024-04-16 07:22:47.770288"], ["updated_at", "2024-04-16 07:22:47.770288"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 27], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.0ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.771152"], ["id", 27]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I want to go home."], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "I want to go home."], ["created_at", "2024-04-16 07:22:47.781425"], ["updated_at", "2024-04-16 07:22:47.781425"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Carmen nobis perspiciatis. Vester cupiditas alveus. Bellicus uxor abundans. Officiis inventore unus. Amicitia comparo tamisium. Cursim cum sonitus. Conor vesper corrumpo. Terebro crux aperio. Demum totidem officiis. Auxilium venustas tantillus. Arceo comminor spectaculum. Supellex capitulus uxor. Balbus apud possimus. Tutis strenuus crastinus. Cerno vivo cervus. Rerum bonus aurum. Toties tui modi. Nihil corroboro acer. Centum vesica perspiciatis. Turpe cresco ancilla. Fugiat illo thesaurus. Caute theatrum antepono. Conservo aut aetas. Laudantium vilis contra. Tunc quibusdam suffragium. Vel cura trepide. Volup aliqua temperantia. Solitudo apparatus sordeo. Ancilla crastinus tego. Acervus correptius tersus. Vitium adfero conspergo. Thymum rerum vito. Laboriosam creber sed. Quas compello universe. Repellat labore valde. Temperantia colo virtus. Peccatus aspernatur avoco. Turpis demens cras. Ipsam veritatis deputo. Conatus pariatur sequi. Pecus aedificium atque. Quas candidus consequatur. Delinquo terror voco. Quaerat validus conforto. Perspiciatis verto cedo. Tamen cruciamentum tergo. Corpus animadverto viduata. Adipisci eos articulus. Abscido cena arcesso. Balbus pecto claustrum. Convoco volup terra. Recusandae quisquam absconditus. Autem viriliter nemo. Solvo cito ullus. Est non administratio. Bibo tandem aro. Dolores tredecim altus. Adhaero capillus neque. Cursus quia taceo. Corpus quo verbum. Quam decumbo apto. Beneficium ambulo quia. Canonicus omnis cilicium. Aut vesper recusandae. Umbra administratio vestrum."], ["record_type", "Post"], ["record_id", 28], ["created_at", "2024-04-16 07:22:47.783063"], ["updated_at", "2024-04-16 07:22:47.783063"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 28], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.1ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.783908"], ["id", 28]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Do you want me to come with you?"], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I want to go home."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "You can get anything you want at Alice's restaurant."], ["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I want to go home."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Hurrah for anarchy! This is the happiest moment of my life."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Okay, I won't."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Am I dying, or is this my birthday?"], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Yes, it's tough, but not as tough as doing comedy."], ["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Okay, I won't."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I forgot something."], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "I forgot something."], ["created_at", "2024-04-16 07:22:47.798509"], ["updated_at", "2024-04-16 07:22:47.798509"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Bene explicabo aranea. Verbum ustulo veniam. Aegrotatio caste umerus. Confero deserunt cresco. Depopulo alo amiculum. Comedo sulum aureus. Voluptatem vester illum. Approbo delicate villa. Xiphias suggero verbera. Termes sopor sum. Armarium cursim subiungo. Volva tergum ut. Vindico antepono omnis. Defendo amitto atrox. Autem suffragium alienus. Stabilis allatus placeat. Umerus triduana certe. Vis eum defaeco. Desidero uterque commodo. Sursum decimus derelinquo. Amaritudo et speciosus. Patruus est creptio. Tamquam defungo tabella. Et occaecati et. Ducimus sufficio ventosus. Assentator volva careo. Consequuntur testimonium templum. Validus aut aperte. Acquiro tracto laborum. Vae cruciamentum tergiversatio. Villa corrumpo sit. Taceo tyrannus aduro. Accusantium taceo vergo. Amissio delectus curatio. Surculus et minus. Vitae attonbitus qui. Caritas impedit facilis. Tollo argumentum bonus. Summa antepono vetus. Communis atque curso. Voco enim aiunt. Acer voluptatem abeo. Armarium carbo textus. Aurum dapifer pauper. Pecus cernuus catena. Vesco conventus copia. Amissio sunt vesco. Denuncio somnus thesaurus. Summa tutamen tenetur. Tametsi cognomen blanditiis. Ambulo amitto bos. Candidus pecto statua. Vacuus crustulum ventus. Aut tempus amissio. Victus venustas solitudo. Et turbo dolores. Tabesco caecus antea. Utrum cruciamentum deorsum. Soluta virgo impedit. Adhaero centum defetiscor. Omnis volaticus id. Cariosus tristis consequatur. Reprehenderit una curtus. Voluntarius porro delectatio. Cogito tumultus adeo. Deputo ullam pecus. Absque esse cuius."], ["record_type", "Post"], ["record_id", 29], ["created_at", "2024-04-16 07:22:47.800139"], ["updated_at", "2024-04-16 07:22:47.800139"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 29], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.0ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.800979"], ["id", 29]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I went the distance."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "No comment."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I regret that I should leave this world without again beholding him."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "That's good. Go on, read some more."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I wish I could go with you."], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "I wish I could go with you."], ["created_at", "2024-04-16 07:22:47.813092"], ["updated_at", "2024-04-16 07:22:47.813092"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Stips ratione atrocitas. Averto aeternus cariosus. Valetudo adfero condico. Certe unde culpa. Cito universe casso. Aegrus ut sunt. Coniecto clamo vae. Rerum ustilo alo. Demergo vinum defaeco. Tenetur benevolentia assentator. Consectetur undique auctor. Amaritudo umbra casso. Deprecator casso explicabo. Crastinus adipisci constans. Adultus sursum curvo. Bardus utroque cibo. Arceo clibanus auxilium. Vae cornu eum. Dolorum alveus mollitia. Volutabrum eaque acies. Causa ademptio uter. Vociferor tutamen complectus. Tandem arca quibusdam. Non culpa uredo. Sed depromo sonitus. Vita theologus advenio. Testimonium turpe vel. Amissio sum spiculum. Pauci tum decretum. Acerbitas sed culpa. Civitas dolor bestia. Taceo tactus stips. Vinitor vir debitis. Sonitus aestivus et. Desparatus ater aestivus. Culpo ut acidus. Vociferor omnis admoveo. Suscipio dolor sponte. Accusantium ut sponte. Triumphus doloremque laborum. Carcer solitudo vestigium. Blandior admoneo odio. Damnatio alveus stillicidium. Abscido aggredior attero. Vulgivagus tabernus fugiat. Bellum somniculosus supra. Infit ipsam triginta. Utor impedit aut. Speculum triduana solio. Illo tabula vis. Decretum copiose creber. Adimpleo crux veniam. Tribuo et solium. Tamisium argumentum acer. Uredo ars solutio. Cruentus addo eos. Conitor spectaculum vociferor. Vir videlicet vestigium. Cunctatio suus thema. Altus ubi solus. Bardus demitto cupiditas. Corrigo cupio quasi. Contabesco dicta sortitus. Ubi inflammatio voluptate. Decet vigilo delego."], ["record_type", "Post"], ["record_id", 30], ["created_at", "2024-04-16 07:22:47.814609"], ["updated_at", "2024-04-16 07:22:47.814609"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 30], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.0ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.815525"], ["id", 30]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I love you too, honey. Good luck with your show."], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "I love you too, honey. Good luck with your show."], ["created_at", "2024-04-16 07:22:47.825543"], ["updated_at", "2024-04-16 07:22:47.825543"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Blanditiis adflicto strenuus. Sulum ars cursim. Cicuta et necessitatibus. Demum velut claro. Ascit accusamus contego. Adfero vulgo vesica. Approbo cubicularis comparo. Tubineus defaeco adipisci. Cilicium molestias tener. Thymbra caecus toties. Maxime vulpes omnis. Adulatio aestivus cum. Sordeo cohors vesica. Arcus creptio eos. Qui bene antepono. Termes dedecor somnus. Terror tripudio sollicito. Blandior subiungo tempore. Teres cupio adeo. Dicta aggredior creator. Celo caritas conturbo. Corroboro tondeo accipio. Acidus theca carcer. Vulticulus vitiosus voveo. Vesica et terga. Patria defetiscor voluptatem. Cubo ago tergo. Summa bene vobis. Benigne acquiro debitis. Avaritia beneficium thymbra. Id vado conventus. Ait ante explicabo. Vulgus quo tripudio. Desolo denuncio cibo. Curvus aeger laudantium. Crepusculum turbo suspendo. Assumenda totam velociter. Aggero vespillo sumptus. Vester conqueror expedita. Addo amet adulatio. Quisquam considero versus. Vorax voro eligendi. Despecto demens apostolus. Subnecto accedo pax. Vel adsidue ultio. Comparo sit inventore. Subseco iste adeptio. Totam tremo cubo. Laborum suppono tondeo. Theca teres facilis. Eaque molestiae aqua. Apto debeo creator. Caste comptus quia. Amplitudo cras sit. Curvo conduco venia. Cena adiuvo alo. Cresco volutabrum voco. Arcus trado advoco. Curatio doloribus textor. Auris astrum voluptatem. Aspernatur cerno sto. Taedium crapula curvus. Peior viscus coerceo. Depromo capitulus dolores. Aer cibus conforto. Tandem libero somniculosus."], ["record_type", "Post"], ["record_id", 31], ["created_at", "2024-04-16 07:22:47.827232"], ["updated_at", "2024-04-16 07:22:47.827232"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 31], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.0ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.828100"], ["id", 31]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Well, this is certainly a pleasant surprise."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "It's stopped."], ["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "It's stopped."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "You can get anything you want at Alice's restaurant."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Strike the tent."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I'll be in Hell before you start breakfast! Let her rip!"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "I'll be in Hell before you start breakfast! Let her rip!"], ["created_at", "2024-04-16 07:22:47.840541"], ["updated_at", "2024-04-16 07:22:47.840541"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Tui versus terror. Antiquus est vaco. Urbanus curso caries. Arbitro aspernatur repellendus. Abeo amor tot. Sufficio textus delinquo. Sperno adicio vorax. Sapiente quasi audacia. Tripudio vitiosus sumptus. Concedo vulgo advenio. Tenax strenuus perferendis. Verbera vestigium cum. Quo quo eum. Audio ipsa sed. Votum thesis defluo. Bene ultio collum. Facilis pax rerum. Copiose sol vehemens. Adsidue sapiente aut. Viriliter autem umerus. Solum animi velum. Accipio omnis appositus. Decens sulum comptus. Patior cimentarius degero. Et uterque crapula. Vulnus id aut. Amor qui vel. Deripio calculus crepusculum. Deripio pecto adstringo. Admitto nam suspendo. Caries armarium avoco. Incidunt tumultus assentator. Id uter artificiose. Cubo consequatur vobis. Quo magni texo. In adsidue titulus. Acceptus arto asporto. Cognatus convoco possimus. Templum non adsidue. Appono ultra admiratio. Ventosus tempus delibero. Vesper depulso decimus. Illo color charisma. Aurum colloco qui. Bestia turba conculco. Carmen arbitro occaecati. Turba vito solitudo. Cruciamentum tamdiu curvus. Demulceo tergeo patruus. Stillicidium velum atrocitas. Charisma admoveo tendo. Maiores ustulo succedo. Accendo admoveo viduata. Caecus sordeo deleniti. Comprehendo deprimo thymbra. Abeo turpis tondeo. Delectus aut deprimo. Amitto cohaero arcesso. Dolores audax magni. Blanditiis rerum hic. Ipsum vaco crinis. Addo ver patria. Triginta voluptatum ciminatio. Vitae paens depopulo."], ["record_type", "Post"], ["record_id", 32], ["created_at", "2024-04-16 07:22:47.842149"], ["updated_at", "2024-04-16 07:22:47.842149"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 32], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.0ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.843100"], ["id", 32]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I don't think they even heard me."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "That was the best ice-cream soda I ever tasted."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Does nobody understand?"], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Tape Seinfeld for me."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I regret that I should leave this world without again beholding him."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Hurrah for anarchy! This is the happiest moment of my life."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "You can get anything you want at Alice's restaurant."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "It's stopped."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I want to go home."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Is it not meningitis?"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Is it not meningitis?"], ["created_at", "2024-04-16 07:22:47.858110"], ["updated_at", "2024-04-16 07:22:47.858110"]]
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "content"], ["body", "Cauda vinculum omnis. Cenaculum doloremque spiculum. Reiciendis voluptates carpo. Arx considero minus. Soleo cibo incidunt. Cernuus aestivus animadverto. Ratione complectus colo. Vetus umerus vesica. Coaegresco ullus vitiosus. Rem vulnus cito. Sustineo aureus abeo. Corroboro adhuc ocer. Defluo casus defaeco. Curatio eligendi tui. Et aut tendo. Voluptatum consequuntur cado. Cattus tametsi sufficio. Congregatio titulus dapifer. Validus inventore cruciamentum. Ultra textilis apud. Carus uterque cerno. Verus deficio defessus. Demulceo illum tonsor. Voluntarius solus corporis. Spes mollitia auris. Thermae comprehendo bellicus. Vetus avarus vinum. Uxor et calculus. Tolero apostolus adicio. Benevolentia uterque viscus. Tenus acer atrox. Vulgaris subvenio bardus. Tricesimus magnam deputo. Tabernus delectus ancilla. Curiositas verto testimonium. Usitas advenio adhaero. Voluptate agnosco aureus. Supplanto in una. Vulnero villa audentia. Porro aequus temperantia. Aestas corona suasoria. Sit cruentus defessus. Sol sit viriliter. Omnis textilis quia. Curvus ut spiculum. Valetudo vox cum. Quam quasi nostrum. Eaque vulgivagus ambitus. Attero aliquam toties. Uter amplus sperno. Adfero avarus ut. Vallum carcer volaticus. Statim textor ut. Illum unus aegrotatio. Urbs audentia soleo. Terebro amplus una. Esse tenuis depopulo. Ater unus totidem. Velum arcus tergiversatio. Velociter quisquam veritatis. Caries amplexus desipio. Virgo utor sordeo. Sortitus beneficium vado. Defleo aestas cursus."], ["record_type", "Post"], ["record_id", 33], ["created_at", "2024-04-16 07:22:47.859864"], ["updated_at", "2024-04-16 07:22:47.859864"]]
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 33], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mPost Update (0.0ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-04-16 07:22:47.860787"], ["id", 33]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Hurrah for anarchy! This is the happiest moment of my life."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Van Halen!"], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Does nobody understand?"], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "It's stopped."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I'll be in Hell before you start breakfast! Let her rip!"], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I regret that I should leave this world without again beholding him."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I love you too, honey. Good luck with your show."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "My vocabulary did this to me. Your love will let you go on…"], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Do you want me to come with you?"], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Tape Seinfeld for me."], ["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "I love you too, honey. Good luck with your show."], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "All my possessions for a moment of time."], ["LIMIT", 1]]
+Started GET "/" for ::1 at 2024-04-16 12:22:54 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/_results.html.erb (Duration: 0.6ms | Allocations: 313)
+  Rendered welcome/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2591)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.4ms | Allocations: 174)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered layouts/_navigation.html.erb (Duration: 1.3ms | Allocations: 640)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 11261)
+Completed 200 OK in 31ms (Views: 15.2ms | ActiveRecord: 0.0ms | Allocations: 15089)
+
+
+Started GET "/assets/actiontext.css" for ::1 at 2024-04-16 12:22:54 +0500
+Started GET "/?query=a" for ::1 at 2024-04-16 12:22:56 +0500
+Processing by WelcomeController#index as TURBO_STREAM
+  Parameters: {"query"=>"a"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (title like '%a%')[0m
+  ↳ app/views/welcome/_results.html.erb:3
+  Rendered welcome/_results.html.erb (Duration: 5.0ms | Allocations: 5719)
+Completed 200 OK in 36ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 8845)
+
+
+Started GET "/welcome/2" for ::1 at 2024-04-16 12:22:58 +0500
+Processing by WelcomeController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/welcome_controller.rb:13:in `show'
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/welcome/_show.html.erb:3
+  Rendered /home/dev/.rvm/gems/ruby-3.1.1/gems/actiontext-7.0.4/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.8ms | Allocations: 642)
+  Rendered welcome/_show.html.erb (Duration: 19.2ms | Allocations: 13058)
+Completed 200 OK in 31ms (Views: 0.1ms | ActiveRecord: 0.9ms | Allocations: 15883)
+
+
+Started GET "/welcome/5" for ::1 at 2024-04-16 12:23:00 +0500
+Processing by WelcomeController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/welcome_controller.rb:13:in `show'
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/welcome/_show.html.erb:3
+  Rendered /home/dev/.rvm/gems/ruby-3.1.1/gems/actiontext-7.0.4/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.4ms | Allocations: 256)
+  Rendered welcome/_show.html.erb (Duration: 2.2ms | Allocations: 1589)
+Completed 200 OK in 15ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2486)
+
+
+Started GET "/welcome/7" for ::1 at 2024-04-16 12:23:01 +0500
+Processing by WelcomeController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/welcome_controller.rb:13:in `show'
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 7], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/welcome/_show.html.erb:3
+  Rendered /home/dev/.rvm/gems/ruby-3.1.1/gems/actiontext-7.0.4/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.3ms | Allocations: 256)
+  Rendered welcome/_show.html.erb (Duration: 2.2ms | Allocations: 1472)
+Completed 200 OK in 14ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 2300)
+
+
+Started GET "/cable" for ::1 at 2024-04-16 12:23:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:23:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:23:10 +0500
+Started GET "/?query=s" for ::1 at 2024-04-16 12:23:17 +0500
+Processing by WelcomeController#index as TURBO_STREAM
+  Parameters: {"query"=>"s"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (title like '%s%')[0m
+  ↳ app/views/welcome/_results.html.erb:3
+  Rendered welcome/_results.html.erb (Duration: 1.8ms | Allocations: 2018)
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2528)
+
+
+Started GET "/?query=st" for ::1 at 2024-04-16 12:23:17 +0500
+Processing by WelcomeController#index as TURBO_STREAM
+  Parameters: {"query"=>"st"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (title like '%st%')[0m
+  ↳ app/views/welcome/_results.html.erb:3
+  Rendered welcome/_results.html.erb (Duration: 1.2ms | Allocations: 1103)
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1524)
+
+
+Started GET "/?query=str" for ::1 at 2024-04-16 12:23:17 +0500
+Processing by WelcomeController#index as TURBO_STREAM
+  Parameters: {"query"=>"str"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (title like '%str%')[0m
+  ↳ app/views/welcome/_results.html.erb:3
+  Rendered welcome/_results.html.erb (Duration: 1.2ms | Allocations: 671)
+Completed 200 OK in 13ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 1095)
+
+
+Started GET "/welcome/4" for ::1 at 2024-04-16 12:23:19 +0500
+Processing by WelcomeController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/welcome_controller.rb:13:in `show'
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/welcome/_show.html.erb:3
+  Rendered /home/dev/.rvm/gems/ruby-3.1.1/gems/actiontext-7.0.4/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.8ms | Allocations: 292)
+  Rendered welcome/_show.html.erb (Duration: 2.7ms | Allocations: 1620)
+Completed 200 OK in 13ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2459)
+
+
+Started GET "/cable" for ::1 at 2024-04-16 12:24:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:24:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:24:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:25:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:25:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:25:10 +0500
+Started GET "/posts" for ::1 at 2024-04-16 12:26:01 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/posts"):
+  
+Started GET "/cable" for ::1 at 2024-04-16 12:26:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:26:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:26:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:27:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:27:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:27:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:28:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:28:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:28:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:29:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:29:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:29:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:30:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:30:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:30:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:31:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:31:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:31:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:32:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:32:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:32:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:33:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:33:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:33:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:34:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:34:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:34:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:35:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:35:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:35:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:36:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:36:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:36:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:37:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:37:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:37:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:38:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:38:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:38:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:39:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:39:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:39:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:40:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:40:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:40:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:41:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:41:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:41:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:42:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:42:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:42:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:43:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:43:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:43:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:44:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:44:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:44:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:45:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:45:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:45:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:46:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:46:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:46:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:47:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:47:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:47:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:48:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:48:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:48:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:49:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:49:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:49:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:50:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:50:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:50:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:51:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:51:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:51:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:52:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:52:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:52:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:53:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:53:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:53:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:54:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:54:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:54:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:55:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:55:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:55:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:56:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:56:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:56:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:57:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:57:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:57:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:58:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:58:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:58:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 12:59:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 12:59:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 12:59:10 +0500
+Started GET "/" for ::1 at 2024-04-16 12:59:59 +0500
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/_results.html.erb (Duration: 0.5ms | Allocations: 251)
+  Rendered welcome/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1760)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.4ms | Allocations: 164)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered layouts/_navigation.html.erb (Duration: 1.0ms | Allocations: 609)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 3227)
+Completed 200 OK in 12ms (Views: 6.3ms | Allocations: 4190)
+
+
+Started GET "/assets/actiontext.css" for ::1 at 2024-04-16 12:59:59 +0500
+Started GET "/?query=t" for ::1 at 2024-04-16 13:00:01 +0500
+Processing by WelcomeController#index as TURBO_STREAM
+  Parameters: {"query"=>"t"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (title like '%t%')[0m
+  ↳ app/views/welcome/_results.html.erb:3
+  Rendered welcome/_results.html.erb (Duration: 2.1ms | Allocations: 2459)
+Completed 200 OK in 14ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 3114)
+
+
+Started GET "/welcome/1" for ::1 at 2024-04-16 13:00:03 +0500
+Processing by WelcomeController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/welcome_controller.rb:13:in `show'
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/welcome/_show.html.erb:2
+  Rendered /home/dev/.rvm/gems/ruby-3.1.1/gems/actiontext-7.0.4/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.3ms | Allocations: 519)
+  Rendered welcome/_show.html.erb (Duration: 4.9ms | Allocations: 2136)
+Completed 200 OK in 14ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 3052)
+
+
+Started GET "/welcome/2" for ::1 at 2024-04-16 13:00:04 +0500
+Processing by WelcomeController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/welcome_controller.rb:13:in `show'
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/welcome/_show.html.erb:2
+  Rendered /home/dev/.rvm/gems/ruby-3.1.1/gems/actiontext-7.0.4/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.5ms | Allocations: 256)
+  Rendered welcome/_show.html.erb (Duration: 3.3ms | Allocations: 1413)
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2226)
+
+
+Started GET "/welcome/3" for ::1 at 2024-04-16 13:00:06 +0500
+Processing by WelcomeController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/welcome_controller.rb:13:in `show'
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/welcome/_show.html.erb:2
+  Rendered /home/dev/.rvm/gems/ruby-3.1.1/gems/actiontext-7.0.4/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.4ms | Allocations: 256)
+  Rendered welcome/_show.html.erb (Duration: 2.7ms | Allocations: 1415)
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2228)
+
+
+Started GET "/welcome/4" for ::1 at 2024-04-16 13:00:07 +0500
+Processing by WelcomeController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/welcome_controller.rb:13:in `show'
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/welcome/_show.html.erb:2
+  Rendered /home/dev/.rvm/gems/ruby-3.1.1/gems/actiontext-7.0.4/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.3ms | Allocations: 256)
+  Rendered welcome/_show.html.erb (Duration: 2.1ms | Allocations: 1413)
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2226)
+
+
+Started GET "/cable" for ::1 at 2024-04-16 13:00:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 13:00:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 13:00:10 +0500
+Started GET "/" for ::1 at 2024-04-16 13:00:58 +0500
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/_results.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1130)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.0ms | Allocations: 44)
+  Rendered layouts/_navigation.html.erb (Duration: 0.2ms | Allocations: 263)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 1796)
+Completed 200 OK in 6ms (Views: 1.7ms | ActiveRecord: 0.0ms | Allocations: 2166)
+
+
+Started GET "/assets/actiontext.css" for ::1 at 2024-04-16 13:00:58 +0500
+Started GET "/?query=a" for ::1 at 2024-04-16 13:01:00 +0500
+Processing by WelcomeController#index as TURBO_STREAM
+  Parameters: {"query"=>"a"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (title like '%a%')[0m
+  ↳ app/views/welcome/_results.html.erb:3
+  Rendered welcome/_results.html.erb (Duration: 2.2ms | Allocations: 2031)
+Completed 200 OK in 13ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2452)
+
+
+Started GET "/welcome/2" for ::1 at 2024-04-16 13:01:02 +0500
+Processing by WelcomeController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/welcome_controller.rb:13:in `show'
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/welcome/_show.html.erb:2
+  Rendered /home/dev/.rvm/gems/ruby-3.1.1/gems/actiontext-7.0.4/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.4ms | Allocations: 256)
+  Rendered welcome/_show.html.erb (Duration: 2.3ms | Allocations: 1413)
+Completed 200 OK in 14ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2226)
+
+
+Started GET "/assets/actiontext.css" for ::1 at 2024-04-16 13:01:05 +0500
+Started GET "/welcome/5" for ::1 at 2024-04-16 13:01:08 +0500
+Processing by WelcomeController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/welcome_controller.rb:13:in `show'
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/welcome/_show.html.erb:2
+  Rendered /home/dev/.rvm/gems/ruby-3.1.1/gems/actiontext-7.0.4/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.4ms | Allocations: 256)
+  Rendered welcome/_show.html.erb (Duration: 2.2ms | Allocations: 1414)
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 2227)
+
+
+Started GET "/cable" for ::1 at 2024-04-16 13:01:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 13:01:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 13:01:10 +0500
+Started GET "/" for ::1 at 2024-04-16 13:01:59 +0500
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/_results.html.erb (Duration: 0.1ms | Allocations: 67)
+  Rendered welcome/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1268)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.1ms | Allocations: 51)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.0ms | Allocations: 44)
+  Rendered layouts/_navigation.html.erb (Duration: 0.5ms | Allocations: 279)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 2006)
+Completed 200 OK in 9ms (Views: 3.4ms | Allocations: 2763)
+
+
+Started GET "/assets/actiontext.css" for ::1 at 2024-04-16 13:01:59 +0500
+Started GET "/?query=a" for ::1 at 2024-04-16 13:02:00 +0500
+Processing by WelcomeController#index as TURBO_STREAM
+  Parameters: {"query"=>"a"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (title like '%a%')[0m
+  ↳ app/views/welcome/_results.html.erb:3
+  Rendered welcome/_results.html.erb (Duration: 3.8ms | Allocations: 3539)
+Completed 200 OK in 14ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 5516)
+
+
+Started GET "/welcome/2" for ::1 at 2024-04-16 13:02:01 +0500
+Processing by WelcomeController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/welcome_controller.rb:13:in `show'
+  [1m[36mActionText::RichText Load (0.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/welcome/_show.html.erb:2
+  Rendered /home/dev/.rvm/gems/ruby-3.1.1/gems/actiontext-7.0.4/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.6ms | Allocations: 309)
+  Rendered welcome/_show.html.erb (Duration: 4.5ms | Allocations: 2046)
+Completed 200 OK in 13ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 3500)
+
+
+Started GET "/welcome/3" for ::1 at 2024-04-16 13:02:03 +0500
+Processing by WelcomeController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/welcome_controller.rb:13:in `show'
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/welcome/_show.html.erb:2
+  Rendered /home/dev/.rvm/gems/ruby-3.1.1/gems/actiontext-7.0.4/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.6ms | Allocations: 256)
+  Rendered welcome/_show.html.erb (Duration: 3.4ms | Allocations: 1413)
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2226)
+
+
+Started GET "/welcome/7" for ::1 at 2024-04-16 13:02:06 +0500
+Processing by WelcomeController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/welcome_controller.rb:13:in `show'
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 7], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/welcome/_show.html.erb:2
+  Rendered /home/dev/.rvm/gems/ruby-3.1.1/gems/actiontext-7.0.4/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.4ms | Allocations: 256)
+  Rendered welcome/_show.html.erb (Duration: 3.7ms | Allocations: 1414)
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2227)
+
+
+Started GET "/cable" for ::1 at 2024-04-16 13:02:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 13:02:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 13:02:10 +0500
+Started GET "/welcome/10" for ::1 at 2024-04-16 13:02:10 +0500
+Processing by WelcomeController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/welcome_controller.rb:13:in `show'
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 10], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/welcome/_show.html.erb:2
+  Rendered /home/dev/.rvm/gems/ruby-3.1.1/gems/actiontext-7.0.4/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.3ms | Allocations: 294)
+  Rendered welcome/_show.html.erb (Duration: 2.4ms | Allocations: 1619)
+Completed 200 OK in 15ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2563)
+
+
+Started GET "/welcome/11" for ::1 at 2024-04-16 13:02:12 +0500
+Processing by WelcomeController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/welcome_controller.rb:13:in `show'
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 11], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/welcome/_show.html.erb:2
+  Rendered /home/dev/.rvm/gems/ruby-3.1.1/gems/actiontext-7.0.4/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.3ms | Allocations: 256)
+  Rendered welcome/_show.html.erb (Duration: 2.3ms | Allocations: 1413)
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2226)
+
+
+Started GET "/welcome/12" for ::1 at 2024-04-16 13:02:13 +0500
+Processing by WelcomeController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/welcome_controller.rb:13:in `show'
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 12], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/welcome/_show.html.erb:2
+  Rendered /home/dev/.rvm/gems/ruby-3.1.1/gems/actiontext-7.0.4/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.4ms | Allocations: 256)
+  Rendered welcome/_show.html.erb (Duration: 2.1ms | Allocations: 1414)
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 2227)
+
+
+Started GET "/welcome/13" for ::1 at 2024-04-16 13:02:14 +0500
+Processing by WelcomeController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/welcome_controller.rb:13:in `show'
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/welcome/_show.html.erb:2
+  Rendered /home/dev/.rvm/gems/ruby-3.1.1/gems/actiontext-7.0.4/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.5ms | Allocations: 256)
+  Rendered welcome/_show.html.erb (Duration: 3.2ms | Allocations: 1414)
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 2227)
+
+
+Started GET "/welcome/15" for ::1 at 2024-04-16 13:02:15 +0500
+Processing by WelcomeController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/welcome_controller.rb:13:in `show'
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/welcome/_show.html.erb:2
+  Rendered /home/dev/.rvm/gems/ruby-3.1.1/gems/actiontext-7.0.4/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.4ms | Allocations: 256)
+  Rendered welcome/_show.html.erb (Duration: 3.1ms | Allocations: 1416)
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2229)
+
+
+Started GET "/welcome/16" for ::1 at 2024-04-16 13:02:16 +0500
+Processing by WelcomeController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/welcome_controller.rb:13:in `show'
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 16], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/welcome/_show.html.erb:2
+  Rendered /home/dev/.rvm/gems/ruby-3.1.1/gems/actiontext-7.0.4/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.4ms | Allocations: 256)
+  Rendered welcome/_show.html.erb (Duration: 2.6ms | Allocations: 1414)
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 2227)
+
+
+Started GET "/" for ::1 at 2024-04-16 13:02:41 +0500
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/_results.html.erb (Duration: 0.4ms | Allocations: 250)
+  Rendered welcome/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1745)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.6ms | Allocations: 164)
+  Rendered layouts/_navigation_links.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered layouts/_navigation.html.erb (Duration: 1.9ms | Allocations: 609)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 3215)
+Completed 200 OK in 12ms (Views: 7.5ms | Allocations: 4296)
+
+
+Started GET "/assets/actiontext.css" for ::1 at 2024-04-16 13:02:41 +0500
+Started GET "/?query=a" for ::1 at 2024-04-16 13:02:43 +0500
+Processing by WelcomeController#index as TURBO_STREAM
+  Parameters: {"query"=>"a"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (title like '%a%')[0m
+  ↳ app/views/welcome/_results.html.erb:3
+  Rendered welcome/_results.html.erb (Duration: 3.1ms | Allocations: 3480)
+Completed 200 OK in 17ms (Views: 0.1ms | ActiveRecord: 0.7ms | Allocations: 5445)
+
+
+Started GET "/welcome/3" for ::1 at 2024-04-16 13:02:44 +0500
+Processing by WelcomeController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/welcome_controller.rb:13:in `show'
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/welcome/_show.html.erb:3
+  Rendered /home/dev/.rvm/gems/ruby-3.1.1/gems/actiontext-7.0.4/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.3ms | Allocations: 519)
+  Rendered welcome/_show.html.erb (Duration: 4.1ms | Allocations: 2700)
+Completed 200 OK in 15ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 4222)
+
+
+Started GET "/welcome/5" for ::1 at 2024-04-16 13:02:45 +0500
+Processing by WelcomeController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/welcome_controller.rb:13:in `show'
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/welcome/_show.html.erb:3
+  Rendered /home/dev/.rvm/gems/ruby-3.1.1/gems/actiontext-7.0.4/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.4ms | Allocations: 256)
+  Rendered welcome/_show.html.erb (Duration: 2.5ms | Allocations: 1467)
+Completed 200 OK in 15ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2280)
+
+
+Started GET "/welcome/6" for ::1 at 2024-04-16 13:02:46 +0500
+Processing by WelcomeController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/welcome_controller.rb:13:in `show'
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 6], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/welcome/_show.html.erb:3
+  Rendered /home/dev/.rvm/gems/ruby-3.1.1/gems/actiontext-7.0.4/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.4ms | Allocations: 256)
+  Rendered welcome/_show.html.erb (Duration: 2.4ms | Allocations: 1466)
+Completed 200 OK in 13ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2279)
+
+
+Started GET "/cable" for ::1 at 2024-04-16 13:03:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 13:03:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 13:03:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 13:04:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 13:04:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 13:04:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 13:05:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 13:05:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 13:05:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 13:06:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 13:06:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 13:06:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 13:07:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 13:07:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 13:07:10 +0500
+Started GET "/cable" for ::1 at 2024-04-16 13:08:10 +0500
+Started GET "/cable" [WebSocket] for ::1 at 2024-04-16 13:08:10 +0500
+Request origin not allowed: http://free-ats-preprod.localhost:3000
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable" [WebSocket] for ::1 at 2024-04-16 13:08:10 +0500

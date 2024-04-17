@@ -1,0 +1,76 @@
+<%= turbo_frame_tag params[:attribute] do %>
+  <%= DateTime.current.strftime('%d %b. %Y, %I:%M:%S %p') %>
+  <%= form_with(model: customer, url: [customer, attribute: params[:attribute]], method: :patch) do |form| %>
+    <% if customer.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+
+        <ul>
+          <% customer.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <% if params[:attribute].eql? 'first_name' %>
+    <div>
+      <%= form.label :first_name, style: "display: block" %>
+      <%= form.text_field :first_name, onchange: 'this.form.requestSubmit()' %>
+    </div>
+    <% end %>
+
+    <% if params[:attribute].eql? 'last_name' %>
+    <div>
+      <%= form.label :last_name, style: "display: block" %>
+      <%= form.text_field :last_name, onchange: 'this.form.requestSubmit()' %>
+    </div>
+    <% end %>
+
+    <% if params[:attribute].eql? 'dob' %>
+    <div>
+      <%= form.label :dob, style: "display: block" %>
+      <%= form.datetime_field :dob, onchange: 'this.form.requestSubmit()' %>
+    </div>
+    <% end %>
+
+    <% if params[:attribute].eql? 'tel' %>
+    <div>
+      <%= form.label :tel, style: "display: block" %>
+      <%= form.number_field :tel, onchange: 'this.form.requestSubmit()' %>
+    </div>
+    <% end %>
+
+    <% if params[:attribute].eql? 'description' %>
+    <div>
+      <%= form.label :description, style: "display: block" %>
+      <%= form.text_area :description, onchange: 'this.form.requestSubmit()' %>
+    </div>
+    <% end %>
+
+    <div>
+      <%#= form.submit %>
+    </div>
+  <% end %>
+<% end %>
+
+
+
+
+<!--
+
+rendered html when we click on first name:
+
+<turbo-frame id="first_name" src="http://localhost:3000/customers/3/edit?attribute=first_name" complete="">
+  <form action="/customers/3?attribute=first_name" accept-charset="UTF-8" method="post">
+    <input type="hidden" name="_method" value="patch" autocomplete="off">
+    <input type="hidden" name="authenticity_token" value="vnqgX6SkhF7hQa-qkqjZml7QLXEjmYMc39jRECJUdCZM3csn6eO5MPnn981vrmWpCH40OQJap-z7sygcwpa0EQ" autocomplete="off">
+
+    <div>
+      <label style="display: block" for="customer_first_name">First name</label>
+      <input onchange="this.form.requestSubmit()" type="text" value="Nouman " name="customer[first_name]" id="customer_first_name">
+    </div>
+  </form>
+</turbo-frame>
+
+-->

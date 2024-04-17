@@ -1,0 +1,13 @@
+
+rails new hotwire-models -d=postgresql -c=tailwind
+
+rails g scaffold posts title body:text
+
+rails db:migrate
+
+gem install foreman
+
+./bin/dev
+
+
+rails g stimulus turbomodal

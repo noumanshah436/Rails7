@@ -1,0 +1,64 @@
+bin/rails action_text:install
+
+bin/rails g model post title
+
+rails db:migrate
+
+rails db:seed
+
+bin/rails g stimulus search
+
+bin/rails g stimulus search-active
+
+**********************************
+How it works:
+
+When we type something in text field, that is going to call our search controller(JS) to make a fetch request to welcome index action,
+Welcome index action see it is a turbo stream request, so it will target the turbo frame tag `results` and replace it's content with the `welcome/results` partial.
+
+**********************************
+
+Turbo frame tag:
+
+1) Initially we have turbo frame tag in index page:
+
+<div class="col-8">
+  <%= turbo_frame_tag :show_content %>
+</div>
+
+2) When we click on post, it send request to out show action, and show action will replace the
+content of show_content tag with show partial.
+
+render turbo_stream: turbo_stream.replace("show_content", partial: "welcome/show")
+
+app/views/welcome/_show.html.erb:
+
+<%= turbo_frame_tag :show_content do %>
+  <h1><%= @post.title %></h1>
+  <%= @post.content %>
+<% end %>
+**********************************
+
+initial page:
+
+<div class="row">
+
+  <div class="col-4">
+
+    <form action="/" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="QUIMj7QnxGaz-3SqVs3lvdWx8b4fQSb-viFLDHduKQc5xVuCUZqdEiUSGrSDjG8EFzFazhSGQ4I6SUcnRtmJ_g" autocomplete="off">
+      <input class="form-control" data-controller="search" type="text" name="query" id="query" data-action="keyup->search#search">
+    </form>
+
+    <turbo-frame id="results">
+      <div class="list-group mt-3">
+      </div>
+    </turbo-frame>
+
+  </div>
+
+  <div class="col-8">
+    <turbo-frame id="show_content"></turbo-frame>
+  </div>
+</div>
+
+**********************************

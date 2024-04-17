@@ -1,0 +1,18 @@
+<%= link_to new_interview_path(applicant_job_id: @applicant_job.id), class: "mr-2", data: { turbo_stream: true } do %>
+        <div class="ic-plus w-5 h-5 bg-[length:0.75rem] mr-3"></div> Schedule Interview
+<% end %>
+      
+      
+      
+new.turbo_stream.erb
+
+<% if params[:from].eql?('search') %>
+	<%= turbo_stream.update :dropdown_panelists do %>
+		<%= render partial: 'shared/panelists_dropdown_item', collection: @panelists, as: :panelist %>
+	<% end %>
+<% else %>
+	<%= turbo_stream.update :interview_modal do %>
+		<%= render partial: "shared/action_modal", locals: { path: "interviews/form", width: '[40rem]', maxWidth:'w-[65rem]' } %>
+	<% end %>
+<% end %>
+

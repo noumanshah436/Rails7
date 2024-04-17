@@ -1,0 +1,22 @@
+
+
+start project:
+
+rvm use 3.1.2
+rails s
+
+******************************
+
+ Setup project:
+
+ 2002  rvm use 3.1.2
+ 2003  bundle
+ 2004  rails s
+ 2005  rails db:migrate
+ 2006  rails db:system:change --to=sqlite
+ 2007  rails db:system:change --to=sqlite3
+ 2008  bundle
+ 2009  bundle install
+ 2010  rails db:migrate
+ 2011  rails db:seed
+ 2012  rails s

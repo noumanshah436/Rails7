@@ -1,0 +1,9 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Customers</h1>
+
+<div id="customers">
+  <%= render partial: 'customers/customer', collection: @customers %>
+</div>
+
+<%= link_to "New customer", new_customer_path %>

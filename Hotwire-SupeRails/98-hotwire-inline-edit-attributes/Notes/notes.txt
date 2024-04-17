@@ -1,0 +1,35 @@
+Ruby on Rails #98 Inline editing attributes with Hotwire
+
+https://www.youtube.com/watch?v=bkFoYOMSlCU&list=PLdTytUiloS16epXsqHswpCUMND_rksjr4&index=17
+
+https://blog.corsego.com/hotwire-inline-edit-attributes
+
+
+
+
+1) Click on any attributes to edit,
+2) chnage value
+3) CLick on screen or remove focus from the attribute will update the attribute
+
+**********************
+
+Implementation:
+
+1) we are rendering each attribute in the turbo frame tag (see _customer.html.erb)
+
+<turbo-frame id="first_name">
+  <p>
+
+    <label><strong>first_name:</strong></label>
+    <a href="/customers/3/edit?attribute=first_name">Nouman </a>
+  </p>
+</turbo-frame>
+
+2) when we click on attribute, it send request to edit action.
+Now in edit template we are renderring _inline_attribute_form.html.erb that will
+update the above turbo frame tag with the form:
+
+<%= turbo_frame_tag params[:attribute] do %>
+  edit form
+<% end %>
+

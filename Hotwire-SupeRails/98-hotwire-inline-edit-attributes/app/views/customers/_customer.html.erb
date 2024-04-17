@@ -1,0 +1,73 @@
+<div id="<%= dom_id customer %>">
+  <%= DateTime.current.strftime('%d %b. %Y, %I:%M:%S %p') %>
+  <% Customer::EDITABLE_ATTRS.each do |attribute| %>
+    <%= turbo_frame_tag attribute do %>
+      <p>
+        <label><strong><%= attribute %>:</strong></label>
+        <%= link_to (customer[attribute].presence || 'Edit'), [:edit, customer, attribute: attribute] %>
+      </p>
+    <% end %>
+  <% end %>
+
+  <p><%= link_to "Show this customer", customer %></p><hr>
+</div>
+
+<!--
+
+[:edit, customer, attribute: attribute]
+is same as
+edit_customer_url(customer, attribute: attribute)
+
+-->
+
+
+<!--
+
+rendered html for this template:
+
+<div id="customer_3">
+
+  <turbo-frame id="first_name">
+    <p>
+
+      <label><strong>first_name:</strong></label>
+      <a href="/customers/3/edit?attribute=first_name">Nouman </a>
+    </p>
+  </turbo-frame>
+
+  <turbo-frame id="last_name">
+      <p>
+
+        <label><strong>last_name:</strong></label>
+        <a href="/customers/3/edit?attribute=last_name">Carter</a>
+      </p>
+  </turbo-frame>
+
+  <turbo-frame id="dob">
+      <p>
+
+        <label><strong>dob:</strong></label>
+        <a href="/customers/3/edit?attribute=dob">1996-07-14 00:00:00 UTC</a>
+      </p>
+  </turbo-frame>
+
+  <turbo-frame id="tel">
+      <p>
+
+        <label><strong>tel:</strong></label>
+        <a href="/customers/3/edit?attribute=tel">734</a>
+      </p>
+  </turbo-frame>
+
+  <turbo-frame id="description">
+      <p>
+
+        <label><strong>description:</strong></label>
+        <a href="/customers/3/edit?attribute=description">I am confound.</a>
+      </p>
+  </turbo-frame>
+
+  <p><a href="/customers/3">Show this customer</a></p><hr>
+</div>
+
+-->

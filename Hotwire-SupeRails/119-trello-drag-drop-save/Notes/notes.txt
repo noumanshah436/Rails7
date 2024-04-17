@@ -1,0 +1,4 @@
+
+Rails 7 #119 Trello Clone. Advanced Drag and Drop Sortable Lists with Hotwire
+
+https://www.youtube.com/watch?v=OZWhN4Gtjos&list=PLdTytUiloS16epXsqHswpCUMND_rksjr4&index=22

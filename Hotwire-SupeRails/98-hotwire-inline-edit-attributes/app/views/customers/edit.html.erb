@@ -1,0 +1,13 @@
+<h1>Editing customer</h1>
+
+<% if params[:attribute].present? %>
+  <%= render "inline_attribute_form", customer: @customer %>
+<% else %>
+  <%= render "form", customer: @customer %>
+<% end %>
+<br>
+
+<div>
+  <%= link_to "Show this customer", @customer %> |
+  <%= link_to "Back to customers", customers_path %>
+</div>

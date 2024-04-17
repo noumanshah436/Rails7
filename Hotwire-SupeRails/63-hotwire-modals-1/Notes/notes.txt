@@ -1,0 +1,52 @@
+start app:
+
+./bin/dev
+
+************************
+Ruby on Rails #63 Hotwire Modals (the right way)
+https://www.youtube.com/watch?v=1QQ9j3z7NGw&list=PLdTytUiloS16epXsqHswpCUMND_rksjr4&index=3
+
+Blog:
+https://blog.corsego.com/hotwire-turbo-frame-modals
+
+************************
+************************
+Display modal:
+
+1) add this in application.html.erb
+
+<%= turbo_frame_tag "modal" %>
+
+2) Now we want a link that targets the modal frame. So when I click the new_post, i want to have the html from new_post rendered inside the frame modal.
+For this add data_turbo_frame in new-post-button in index page:
+(that is going to target the model frame)
+
+<%= link_to 'New post', new_post_path, data: { turbo_frame: 'modal' }, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+
+3) The response from the new action must have the turbo_frame_tag "modal" wrapper that we want to be handled by Turbo Frames.
+The content inside this wrapper will be rendered inside the turbo frame tag "modal", we have in our application.html.erb file.
+
+For this wrap new.html.erb with `turbo_frame_tag`
+
+<%= turbo_frame_tag "modal" do %>
+
+<% end %>
+
+Now when I click new post, it will send ajax request to new action and new action retrun response to render form.
+
+************************
+
+The button is a button_to helper that sends a GET request to the new_post_path and specifies the target frame as "modal".
+This means when clicked, it will load the new post form inside the "modal" frame.
+
+ <%= button_to 'New post', new_post_path, method: :get, data: { turbo_frame: 'modal' }, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+
+************************
+
+<%= content_tag :div, value, id: key %>
+
+will render:
+
+<div id="notice">message</div>
+
+************************

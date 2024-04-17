@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= new_notifications_count = Notification.where(seen: [false, nil]).count %>
+    <% if new_notifications_count.positive? %>
+      <%= favicon_link_tag asset_path('linkedin-bell.png') %>
+        <%= render partial: "shared/page_title", locals: { new_notifications_count: } %>
+
+    <% else %>
+      <%= favicon_link_tag asset_path('linkedin.png') %>
+      <title id="title-notifications">Notificador</title>
+    <% end %>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <%= turbo_stream_from :global_notification %>
+    <%= yield %>
+  </body>
+</html>
+
+<!--
+
+  <%= render partial: "shared/page_title", locals: { new_notifications_count: } %>
+
+-->

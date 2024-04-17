@@ -1,0 +1,21 @@
+rvm use 3.1.2
+ 2007  bundle
+ 2008  rails
+ 2009  rails s
+ 2010  shutup
+ 2011  lsof -i :3000
+ 2012  kill -9 187487
+ 2013  rails s
+ 2014  rails db:migrate
+ 2015  rails db:system:change --to=sqlite
+ 2016  rails db:system:change --to=sqlite3
+ 2017  bundle
+ 2018  rails s
+ 2019  rails db:migrate
+ 2020  rails s
+ 2021  redis-server
+
+
+In new terminal:
+  rvm use 3.1.2
+  rails s

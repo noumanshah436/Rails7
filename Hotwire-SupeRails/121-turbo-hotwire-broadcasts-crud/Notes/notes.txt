@@ -1,0 +1,5 @@
+Rails 7 #121 Turbo Broadcasts CRUD Demystified
+
+https://www.youtube.com/watch?v=xSkq9vQgT7k&list=PLdTytUiloS16epXsqHswpCUMND_rksjr4&index=23
+
+https://blog.kiprosh.com/broadcasting-your-turbo-streams-as-you-want-them-in-rails-7/

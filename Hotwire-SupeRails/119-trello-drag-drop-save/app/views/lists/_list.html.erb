@@ -1,0 +1,17 @@
+<div id="<%= dom_id list %>">
+  <p>
+    <strong>List:</strong>
+    <%= list.id %>
+    <%= list.name %>
+    <%= list.row_order %>
+  </p>
+
+</div>
+
+<ul data-controller="sortable" data-sortable-group-value="tasks" data-sortable-list-id="<%= list.id %>">
+  <% list.tasks.rank(:row_order).each do |task| %>
+    <li data-sortable-update-url="<%= sort_task_path(task) %>">
+      <%= render task %>
+    </li>
+  <% end %>
+</ul>

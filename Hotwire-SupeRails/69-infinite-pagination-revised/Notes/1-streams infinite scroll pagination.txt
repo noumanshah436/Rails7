@@ -50,6 +50,12 @@ load_more button with Streams
 
 1) add post route because Turbo stream doesn’t respond to GET request, it only responds to POST request
 
+resources :comments do
+    collection do
+      post :index
+    end
+  end
+
 2) change load more button to send POST request to index action
 
 3) and it will load index.turbo_stream page that will append new comments and update button for next comments.
