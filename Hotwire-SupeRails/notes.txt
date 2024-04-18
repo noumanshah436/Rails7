@@ -24,6 +24,8 @@ Turbo streams:
 
 Turbo Frames:
 
+/home/dev/Rails-Training/Rails7/Hotwire-SupeRails/63-hotwire-modals-1
+
 /home/dev/Rails-Training/Rails7/Hotwire-SupeRails/73-turbo-frame-hovercards
 
 /home/dev/Rails-Training/Rails7/Hotwire-SupeRails/369-hotwire-introduction
